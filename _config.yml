@@ -30,6 +30,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  favicon: Drexel_M3_Logo-01.png
 
 # Adds colab button to book
 launch_buttons:
