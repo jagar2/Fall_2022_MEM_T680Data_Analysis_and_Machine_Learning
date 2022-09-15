@@ -1,0 +1,10 @@
+jupyter-book
+matplotlib
+numpy
+scikit-learn
+pandas
+seaborn
+tensorflow
+notebook
+jupyterlab
+ipykernel 
