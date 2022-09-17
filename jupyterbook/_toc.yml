@@ -5,12 +5,18 @@ options:
 parts:
 - caption: "Course Content \U0001F4DC"
   chapters:
-  - file: Course_Materials/syllabus
-    title: Syllabus
-# - caption: "Week 1\uFE0F\u20E3"
+    # - file: Course_Materials/Course_materials
+    #   title: "None"
+    # sections:
+    - file: Course_Materials/syllabus
+    - file: Course_Materials/Course_survey
+    - file: Course_Materials/Survey_Response
+  
+  
+# - caption: "Topic 1\uFE0F\u20E3"
 #   chapters:
-#     - file: week_1/Objectives
-#       title: "Week 1: Importance and Challenges in Data Analysis"
+#     - file: jupyterbook/week_1/Objectives
+#       title: "Importance and Challenges in Data Analysis"
 #       sections:
 #         - file: week_1/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis
 #         - file: week_1/T2_Challenges_in_Data_Analysis/Challenges in Data Analysis
