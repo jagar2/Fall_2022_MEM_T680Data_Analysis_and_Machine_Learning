@@ -36,7 +36,7 @@
 # 
 # ![](figs/Example_SPM.gif)
 # 
-# {cite:p}`Kalinin2016-kb`
+# {cite:p}`Kalinin2016-kbd`
 
 # #### Examples from electron microscopy
 # 
@@ -288,7 +288,7 @@
 
 
 from IPython.display import HTML
-HTML('<iframe width="923" height="519" src="https://www.youtube.com/embed/YaAIZ1gROaw" title="What are ASIC Miners in Crypto? (Animated Explanation)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+HTML('<iframe width="100%" height="519" src="https://www.youtube.com/embed/YaAIZ1gROaw" title="What are ASIC Miners in Crypto? (Animated Explanation)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 
 
 # In[ ]:

@@ -170,7 +170,7 @@ We will have two exams, a midterm and a final. The exams will be in a mixed form
 
 ### Final Project
 
-This course will include a final project and presentation. The goal of this project is to apply the tools and concepts taught in this course to a problem that interests you. This project is intentionally open-ended. Example projects might include: building a data management workflow for a process in your company or research,developing an interactive dashboard and data visualization tool, or developing an automated analysis pipeline for a task of interest. To determine the topic for your project you will submit a one-page whitepaper and a logical diagram of your proposed project. See final project description page for more details.
+This course will include a final project and presentation. The goal of this project is to apply the tools and concepts taught in this course to a problem that interests you. This project is intentionally open-ended. Example projects might include: building a data management workflow for a process in your company or research,developing an interactive dashboard and data visualization tool, or developing an automated analysis pipeline for a task of interest. To determine the topic for your project you will submit a one-page whitepaper and a logical diagram of your proposed project. See {doc}`Final Project <./Final_project>` description page for more details.
 
 ### Assignment Submission Format
 
@@ -227,19 +227,6 @@ There is a midterm and a final exam. You are expected to be present, seated, and
 
 The final exam is comprehensive and will be given during the University assigned exam time for the course. The exact time and location will be announced later in the semester. The final exam will only be given at the announced time. If a student has a conflict with another final exam, the student must contact their instructor at least two weeks in advance in order to have it resolved. 
 
-### Presentation
-
-All students will be required to submit an independent project and present a presentation. This project is intentionally open ended. It is designed so you can apply some of the techniques taught in the course to a project in your research or of specific interest to you. We will have one-on-one meetings early in the semester to discuss potential project ideas. Prior to submission your project will have to be approved by Prof. Agar. Grades will be determined by a combination of Prof. Agar's and peer evaluation. The evaluation criteria includes:
-
-1. Does the implemented tool address a problem?
-1. Does the work apply concepts taught in the course?
-1. How creative is the work and implementation?
-1. How readable is the code and documentation? 
-1. How impactful is the tools built?
-1. What are the proposed areas of extension?
-
-A detailed rubric will be provided prior to submission. The goal is for this project to be fun and build your skills. 
-
 ### Grading Rubric
 
 <table class="center" style=100 width="75%">
@@ -265,7 +252,7 @@ A detailed rubric will be provided prior to submission. The goal is for this pro
     <td style = "text-align:center">25</td>
   </tr>
   <tr>
-    <td style = "text-align:center">Final Exam</td>
+    <td style = "text-align:center">Final Project</td>
     <td style = "text-align:center">20</td>
   </tr>
 </table>

@@ -1,0 +1,9 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "jupyterbook/Course_Materials/Final_project.md"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 # Homework 1: Designing a Metadata Schema
-## Due: 9/27/2022 @ 5 pm
+## Due: 9/29/2022 @ 5 pm
 
 ### Background
 

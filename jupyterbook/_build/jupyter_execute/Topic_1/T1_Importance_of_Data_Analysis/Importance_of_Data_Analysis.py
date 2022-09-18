@@ -3,18 +3,6 @@
 
 # # Importance of Data Analysis
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # ## Why is Data Analysis Your Most Important Skill?
 
 # * In your work you will be asked to derive data-driven conclusions, how you analyze and visualize data is the most important skill you can have. 
