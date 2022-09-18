@@ -1,0 +1,1194 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Challenges in Data Analysis &#8212; MEM T680: Fall 2022: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/Drexel_M3_Logo-01.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Homework Assignments" href="../../Homeworks/Homeworks.html" />
+    <link rel="prev" title="Importance of Data Analysis" href="../T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/Drexel_M3_Logo-01.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2022: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MEM T680: Data Analysis and Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Course_Materials/Course_materials.html">
+   Course Materials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/syllabus.html">
+     Syllabus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Course_survey.html">
+     Course Survey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Survey_Response.html">
+     Survey Responses
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1️⃣
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Objectives.html">
+   Importance and Challenges in Data Analysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+     Importance of Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Challenges in Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Homeworks/Homeworks.html">
+   Homework Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_1_Designing%20A%20Metadata%20Schema/Homework%201%20Designing%20a%20Metadata%20Schema.html">
+     📝 Homework 1 Designing a Metadata Schema
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Topic_1/T2_Challenges_in_Data_Analysis/Challenges in Data Analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/docs/Topic_1/T2_Challenges_in_Data_Analysis/Challenges in Data Analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTopic_1/T2_Challenges_in_Data_Analysis/Challenges in Data Analysis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Topic_1/T2_Challenges_in_Data_Analysis/Challenges in Data Analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-4-v-s-of-data-analysis">
+   The 4 V’s of Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#volume-of-data">
+     Volume of Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examples-from-scanning-probe-microscopy">
+       Examples from Scanning Probe Microscopy
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examples-from-electron-microscopy">
+       Examples from electron microscopy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#velocity-of-data">
+     Velocity of Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variety-of-data">
+     Variety of Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#veracity-of-data">
+     Veracity of Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-data-fair-findable-accessible-interoperable-and-reproducible">
+   Making Data FAIR: Findable, Accessible, Interoperable, and Reproducible
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#findable">
+     Findable
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f1-meta-data-are-assigned-globally-unique-and-persistent-identifiers">
+       F1: (Meta) data are assigned globally unique and persistent identifiers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f2-data-are-described-with-rich-metadata">
+       F2: Data are described with rich metadata
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f3-metadata-clearly-and-explicitly-include-the-identifier-of-the-data-they-describe">
+       F3: Metadata clearly and explicitly include the identifier of the data they describe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f4-meta-data-are-registered-or-indexed-in-a-searchable-resource">
+       F4: (Meta)data are registered or indexed in a searchable resource
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessible">
+     Accessible
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a1-meta-data-are-retrievable-by-their-identifier-using-a-standardised-communication-protocol">
+       A1: (Meta)data are retrievable by their identifier using a standardised communication protocol
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#a1-1-the-protocol-is-open-free-and-universally-implementable">
+         A1.1: The protocol is open, free and universally implementable
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#a1-2-the-protocol-allows-for-an-authentication-and-authorization-procedure-where-necessary">
+         A1.2: The protocol allows for an authentication and authorization procedure where necessary
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a2-metadata-should-be-accessible-even-when-the-data-is-no-longer-available">
+       A2: Metadata should be accessible even when the data is no longer available
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interoperable">
+     Interoperable
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i1-meta-data-use-a-formal-accessible-shared-and-broadly-applicable-language-for-knowledge-representation">
+       I1: (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i2-meta-data-use-vocabularies-that-follow-the-fair-principles">
+       I2: (Meta)data use vocabularies that follow the FAIR principles
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reusable">
+   Reusable
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r1-meta-data-are-richly-described-with-a-plurality-of-accurate-and-relevant-attributes">
+     R1: (Meta)data are richly described with a plurality of accurate and relevant attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r1-1-meta-data-are-released-with-a-clear-and-accessible-data-usage-license">
+       R1.1: (Meta)data are released with a clear and accessible data usage license
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r1-2-meta-data-are-associated-with-detailed-provenance">
+       R1.2: (Meta)data are associated with detailed provenance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r1-3-meta-data-meet-domain-relevant-community-standards">
+       R1.3: (Meta)data meet domain-relevant community standards
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practical-aspects-of-data-analysis">
+   Practical Aspects of Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-transfer-and-networking">
+     Data Transfer and Networking
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-cost-and-latency">
+     Power, Cost, and Latency
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Challenges in Data Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-4-v-s-of-data-analysis">
+   The 4 V’s of Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#volume-of-data">
+     Volume of Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examples-from-scanning-probe-microscopy">
+       Examples from Scanning Probe Microscopy
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examples-from-electron-microscopy">
+       Examples from electron microscopy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#velocity-of-data">
+     Velocity of Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variety-of-data">
+     Variety of Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#veracity-of-data">
+     Veracity of Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-data-fair-findable-accessible-interoperable-and-reproducible">
+   Making Data FAIR: Findable, Accessible, Interoperable, and Reproducible
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#findable">
+     Findable
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f1-meta-data-are-assigned-globally-unique-and-persistent-identifiers">
+       F1: (Meta) data are assigned globally unique and persistent identifiers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f2-data-are-described-with-rich-metadata">
+       F2: Data are described with rich metadata
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f3-metadata-clearly-and-explicitly-include-the-identifier-of-the-data-they-describe">
+       F3: Metadata clearly and explicitly include the identifier of the data they describe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f4-meta-data-are-registered-or-indexed-in-a-searchable-resource">
+       F4: (Meta)data are registered or indexed in a searchable resource
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessible">
+     Accessible
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a1-meta-data-are-retrievable-by-their-identifier-using-a-standardised-communication-protocol">
+       A1: (Meta)data are retrievable by their identifier using a standardised communication protocol
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#a1-1-the-protocol-is-open-free-and-universally-implementable">
+         A1.1: The protocol is open, free and universally implementable
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#a1-2-the-protocol-allows-for-an-authentication-and-authorization-procedure-where-necessary">
+         A1.2: The protocol allows for an authentication and authorization procedure where necessary
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a2-metadata-should-be-accessible-even-when-the-data-is-no-longer-available">
+       A2: Metadata should be accessible even when the data is no longer available
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interoperable">
+     Interoperable
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i1-meta-data-use-a-formal-accessible-shared-and-broadly-applicable-language-for-knowledge-representation">
+       I1: (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i2-meta-data-use-vocabularies-that-follow-the-fair-principles">
+       I2: (Meta)data use vocabularies that follow the FAIR principles
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reusable">
+   Reusable
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r1-meta-data-are-richly-described-with-a-plurality-of-accurate-and-relevant-attributes">
+     R1: (Meta)data are richly described with a plurality of accurate and relevant attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r1-1-meta-data-are-released-with-a-clear-and-accessible-data-usage-license">
+       R1.1: (Meta)data are released with a clear and accessible data usage license
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r1-2-meta-data-are-associated-with-detailed-provenance">
+       R1.2: (Meta)data are associated with detailed provenance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r1-3-meta-data-meet-domain-relevant-community-standards">
+       R1.3: (Meta)data meet domain-relevant community standards
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practical-aspects-of-data-analysis">
+   Practical Aspects of Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-transfer-and-networking">
+     Data Transfer and Networking
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-cost-and-latency">
+     Power, Cost, and Latency
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="challenges-in-data-analysis">
+<h1>Challenges in Data Analysis<a class="headerlink" href="#challenges-in-data-analysis" title="Permalink to this headline">#</a></h1>
+<p>The reason why this course is so important is because there are many challenges in practical data analysis</p>
+<section id="the-4-v-s-of-data-analysis">
+<h2>The 4 V’s of Data Analysis<a class="headerlink" href="#the-4-v-s-of-data-analysis" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Volume - Data being generated can be very large. Single TB size experiments are not uncommon.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Velocity - Data is being generated at high velocities. Fast and high resolution sensors mean data can be collected at &gt;1 Gbps, up to 400 Gbps.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Variety - Internet-of-Things is increasing the number of disparate sources of data. It is not uncommon to combine data from many sensors and data types together.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Veracity - Data has uncertainty this could be noise, poor data acquisition, ect. It is important to understand the uncertainty.</p></li>
+</ul>
+<section id="volume-of-data">
+<h3>Volume of Data<a class="headerlink" href="#volume-of-data" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="../../_images/Data_Deluge.jpg" /></p>
+<ul class="simple">
+<li><p>Most companies have at least 100 TBs of data stored</p></li>
+</ul>
+<ul class="simple">
+<li><p>Cost and complexity of data storage and infrastructure is problematic</p>
+<ul>
+<li><p>For high-availability storage AWS pricing is $23.00/TB-Month</p></li>
+<li><p>Cold storage $1/TB-month
+N.B. This does not include the cost of data transfers</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Moving large data creates challenges for networking infrastructure.</p>
+<ul>
+<li><p>Standard high-speed networking is 1 Gbps <span class="math notranslate nohighlight">\(\rightarrow\)</span> moving 1 TB will take &gt;2 hours</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><strong>Example:</strong> In the year 2016, the estimated global mobile traffic was 6.2 Exabytes (6.2 billion GB) per month. Also, by the year 2020 we will have almost 40000 ExaBytes of data.</p></li>
+</ul>
+<section id="examples-from-scanning-probe-microscopy">
+<h4>Examples from Scanning Probe Microscopy<a class="headerlink" href="#examples-from-scanning-probe-microscopy" title="Permalink to this headline">#</a></h4>
+<p>Increasing speed and multimodal nature of experiments increases data volumes</p>
+<p><img alt="" src="../../_images/Example_SPM.gif" /></p>
+<p><span id="id1">[]</span></p>
+</section>
+<section id="examples-from-electron-microscopy">
+<h4>Examples from electron microscopy<a class="headerlink" href="#examples-from-electron-microscopy" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Increasing resolution and speed of detectors is leading to an exponential increase in data rates</p></li>
+</ul>
+<p><img alt="" src="../../_images/Examples_EM.png" /></p>
+<p><span id="id2">[]</span></p>
+</section>
+</section>
+<section id="velocity-of-data">
+<h3>Velocity of Data<a class="headerlink" href="#velocity-of-data" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="../../_images/bottleneck.jpg" /></p>
+<ul class="simple">
+<li><p>Data is being collected at high speed from a variety of sources</p></li>
+<li><p>4K Netflix uses 7 GB/hr, this is highly compressed</p></li>
+<li><p>4K data at 60 Hz 12-bit is about 7 Gbps. This is faster than a single spinning disc hard drive.</p></li>
+<li><p>When multiple data sources are used simultaneously networking and parallel file systems have to be developed</p></li>
+</ul>
+</section>
+<section id="variety-of-data">
+<h3>Variety of Data<a class="headerlink" href="#variety-of-data" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="../../_images/Variety-of-Data-from-different-data-sources-26.png" /></p>
+<ul class="simple">
+<li><p>It refers to nature of data that is structured, semi-structured and unstructured data.</p></li>
+<li><p>It also refers to heterogeneous sources.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Variety is basically the arrival of data from new sources that are both inside and outside of an enterprise. It can be structured, semi-structured and unstructured.</p>
+<ul>
+<li><p>Structured data: This data is basically an organized data. It generally refers to data that has defined the length and format of data.</p></li>
+<li><p>Semi- Structured data: This data is basically a semi-organized data. It is generally a form of data that do not conform to the formal structure of data. Log files are the examples of this type of data.</p></li>
+<li><p>Unstructured data: This data basically refers to unorganized data. It generally refers to data that doesn’t fit neatly into the traditional row and column structure of the relational database. Texts, pictures, videos etc. are the examples of unstructured data which can’t be stored in the form of rows and columns.</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><strong>Example:</strong> You have a manufacturing plant. You acquire process data and quality control data in the form of images, how do you combine these?</p></li>
+</ul>
+</section>
+<section id="veracity-of-data">
+<h3>Veracity of Data<a class="headerlink" href="#veracity-of-data" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="../../_images/Veracity_of_data.png" /></p>
+<ul class="simple">
+<li><p>Many experiments acquire imperfect data</p>
+<ul>
+<li><p>Surveys of people have systemic errors</p></li>
+<li><p>Sampling methods can result in errors</p></li>
+<li><p>Synchronization can result in sampling issues</p></li>
+<li><p>Continuous monitoring or systems where imaging can alter samples can have low signal-to-noise</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><strong>Example</strong> You acquire data using a high speed camera because of the speed there are not a lot of photons to capture. the resulting image in noisy.</p></li>
+</ul>
+<p><img alt="" src="../../_images/LowLightImageEnhancementExample_04.png" /></p>
+</section>
+</section>
+<section id="making-data-fair-findable-accessible-interoperable-and-reproducible">
+<h2>Making Data FAIR: Findable, Accessible, Interoperable, and Reproducible<a class="headerlink" href="#making-data-fair-findable-accessible-interoperable-and-reproducible" title="Permalink to this headline">#</a></h2>
+<p>Much of data collected is not sufficiently collected and collated to have long term utility</p>
+<ul class="simple">
+<li><p>Data is commonly collected on local workstations</p></li>
+<li><p>Data is saved as files in folders <span class="math notranslate nohighlight">\(\rightarrow\)</span> this makes it very hard to find</p></li>
+<li><p>Data is rarely associated with important metadata</p></li>
+<li><p>Data is not easily machine readable - handwritten notes or not stored in databases</p></li>
+</ul>
+<section id="findable">
+<h3>Findable<a class="headerlink" href="#findable" title="Permalink to this headline">#</a></h3>
+<p>The first step in (re)using data is to find them.</p>
+<ul class="simple">
+<li><p>Metadata and data should be easy to find for both humans and computers.</p></li>
+<li><p>Machine-readable metadata are essential for automatic discovery of datasets and services, so this is an essential component of the</p></li>
+</ul>
+<section id="f1-meta-data-are-assigned-globally-unique-and-persistent-identifiers">
+<h4>F1: (Meta) data are assigned globally unique and persistent identifiers<a class="headerlink" href="#f1-meta-data-are-assigned-globally-unique-and-persistent-identifiers" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>It must be globally unique (i.e., someone else could not reuse/reassign the same identifier without referring to your data). You can obtain globally unique identifiers from a registry service that uses algorithms guaranteeing the uniqueness of newly minted identifiers.</p></li>
+<li><p>It must be persistent. It takes time and money to keep web links active, so links tend to become invalid over time. Registry services guarantee resolvability of that link into the future, at least to some degree.</p></li>
+</ol>
+<p>Examples of globally unique and persistent identifiers</p>
+<ul class="simple">
+<li><p>One particular person on planet earth has this globally unique and persistent identifier:  <a class="reference external" href="https://orcid.org/0000-0001-8888-635X">https://orcid.org/0000-0001-8888-635X</a></p></li>
+<li><p>Here is an identifier that uniquely links to the results of a study estimating the FAIRness of different data repositories: doi:10.4121/uuid:5146dd06-98e4-426c-9ae5-dc8fa65c549f</p></li>
+<li><p>The human polycystin-1 protein has a globally unique and persistent identifier given by the UniProt database:  <a class="reference external" href="http://www.uniprot.org/uniprot/P98161">http://www.uniprot.org/uniprot/P98161</a></p></li>
+<li><p>Polycystic kidney disease Type 1 has a globally unique and persistent identifier given by the OMIM database: <a class="reference external" href="http://omim.org/entry/173900">http://omim.org/entry/173900</a></p></li>
+</ul>
+<p>Example services that supply globally unique and persistent identifiers</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://Identifiers.org">Identifiers.org</a> provides resolvable identifiers in the form of URIs and CURIEs: <a class="reference external" href="http://identifiers.org">http://identifiers.org</a></p></li>
+<li><p>Universally unique identifier: <a class="reference external" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">https://en.wikipedia.org/wiki/Universally_unique_identifier</a></p></li>
+<li><p>Persistent URLs: <a class="reference external" href="http://www.purlz.org">http://www.purlz.org</a></p></li>
+<li><p>Digital Object Identifier: <a class="reference external" href="http://www.doi.org">http://www.doi.org</a></p></li>
+<li><p>Archival Resource Key: <a class="reference external" href="https://escholarship.org/uc/item/9p9863nc">https://escholarship.org/uc/item/9p9863nc</a></p></li>
+<li><p>Research Resource Identifiers: <a class="reference external" href="https://scicrunch.org/resources">https://scicrunch.org/resources</a></p></li>
+<li><p>Identifiers for funding organizations (see F3 &amp; R1): <a class="reference external" href="https://www.crossref.org/services/funder-registry/">https://www.crossref.org/services/funder-registry/</a></p></li>
+<li><p>Identifiers for the world’s research organizations (see F3 &amp; R1): <a class="reference external" href="https://www.grid.ac">https://www.grid.ac</a></p></li>
+</ul>
+</section>
+<section id="f2-data-are-described-with-rich-metadata">
+<h4>F2: Data are described with rich metadata<a class="headerlink" href="#f2-data-are-described-with-rich-metadata" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Metadata can (and should) be generous and extensive, including descriptive information about the context, quality and condition, or characteristics of the data.</p></li>
+<li><p>Rich metadata allow a computer to automatically accomplish routine and tedious sorting and prioritizing tasks that currently demand a lot of attention from researchers.</p></li>
+<li><p>The rationale behind this principle is that someone should be able to find data based on the information provided by their metadata, even without the data’s identifier.</p></li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>This includes ‘intrinsic’ metadata (e.g., the data captured automatically by machines that generate data such as <a class="reference external" href="http://www.nf.mpg.de/vinci3/doc/image-formats.html">DICOM information for image files</a>) as well as ‘contextual’ metadata (e.g., the protocol used, with both keywords and links to a formal protocol document)</p></li>
+<li><p>The measurement devices used (again with both keywords and links to manufacturers), the units of the captured data, the species involved (explicitly by taxon id, e.g., <a class="reference external" href="http://www.uniprot.org/taxonomy/9606">http://www.uniprot.org/taxonomy/9606</a> )</p></li>
+<li><p>The genes/proteins/other that are the focus of the study (e.g., GO Terms)</p></li>
+<li><p>The physical parameter space of observed or simulated astronomical data sets, questions and concepts linked to longitudinal data, calculation of the properties of materials, or any other details about the experiment.</p></li>
+</ul>
+<p>Example frameworks</p>
+<ul class="simple">
+<li><p>Try using the <a class="reference external" href="https://www.dtls.nl/fair-data/find-fair-data-tools/">DTL Metadata Editor</a></p></li>
+<li><p><a class="reference external" href="https://theodi.org/guides/marking-up-your-dataset-with-dcat">Marking up your dataset with DCAT</a></p></li>
+<li><p><a class="reference external" href="http://isa-tools.org/">ISA framework</a></p></li>
+</ul>
+</section>
+<section id="f3-metadata-clearly-and-explicitly-include-the-identifier-of-the-data-they-describe">
+<h4>F3: Metadata clearly and explicitly include the identifier of the data they describe<a class="headerlink" href="#f3-metadata-clearly-and-explicitly-include-the-identifier-of-the-data-they-describe" title="Permalink to this headline">#</a></h4>
+<p>The metadata and the dataset they describe are usually separate files. The association between a metadata file and the dataset should be made explicit by mentioning a dataset’s globally unique and persistent identifier in the metadata</p>
+</section>
+<section id="f4-meta-data-are-registered-or-indexed-in-a-searchable-resource">
+<h4>F4: (Meta)data are registered or indexed in a searchable resource<a class="headerlink" href="#f4-meta-data-are-registered-or-indexed-in-a-searchable-resource" title="Permalink to this headline">#</a></h4>
+<p>Identifiers and rich metadata descriptions alone will not ensure ‘findability’ on the internet. Perfectly good data resources may go unused simply because no one knows they exist. If the availability of a digital resource such as a dataset, service or repository is not known, then nobody (and no machine) can discover it.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>The metadata of FAIR Datasets that are published on <a class="reference external" href="https://specs.fairdatapoint.org">FAIR Data Points</a> can be used for indexing by the DTL Search Engine.</p></li>
+<li><p><a class="reference external" href="https://zenodo.org/">Zenodo</a></p></li>
+<li><p><a class="reference external" href="https://osf.io/?utm_term=open%20science%20framework&amp;utm_campaign=OSF+General&amp;utm_source=adwords&amp;utm_medium=ppc&amp;hsa_acc=5222345373&amp;hsa_cam=217339509&amp;hsa_grp=36452477753&amp;hsa_ad=150809658179&amp;hsa_src=g&amp;hsa_tgt=kwd-300201585279&amp;hsa_kw=open%20science%20framework&amp;hsa_mt=b&amp;hsa_net=adwords&amp;hsa_ver=3&amp;gclid=CjwKCAjwvNaYBhA3EiwACgndgopVkb7A4LzyaSLoiRr0Lkj50nGW6Fd9GBPvdGky9WcJ3Wt_YhK_fxoCbQ4QAvD_BwE">Open Science Framework</a></p></li>
+</ul>
+</section>
+</section>
+<section id="accessible">
+<h3>Accessible<a class="headerlink" href="#accessible" title="Permalink to this headline">#</a></h3>
+<p>Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorization</p>
+<section id="a1-meta-data-are-retrievable-by-their-identifier-using-a-standardised-communication-protocol">
+<h4>A1: (Meta)data are retrievable by their identifier using a standardised communication protocol<a class="headerlink" href="#a1-meta-data-are-retrievable-by-their-identifier-using-a-standardised-communication-protocol" title="Permalink to this headline">#</a></h4>
+<p>Principle A1 states that FAIR data retrieval should be mediated without specialised or proprietary  tools or communication methods. This principle focuses on how data and metadata can be retrieved from their identifiers</p>
+<p>Examples</p>
+<ul class="simple">
+<li><p>Most data producers will use http(s) or ftp.
+Barriers to access that should be avoided include protocols that have limited implementations, poor documentation, and components involving manual human intervention.</p></li>
+<li><p>FAIR Accessor (see <a class="reference external" href="https://peerj.com/preprints/2522v2/#supp-1">Interoperability and FAIRness through a novel combination of Web technologies</a>)</p></li>
+</ul>
+<section id="a1-1-the-protocol-is-open-free-and-universally-implementable">
+<h5>A1.1: The protocol is open, free and universally implementable<a class="headerlink" href="#a1-1-the-protocol-is-open-free-and-universally-implementable" title="Permalink to this headline">#</a></h5>
+<p>To maximise data reuse, the protocol should be free (no-cost) and open (-sourced) and thus globally implementable to facilitate data retrieval. Anyone with a computer and an internet connection can access at least the metadata. Hence, this criterion will impact your choice of the repository where you will share your data.</p>
+<p>Examples</p>
+<ul class="simple">
+<li><p>HTTP, FTP, SMTP, …</p></li>
+<li><p>Telephone (arguably not universally-implementable, but close enough)</p></li>
+<li><p>A counter-example would be Skype, which is not universally-implementable because it is proprietary</p></li>
+<li><p>Microsoft Exchange Server protocol is also proprietary</p></li>
+</ul>
+</section>
+<section id="a1-2-the-protocol-allows-for-an-authentication-and-authorization-procedure-where-necessary">
+<h5>A1.2: The protocol allows for an authentication and authorization procedure where necessary<a class="headerlink" href="#a1-2-the-protocol-allows-for-an-authentication-and-authorization-procedure-where-necessary" title="Permalink to this headline">#</a></h5>
+<p>This is a key, but often misunderstood, element of FAIR. The ‘A’ in FAIR does not necessarily mean ‘open’ or ‘free’. Rather, it implies that one should provide the exact conditions under which the data are accessible.</p>
+<ul class="simple">
+<li><p>Even heavily protected and private data can be FAIR. Ideally, accessibility is specified in such a way that a machine can automatically understand the requirements, and then either automatically execute the requirements or alert the user to the requirements.</p></li>
+<li><p>It often makes sense to request users to create a user account for a repository. This allows to authenticate the owner (or contributor) of each dataset, and to potentially set user-specific rights. Hence, this criterion will also affect your choice of the repository where you will share your data.</p></li>
+</ul>
+<p>Examples</p>
+<ul class="simple">
+<li><p>HMAC authentication</p></li>
+<li><p>HTTPS</p></li>
+<li><p>FTPS</p></li>
+<li><p>Telephone</p></li>
+</ul>
+</section>
+</section>
+<section id="a2-metadata-should-be-accessible-even-when-the-data-is-no-longer-available">
+<h4>A2: Metadata should be accessible even when the data is no longer available<a class="headerlink" href="#a2-metadata-should-be-accessible-even-when-the-data-is-no-longer-available" title="Permalink to this headline">#</a></h4>
+<p>Datasets tend to degrade or disappear over time because there is a cost to maintaining an online presence for data resources. When this happens, links become invalid and users waste time hunting for data that might no longer be there. Storing the metadata generally is much easier and cheaper. Hence, principle A2 states that metadata should persist even when the data are no longer sustained. A2 is related to the registration and indexing issues described in F4.</p>
+<p>Examples</p>
+<ul class="simple">
+<li><p>Metadata are valuable in and of themselves, when planning research, especially replication studies. Even if the original data are missing, tracking down people, institutions or publications associated with the original research can be extremely useful.</p></li>
+</ul>
+</section>
+</section>
+<section id="interoperable">
+<h3>Interoperable<a class="headerlink" href="#interoperable" title="Permalink to this headline">#</a></h3>
+<p>The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing.</p>
+<section id="i1-meta-data-use-a-formal-accessible-shared-and-broadly-applicable-language-for-knowledge-representation">
+<h4>I1: (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation<a class="headerlink" href="#i1-meta-data-use-a-formal-accessible-shared-and-broadly-applicable-language-for-knowledge-representation" title="Permalink to this headline">#</a></h4>
+<p>Humans should be able to exchange and interpret each other’s data (so preferably do not use dead languages). But this also applies to computers, meaning that data that should be readable for machines without the need for specialised or ad hoc algorithms, translators, or mappings. Interoperability typically means that each computer system at least has knowledge of the other system’s data exchange formats. For this to happen and to ensure automatic findability and interoperability of datasets, it is critical to use (1) commonly used controlled vocabularies, ontologies, thesauri (having resolvable globally unique and persistent identifiers, see F1) and (2) a good data model (a well-defined framework to describe and structure (meta)data).</p>
+<p>Examples</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/RDF_Schema">RDF extensible knowledge representation model</a> is a way to describe and structure datasets. You can refer to the Dublin Core Schema as an example.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/TR/?tag=data">OWL</a></p></li>
+<li><p><a class="reference external" href="http://www.daml.org/">DAML+OIL</a></p></li>
+</ul>
+</section>
+<section id="i2-meta-data-use-vocabularies-that-follow-the-fair-principles">
+<h4>I2: (Meta)data use vocabularies that follow the FAIR principles<a class="headerlink" href="#i2-meta-data-use-vocabularies-that-follow-the-fair-principles" title="Permalink to this headline">#</a></h4>
+<p>The controlled vocabulary used to describe datasets needs to be documented and resolvable using globally unique and persistent identifiers. This documentation needs to be easily findable and accessible by anyone who uses the dataset.</p>
+</section>
+</section>
+</section>
+<section id="reusable">
+<h2>Reusable<a class="headerlink" href="#reusable" title="Permalink to this headline">#</a></h2>
+<p>The ultimate goal of FAIR is to optimize the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated and/or combined in different settings.</p>
+<section id="r1-meta-data-are-richly-described-with-a-plurality-of-accurate-and-relevant-attributes">
+<h3>R1: (Meta)data are richly described with a plurality of accurate and relevant attributes<a class="headerlink" href="#r1-meta-data-are-richly-described-with-a-plurality-of-accurate-and-relevant-attributes" title="Permalink to this headline">#</a></h3>
+<p>It will be much easier to find and reuse data if there are many labels are attached to the data. Principle R1 is related to F2, but R1 focuses on the ability of a user (machine or human) to decide if the data is actually USEFUL in a particular context. To make this decision, the data publisher should provide not just metadata that allows discovery, but also metadata that richly describes the context under which the data was generated. This may include:</p>
+<ul class="simple">
+<li><p>The experimental protocols</p></li>
+<li><p>The manufacturer and brand of the machine or sensor that created the data</p></li>
+<li><p>The species used</p></li>
+</ul>
+<p>Moreover, R1 states that the data publisher should not attempt to predict the data consumer’s identity and needs. We chose the term ‘plurality’ to indicate that the metadata author should be as generous as possible in providing metadata, even including information that may seem irrelevant.</p>
+<p>Some points to take into consideration (non-exhaustive list):</p>
+<ul class="simple">
+<li><p>Describe the scope of your data: for what purpose was it generated/collected?</p></li>
+<li><p>Mention any particularities or limitations about the data that other users should be aware of.</p></li>
+<li><p>Specify the date of generation/collection of the data, the lab conditions, who prepared the data, the parameter settings, the name and version of the software used.</p></li>
+<li><p>Is it raw or processed data?</p></li>
+<li><p>Ensure that all variable names are explained or self-explanatory (i.e., defined in the research field’s controlled vocabulary).</p></li>
+<li><p>Clearly specify and document the version of the archived and/or reused data.</p></li>
+</ul>
+<section id="r1-1-meta-data-are-released-with-a-clear-and-accessible-data-usage-license">
+<h4>R1.1: (Meta)data are released with a clear and accessible data usage license<a class="headerlink" href="#r1-1-meta-data-are-released-with-a-clear-and-accessible-data-usage-license" title="Permalink to this headline">#</a></h4>
+<p>R1.1 is about legal interoperability. What usage rights do you attach to your data? This should be described clearly. Ambiguity could severely limit the reuse of your data by organisations that struggle to comply with licensing restrictions. Clarity of licensing status will become more important with automated searches involving more licensing considerations. The conditions under which the data can be used should be clear to machines and humans.</p>
+<p>Examples</p>
+<ul class="simple">
+<li><p>Commonly used licenses like MIT or Creative Commons can be linked to your data. Methods for marking up this metadata are provided by the <a class="reference external" href="https://www.dtls.nl/fair-data/find-fair-data-tools/">DTL FAIRifier</a>.</p></li>
+</ul>
+</section>
+<section id="r1-2-meta-data-are-associated-with-detailed-provenance">
+<h4>R1.2: (Meta)data are associated with detailed provenance<a class="headerlink" href="#r1-2-meta-data-are-associated-with-detailed-provenance" title="Permalink to this headline">#</a></h4>
+<p>For others to reuse your data, they should know where the data came from (i.e., clear story of origin/history, see R1), who to cite and/or how you wish to be acknowledged. Include a description of the workflow that led to your data:</p>
+<ul class="simple">
+<li><p>Who generated or collected it?</p></li>
+<li><p>How has it been processed?</p></li>
+<li><p>Has it been published before?</p></li>
+<li><p>Does it contain data from someone else that you may have transformed or completed?</p></li>
+<li><p>Ideally, this workflow is described in a machine-readable format.</p></li>
+</ul>
+</section>
+<section id="r1-3-meta-data-meet-domain-relevant-community-standards">
+<h4>R1.3: (Meta)data meet domain-relevant community standards<a class="headerlink" href="#r1-3-meta-data-meet-domain-relevant-community-standards" title="Permalink to this headline">#</a></h4>
+<p>It is easier to reuse data sets if they are similar: same type of data, data organised in a standardised way, well-established and sustainable file formats, documentation (metadata) following a common template and using common vocabulary. If community standards or best practices for data archiving and sharing exist, they should be followed. For instance, many communities have minimal information standards (e.g., MIAME, MIAPE). FAIR data should at least meet those standards.</p>
+</section>
+</section>
+</section>
+<section id="practical-aspects-of-data-analysis">
+<h2>Practical Aspects of Data Analysis<a class="headerlink" href="#practical-aspects-of-data-analysis" title="Permalink to this headline">#</a></h2>
+<section id="data-transfer-and-networking">
+<h3>Data Transfer and Networking<a class="headerlink" href="#data-transfer-and-networking" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="../../_images/Network_topology.png" /></p>
+<p>A commonly overlooked aspect of data management is the networking infrastructure. When dealing with large data networking can be a pain point:</p>
+<ul class="simple">
+<li><p>Data takes a long time to transfer</p></li>
+<li><p>There does not exist networking infrastructure to support the speeds required</p></li>
+<li><p>Difficulty in managing competing network traffic</p></li>
+<li><p>Additional latency associated with network topology</p></li>
+</ul>
+</section>
+<section id="power-cost-and-latency">
+<h3>Power, Cost, and Latency<a class="headerlink" href="#power-cost-and-latency" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="../../_images/Computing_platforms.png" /></p>
+<p>There are many practical computing constraints in real applications:</p>
+<ul class="simple">
+<li><p>For remote systems there might be a power budget. For example, you might want to have a certain battery life or work on solar energy</p></li>
+</ul>
+<ul class="simple">
+<li><p>Applications have a scale and an acceptable cost of computing. It might not be reasonable to have a workstation for sensor. You might want to have the computation conducted within the power budget of a RasberryPI or NVIDIA Jetson</p></li>
+</ul>
+<ul class="simple">
+<li><p>Many applications require that a decision is made within a certain time. This requires that the computational latency is less than the process time. The full computational design cycle needs to be completed within the required timeline</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;923&quot; height=&quot;519&quot; src=&quot;https://www.youtube.com/embed/YaAIZ1gROaw&quot; title=&quot;What are ASIC Miners in Crypto? (Animated Explanation)&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/Caskroom/miniforge/base/envs/jupyterbook/lib/python3.10/site-packages/IPython/core/display.py:419: UserWarning: Consider using IPython.display.IFrame instead
+  warnings.warn(&quot;Consider using IPython.display.IFrame instead&quot;)
+</pre></div>
+</div>
+<div class="output text_html"><iframe width="923" height="519" src="https://www.youtube.com/embed/YaAIZ1gROaw" title="What are ASIC Miners in Crypto? (Animated Explanation)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Topic_1/T2_Challenges_in_Data_Analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Importance of Data Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../Homeworks/Homeworks.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework Assignments</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
