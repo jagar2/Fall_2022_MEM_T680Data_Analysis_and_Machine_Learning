@@ -4,6 +4,10 @@
             "language": "markdown",
             "scheme": "file",
             "pattern": "jupyterbook/Course_Materials/Final_project.md"
+        },
+        {
+            "language": "markdown",
+            "scheme": "vscode-notebook-cell"
         }
     ]
 }
