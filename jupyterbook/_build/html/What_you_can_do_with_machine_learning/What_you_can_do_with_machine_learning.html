@@ -208,6 +208,11 @@ const thebe_selector_output = ".output, .cell_output"
      Using Project Jupyter
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment.html">
+     Setting up your Computing Environment
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -343,6 +348,24 @@ title="Launch on Colab"
   </span>
 <span class="headerbtn__text-container">Colab</span>
 </a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
       </li>
       
@@ -1286,7 +1309,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/Caskroom/miniforge/base/envs/jupyterbook/lib/python3.10/site-packages/IPython/core/display.py:419: UserWarning: Consider using IPython.display.IFrame instead
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Joshua Agar\.conda\envs\Jupyterbook\lib\site-packages\IPython\core\display.py:419: UserWarning: Consider using IPython.display.IFrame instead
   warnings.warn(&quot;Consider using IPython.display.IFrame instead&quot;)
 </pre></div>
 </div>
@@ -1428,8 +1451,8 @@ title="Print to PDF"
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

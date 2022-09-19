@@ -89,7 +89,7 @@ import sklearn.cluster as cluster
 # In[3]:
 
 
-get_ipython().run_line_magic('pinfo2', 'cluster.KMeans')
+get_ipython().run_line_magic('pinfo2', ' cluster.KMeans')
 
 
 # ### Structure of Notebook Document

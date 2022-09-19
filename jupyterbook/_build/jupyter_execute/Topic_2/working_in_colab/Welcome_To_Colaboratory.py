@@ -101,7 +101,7 @@ print('Found GPU at: {}'.format(device_name))
 # random image and manually places the resulting ops on either the CPU or the GPU
 # to compare execution speed.
 
-# In[5]:
+# In[9]:
 
 
 import tensorflow as tf
