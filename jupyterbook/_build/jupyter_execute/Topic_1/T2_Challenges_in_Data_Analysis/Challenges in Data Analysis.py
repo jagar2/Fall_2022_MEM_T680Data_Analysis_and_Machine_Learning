@@ -32,11 +32,11 @@
 # * **Example:** In the year 2016, the estimated global mobile traffic was 6.2 Exabytes (6.2 billion GB) per month. Also, by the year 2020 we will have almost 40000 ExaBytes of data.
 
 # #### Examples from Scanning Probe Microscopy
-# Increasing speed and multimodal nature of experiments increases data volumes
+# Increasing speed and multimodal nature of experiments increase data volumes
 # 
 # ![](figs/Example_SPM.gif)
-# 
-# {cite:p}`Kalinin2016-kbd`
+
+# {cite:p}`Kalinin-fkd`
 
 # #### Examples from electron microscopy
 # 

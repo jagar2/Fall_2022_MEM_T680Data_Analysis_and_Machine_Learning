@@ -1,6 +1,6 @@
-# Week 1: Introduction to the Course
+# Topic 1: Introduction to the Course
 
-## Goals for the Week
+## Goals for this Topic 
 * Get to know each other and why we choose to take this course
 * Go over the {doc}`syllabus <../Course_Materials/syllabus>`
 * Explain how the course is structured

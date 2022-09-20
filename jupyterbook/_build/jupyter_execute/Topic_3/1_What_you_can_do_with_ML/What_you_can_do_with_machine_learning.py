@@ -16,7 +16,7 @@
 # 
 # [ImageNet](https://www.image-net.org) -ImageNet is an image database organized according to the WordNet hierarchy (currently only the nouns), in which each node of the hierarchy is depicted by hundreds and thousands of images. The project has been instrumental in advancing computer vision and deep learning research. The data is available for free to researchers for non-commercial use.
 # 
-# [CFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html) - The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
+# [CFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html) - The CIFAR-10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
 # ```
 
 # ![](./figs/Classification.png)
@@ -168,7 +168,7 @@
 # 
 
 # ### Colorization
-# Taking an image, or strokes of color and converting it into a colored image
+# Taking an image or strokes of color and converting it into a colored image
 
 # ![](./figs/Colorization.png)
 
@@ -178,8 +178,8 @@
 # 
 # ```
 
-# ### Super resolution
-# Taking a low quality image and enhancing its resolution
+# ### Super-resolution
+# Taking a low-quality image and enhancing its resolution
 
 # ![](./figs/Image_superresolution.png)
 # 
@@ -319,7 +319,8 @@
 
 
 from IPython.display import IFrame
-IFrame('http://gaugan.org/gaugan2/', width=2200, height=1200)
+
+IFrame("http://gaugan.org/gaugan2/", width=2200, height=1200)
 
 
 # ### Image-to-Image Translation
@@ -336,7 +337,10 @@ IFrame('http://gaugan.org/gaugan2/', width=2200, height=1200)
 
 
 from IPython.display import HTML
-HTML('<iframe width="602" height="339" src="https://www.youtube.com/embed/cQ54GDm1eL0" title="You Won’t Believe What Obama Says In This Video! 😉" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+
+HTML(
+    '<iframe width="800" height="450" src="https://www.youtube.com/embed/cQ54GDm1eL0" title="You Won’t Believe What Obama Says In This Video! 😉" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+)
 
 
 # ![](./figs/Faceswap.jpeg)
@@ -379,7 +383,10 @@ HTML('<iframe width="602" height="339" src="https://www.youtube.com/embed/cQ54GD
 
 
 from IPython.display import HTML
-HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/qv6UVOQ0F44" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+
+HTML(
+    '<iframe width="800" height="450" src="https://www.youtube.com/embed/qv6UVOQ0F44" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+)
 
 
 # ### Much More Complex Games
@@ -388,7 +395,10 @@ HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/qv6UVO
 
 
 from IPython.display import HTML
-HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/UuhECwm31dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+
+HTML(
+    '<iframe width="800" height="450" src="https://www.youtube.com/embed/UuhECwm31dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+)
 
 
 # ### Physical Object Manipulation or Fine Motor Skills
@@ -397,7 +407,10 @@ HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/UuhECw
 
 
 from IPython.display import HTML
-HTML('<iframe width="1268" height="713" src="https://www.youtube.com/embed/x4O8pojMF0w" title="Solving Rubik’s Cube with a Robot Hand" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+
+HTML(
+    '<iframe width="800" height="450" src="https://www.youtube.com/embed/x4O8pojMF0w" title="Solving Rubik’s Cube with a Robot Hand" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+)
 
 
 # ## Take Away Messages:
