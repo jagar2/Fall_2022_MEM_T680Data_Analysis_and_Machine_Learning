@@ -148,7 +148,7 @@
 from IPython.display import IFrame
 
 IFrame(
-    src="https://docs.anaconda.com/anaconda/install/windows/", width=1200, height=600
+    src="https://docs.anaconda.com/anaconda/install/windows/", width=800, height=600
 )
 
 
@@ -158,7 +158,7 @@ IFrame(
 # In[2]:
 
 
-IFrame(src="https://docs.anaconda.com/anaconda/install/mac-os/", width=1200, height=600)
+IFrame(src="https://docs.anaconda.com/anaconda/install/mac-os/", width=800, height=600)
 
 
 # #### Linux
@@ -167,7 +167,7 @@ IFrame(src="https://docs.anaconda.com/anaconda/install/mac-os/", width=1200, hei
 # In[3]:
 
 
-IFrame(src="https://docs.anaconda.com/anaconda/install/linux/", width=1200, height=600)
+IFrame(src="https://docs.anaconda.com/anaconda/install/linux/", width=800, height=600)
 
 
 # #### Running Jupyter

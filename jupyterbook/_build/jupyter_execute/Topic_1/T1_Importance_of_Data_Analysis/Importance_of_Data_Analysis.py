@@ -153,7 +153,7 @@
 
 
 from IPython.display import HTML
-HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/raMmRKGkGD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+HTML('<iframe width="800" height="450" src="https://www.youtube.com/embed/raMmRKGkGD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 
 
 # * How you analyze and present data-driven arguments has a transformation effect on critical decisions

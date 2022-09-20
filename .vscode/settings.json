@@ -9,5 +9,6 @@
             "language": "markdown",
             "scheme": "vscode-notebook-cell"
         }
-    ]
+    ],
+    "python.formatting.provider": "black"
 }

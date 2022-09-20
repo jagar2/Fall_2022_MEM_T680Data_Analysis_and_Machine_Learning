@@ -1,0 +1,2197 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to GitHub &#8212; MEM T680: Fall 2022: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/Drexel_M3_Logo-01.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Homework Assignments" href="../../Homeworks/Homeworks.html" />
+    <link rel="prev" title="Welcome to Colaboratory" href="../4_working_in_colab/Welcome_To_Colaboratory.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/Drexel_M3_Logo-01.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2022: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MEM T680: Data Analysis and Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Course_Materials/Course_materials.html">
+   Course Materials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/syllabus.html">
+     Syllabus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Course_survey.html">
+     Course Survey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Survey_Response.html">
+     Survey Responses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Final_project.html">
+     Final Project
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_1/Objectives.html">
+   Importance and Challenges in Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+     Importance of Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">
+     Challenges in Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2️⃣
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Objectives.html">
+   Setting Up Your Computing Environment
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Introduction_to_MEMT680/Introduction_to_MEMT680.html">
+     Introduction to the Course Machinery
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_Navigating_Jupyter/navigating_jupyter.html">
+     Using Project Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_setting_up_your_computing_env/setting_up_your_computing_environment.html">
+     Setting up your Computing Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_working_in_colab/Welcome_To_Colaboratory.html">
+     Welcome to Colaboratory
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Introduction to GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Homeworks/Homeworks.html">
+   Homework Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_1_Designing%20A%20Metadata%20Schema/Homework%201%20Designing%20a%20Metadata%20Schema.html">
+     📝 Homework 1 Designing a Metadata Schema
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/main?urlpath=tree/jupyterbook/Topic_2/5_Introduction_to_git/Introduction_to_GIT.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook&urlpath=tree/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_2/5_Introduction_to_git/Introduction_to_GIT.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/blob/main/jupyterbook/Topic_2/5_Introduction_to_git/Introduction_to_GIT.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook/issues/new?title=Issue%20on%20page%20%2FTopic_2/5_Introduction_to_git/Introduction_to_GIT.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Topic_2/5_Introduction_to_git/Introduction_to_GIT.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-repository">
+   Creating a Repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-files">
+     Standard Files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#readme">
+       Readme
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#license-file">
+       License file
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-license">
+   Common license
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-license">
+     MIT License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gnu-general-public-license">
+     GNU General Public License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apache-license-version-2">
+     Apache License, Version 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-a-respository">
+   Making a respository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-use-git">
+   Why use GIT?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#have-you-ever-saved-versions-of-a-file-like-this">
+     Have you ever saved versions of a file like this:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-that-git-is-installed-and-the-version">
+     Check that git is installed and the version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-git-is-not-installed">
+     If git is not installed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-your-configuration">
+     Set your configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-find-help">
+     How to find help?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#have-a-local-codebase-that-you-want-to-start-tracking">
+   Have a local codebase that you want to start tracking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initiates-a-new-repository">
+     initiates a new repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#makes-an-ignore-file">
+     Makes an ignore file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-a-file-from-the-command-line">
+     Make a file from the command line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-files-to-remote">
+     Add files to remote
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commit-the-files">
+     Commit the files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-status">
+     Check Status
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connecting-to-an-online-repository">
+   Connecting to an Online Repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-a-remote-repo">
+     Making a remote repo
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#general-example">
+       General example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloning-a-repo">
+   Cloning a Repo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#see-it-with">
+     See it with
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modify-some-file">
+   Modify Some File
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-your-status">
+     Check your status
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stage-files-to-update">
+     Stage files to update
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-file-adding">
+   Advanced File Adding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-files-one-by-one">
+     Adding files one by one
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-all-files-in-the-current-directory">
+     Adding all files in the current directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-all-file-changes-in-the-current-directory">
+     Adding all file changes in the current directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-what-changes-to-add-this-will-go-through-all-your-changes-and-you-can-y-or-n-the-changes">
+     Choosing what changes to add (this will go through all your changes and you can ‘Y’ or ‘N’ the changes)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commit-files">
+   Commit Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-commits">
+   Advanced Commits
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commit-staged-file-s">
+     Commit staged file(s)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-is-typically-used-for-shorter-commit-messages">
+     This is typically used for shorter commit messages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-file-and-commit-in-one-shot">
+     Add file and commit in one shot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-file-and-commit-staged-file">
+     Add file and commit staged file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changing-your-most-recent-commit-message">
+     Changing your most recent commit message
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combine-a-sequence-of-commits-into-a-single-one">
+     Combine a sequence of commits into a single one
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#you-might-use-this-to-organize-a-messy-commit-history">
+       You might use this to organize a messy commit history
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-will-give-you-an-interface-on-your-core-editor">
+     This will give you an interface on your core editor:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#commands">
+       Commands:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pull-commits">
+   Pull Commits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#push-to-online-repository">
+   Push to Online repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#branching">
+   Branching
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagram-of-workflow">
+   Diagram of workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syntax-for-branching">
+   Syntax for branching
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-local-branch-to-work-on">
+     Create a local branch to work on
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switching-between-2-branches">
+     Switching between 2 branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pushing-your-new-local-branch-to-remote-as-back-up">
+     Pushing your new local branch to remote as back up
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deleting-a-local-branch">
+     Deleting a local branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Deleting a local branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-current-branches-for-the-repository">
+     Viewing all current branches for the repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-branches-that-have-been-merged-into-your-current-branch">
+     Viewing all branches that have been merged into your current  branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-branches-that-haven-t-been-merged-into-your-current-branch">
+     Viewing all branches that haven’t been merged into your current branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-local-branches">
+     Viewing all local branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-remote-branches">
+     Viewing all remote branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rebase-master-branch-into-a-local-branch">
+     Rebase master branch into a local branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pushing-local-branch-after-rebasing-master-into-a-local-branch">
+     Pushing local branch after rebasing master into a local branch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-with-branches">
+   Example with Branches
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-the-location-of-the-repository">
+     list the location of the repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists-the-branches-local-or-remote">
+     lists the branches local or remote
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switching-or-checking-out-a-branch">
+     Switching or checking out a branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#push-branch-to-an-online-repository">
+     Push branch to an online repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkout-master">
+     Checkout Master
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-idea-to-pull-again">
+     Good idea to pull again
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merge-branches">
+     Merge branches
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-the-branches-that-we-have-merged-thus-far">
+       Check the branches that we have merged thus far
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Merge branches
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#push-changes">
+       Push changes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deleting-old-branch">
+     Deleting old branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deletes-the-local-branch-br">
+     Deletes the local branch:
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deletes-the-remote-branch-br">
+     Deletes the remote branch
+     <br/>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixing-common-mistakes">
+   Fixing Common Mistakes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-to-the-version-of-the-code-of-the-most-recent-commit">
+     Switch to the version of the code of the most recent commit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-to-the-version-of-the-code-before-the-most-recent-commit">
+     Switch to the version of the code before the most recent commit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-back-3-or-5-commits">
+     Switch back 3 or 5 commits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#soft-reset">
+     Soft reset
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#switch-back-to-a-specific-commit">
+       Switch back to a specific commit
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hard-reset">
+     Hard reset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-to-the-commit-message">
+     Error to the commit message
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-delete-all-changes">
+   How to delete all changes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git-stash">
+   Git Stash
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saves-the-stash-br">
+     Saves the stash
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-the-stash-br">
+     Checking the stash
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applying-the-stash-br">
+     Applying the stash
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deleting-stash-br">
+     Deleting stash
+     <br/>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-useful-tricks">
+   Other Useful Tricks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching">
+     Searching
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-authorship">
+     Checking Authorship
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logging">
+     Logging
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to GitHub</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-repository">
+   Creating a Repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-files">
+     Standard Files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#readme">
+       Readme
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#license-file">
+       License file
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-license">
+   Common license
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-license">
+     MIT License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gnu-general-public-license">
+     GNU General Public License
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apache-license-version-2">
+     Apache License, Version 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-a-respository">
+   Making a respository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-use-git">
+   Why use GIT?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#have-you-ever-saved-versions-of-a-file-like-this">
+     Have you ever saved versions of a file like this:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-that-git-is-installed-and-the-version">
+     Check that git is installed and the version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-git-is-not-installed">
+     If git is not installed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-your-configuration">
+     Set your configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-find-help">
+     How to find help?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#have-a-local-codebase-that-you-want-to-start-tracking">
+   Have a local codebase that you want to start tracking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initiates-a-new-repository">
+     initiates a new repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#makes-an-ignore-file">
+     Makes an ignore file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-a-file-from-the-command-line">
+     Make a file from the command line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-files-to-remote">
+     Add files to remote
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commit-the-files">
+     Commit the files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-status">
+     Check Status
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connecting-to-an-online-repository">
+   Connecting to an Online Repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-a-remote-repo">
+     Making a remote repo
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#general-example">
+       General example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloning-a-repo">
+   Cloning a Repo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#see-it-with">
+     See it with
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modify-some-file">
+   Modify Some File
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-your-status">
+     Check your status
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stage-files-to-update">
+     Stage files to update
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-file-adding">
+   Advanced File Adding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-files-one-by-one">
+     Adding files one by one
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-all-files-in-the-current-directory">
+     Adding all files in the current directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-all-file-changes-in-the-current-directory">
+     Adding all file changes in the current directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-what-changes-to-add-this-will-go-through-all-your-changes-and-you-can-y-or-n-the-changes">
+     Choosing what changes to add (this will go through all your changes and you can ‘Y’ or ‘N’ the changes)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commit-files">
+   Commit Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-commits">
+   Advanced Commits
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commit-staged-file-s">
+     Commit staged file(s)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-is-typically-used-for-shorter-commit-messages">
+     This is typically used for shorter commit messages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-file-and-commit-in-one-shot">
+     Add file and commit in one shot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-file-and-commit-staged-file">
+     Add file and commit staged file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changing-your-most-recent-commit-message">
+     Changing your most recent commit message
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combine-a-sequence-of-commits-into-a-single-one">
+     Combine a sequence of commits into a single one
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#you-might-use-this-to-organize-a-messy-commit-history">
+       You might use this to organize a messy commit history
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-will-give-you-an-interface-on-your-core-editor">
+     This will give you an interface on your core editor:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#commands">
+       Commands:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pull-commits">
+   Pull Commits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#push-to-online-repository">
+   Push to Online repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#branching">
+   Branching
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagram-of-workflow">
+   Diagram of workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syntax-for-branching">
+   Syntax for branching
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-local-branch-to-work-on">
+     Create a local branch to work on
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switching-between-2-branches">
+     Switching between 2 branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pushing-your-new-local-branch-to-remote-as-back-up">
+     Pushing your new local branch to remote as back up
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deleting-a-local-branch">
+     Deleting a local branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Deleting a local branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-current-branches-for-the-repository">
+     Viewing all current branches for the repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-branches-that-have-been-merged-into-your-current-branch">
+     Viewing all branches that have been merged into your current  branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-branches-that-haven-t-been-merged-into-your-current-branch">
+     Viewing all branches that haven’t been merged into your current branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-local-branches">
+     Viewing all local branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-all-remote-branches">
+     Viewing all remote branches
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rebase-master-branch-into-a-local-branch">
+     Rebase master branch into a local branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pushing-local-branch-after-rebasing-master-into-a-local-branch">
+     Pushing local branch after rebasing master into a local branch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-with-branches">
+   Example with Branches
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-the-location-of-the-repository">
+     list the location of the repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists-the-branches-local-or-remote">
+     lists the branches local or remote
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switching-or-checking-out-a-branch">
+     Switching or checking out a branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#push-branch-to-an-online-repository">
+     Push branch to an online repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkout-master">
+     Checkout Master
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-idea-to-pull-again">
+     Good idea to pull again
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merge-branches">
+     Merge branches
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-the-branches-that-we-have-merged-thus-far">
+       Check the branches that we have merged thus far
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Merge branches
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#push-changes">
+       Push changes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deleting-old-branch">
+     Deleting old branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deletes-the-local-branch-br">
+     Deletes the local branch:
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deletes-the-remote-branch-br">
+     Deletes the remote branch
+     <br/>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixing-common-mistakes">
+   Fixing Common Mistakes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-to-the-version-of-the-code-of-the-most-recent-commit">
+     Switch to the version of the code of the most recent commit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-to-the-version-of-the-code-before-the-most-recent-commit">
+     Switch to the version of the code before the most recent commit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-back-3-or-5-commits">
+     Switch back 3 or 5 commits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#soft-reset">
+     Soft reset
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#switch-back-to-a-specific-commit">
+       Switch back to a specific commit
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hard-reset">
+     Hard reset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-to-the-commit-message">
+     Error to the commit message
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-delete-all-changes">
+   How to delete all changes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git-stash">
+   Git Stash
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saves-the-stash-br">
+     Saves the stash
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-the-stash-br">
+     Checking the stash
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applying-the-stash-br">
+     Applying the stash
+     <br/>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deleting-stash-br">
+     Deleting stash
+     <br/>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-useful-tricks">
+   Other Useful Tricks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching">
+     Searching
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-authorship">
+     Checking Authorship
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logging">
+     Logging
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-github">
+<h1>Introduction to GitHub<a class="headerlink" href="#introduction-to-github" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.</p></li>
+</ul>
+<section id="creating-a-repository">
+<h2>Creating a Repository<a class="headerlink" href="#creating-a-repository" title="Permalink to this headline">#</a></h2>
+<p>a <strong>repository</strong> is usually used to organize a single project.</p>
+<ul class="simple">
+<li><p>Contains: folders and files, images, video, spreadsheets, and data.</p></li>
+</ul>
+<section id="standard-files">
+<h3>Standard Files<a class="headerlink" href="#standard-files" title="Permalink to this headline">#</a></h3>
+<section id="readme">
+<h4>Readme<a class="headerlink" href="#readme" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Contains information about the repository</p></li>
+</ul>
+</section>
+<section id="license-file">
+<h4>License file<a class="headerlink" href="#license-file" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Sets the license that allows others to use your software</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="common-license">
+<h2>Common license<a class="headerlink" href="#common-license" title="Permalink to this headline">#</a></h2>
+<section id="mit-license">
+<h3>MIT License<a class="headerlink" href="#mit-license" title="Permalink to this headline">#</a></h3>
+<p>Copyright &lt;YEAR&gt; &lt;COPYRIGHT HOLDER&gt;</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</section>
+<section id="gnu-general-public-license">
+<h3>GNU General Public License<a class="headerlink" href="#gnu-general-public-license" title="Permalink to this headline">#</a></h3>
+<p>&lt;one line to give the program’s name and a brief idea of what it does.&gt;
+Copyright (C) <year>  <name of author></p>
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License</p>
+</section>
+<section id="apache-license-version-2">
+<h3>Apache License, Version 2<a class="headerlink" href="#apache-license-version-2" title="Permalink to this headline">#</a></h3>
+<p>Copyright [yyyy] [name of copyright owner]</p>
+<p>Licensed under the Apache License, Version 2.0 (the “License”);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+<p><a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+</section>
+</section>
+<section id="making-a-respository">
+<h2>Making a respository<a class="headerlink" href="#making-a-respository" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="http://www.github.com">www.github.com</a></p>
+</section>
+<section id="why-use-git">
+<h2>Why use GIT?<a class="headerlink" href="#why-use-git" title="Permalink to this headline">#</a></h2>
+<section id="have-you-ever-saved-versions-of-a-file-like-this">
+<h3>Have you ever saved versions of a file like this:<a class="headerlink" href="#have-you-ever-saved-versions-of-a-file-like-this" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Graph</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Graph_V2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Graph_V2_final</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Graph_V2_final_V3</span></code></p></li>
+</ul>
+<p>Branches accomplish a similar goal in a GitHub Repository</p>
+<ul class="simple">
+<li><p>Work on code in <code class="docutils literal notranslate"><span class="pre">branch</span></code> … once verified, merge it to the <code class="docutils literal notranslate"><span class="pre">master</span></code></p></li>
+</ul>
+<p>Distributed Version control system</p>
+<ul class="simple">
+<li><p>Every developer has a backup of the entire repository
+<img alt="figure" src="../../_images/distributed.png" /></p></li>
+</ul>
+</section>
+<section id="check-that-git-is-installed-and-the-version">
+<h3>Check that git is installed and the version<a class="headerlink" href="#check-that-git-is-installed-and-the-version" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code></p>
+</section>
+<section id="if-git-is-not-installed">
+<h3>If git is not installed<a class="headerlink" href="#if-git-is-not-installed" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git-all</span></code></p>
+</section>
+<section id="set-your-configuration">
+<h3>Set your configuration<a class="headerlink" href="#set-your-configuration" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.name</span> <span class="pre">&quot;Joshua</span> <span class="pre">Agar&quot;</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.email</span> <span class="pre">&quot;jca92&#64;drexel.edu&quot;</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--list</span></code></p>
+</section>
+<section id="how-to-find-help">
+<h3>How to find help?<a class="headerlink" href="#how-to-find-help" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--help</span></code></p>
+</section>
+</section>
+<section id="have-a-local-codebase-that-you-want-to-start-tracking">
+<h2>Have a local codebase that you want to start tracking<a class="headerlink" href="#have-a-local-codebase-that-you-want-to-start-tracking" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">Make_New</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Make_New</span></code></p>
+<section id="initiates-a-new-repository">
+<h3>initiates a new repository<a class="headerlink" href="#initiates-a-new-repository" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></p>
+</section>
+<section id="makes-an-ignore-file">
+<h3>Makes an ignore file<a class="headerlink" href="#makes-an-ignore-file" title="Permalink to this headline">#</a></h3>
+<p>This file is useful if you want git not to track specific files</p>
+<p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">.gitignore</span></code></p>
+</section>
+<section id="make-a-file-from-the-command-line">
+<h3>Make a file from the command line<a class="headerlink" href="#make-a-file-from-the-command-line" title="Permalink to this headline">#</a></h3>
+<p>You can add any files to the git repository using any method that has access to your file system</p>
+<p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">This</span> <span class="pre">is</span> <span class="pre">some</span> <span class="pre">text</span> <span class="pre">&gt;</span> <span class="pre">myfile.txt</span></code></p>
+</section>
+<section id="add-files-to-remote">
+<h3>Add files to remote<a class="headerlink" href="#add-files-to-remote" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code></p>
+</section>
+<section id="commit-the-files">
+<h3>Commit the files<a class="headerlink" href="#commit-the-files" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;initial</span> <span class="pre">commit&quot;</span></code></p>
+</section>
+<section id="check-status">
+<h3>Check Status<a class="headerlink" href="#check-status" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></p>
+</section>
+</section>
+<section id="connecting-to-an-online-repository">
+<h2>Connecting to an Online Repository<a class="headerlink" href="#connecting-to-an-online-repository" title="Permalink to this headline">#</a></h2>
+<section id="making-a-remote-repo">
+<h3>Making a remote repo<a class="headerlink" href="#making-a-remote-repo" title="Permalink to this headline">#</a></h3>
+<section id="general-example">
+<h4>General example<a class="headerlink" href="#general-example" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">origin</span> <span class="pre">https://github.com/user/repo.git</span> </code> <br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code></p>
+</section>
+</section>
+</section>
+<section id="cloning-a-repo">
+<h2>Cloning a Repo<a class="headerlink" href="#cloning-a-repo" title="Permalink to this headline">#</a></h2>
+<p>Let’s start by forking a <a class="reference external" href="https://github.com/octocat/Hello-World.git">Hello World Repository</a></p>
+<p>Forking a repository allows you to make changes locally.</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/octocat/Hello-World.git</span></code></p>
+<section id="see-it-with">
+<h3>See it with<a class="headerlink" href="#see-it-with" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code></p>
+</section>
+</section>
+<section id="modify-some-file">
+<h2>Modify Some File<a class="headerlink" href="#modify-some-file" title="Permalink to this headline">#</a></h2>
+<p>Let’s modify the Hello World <a class="reference external" href="http://Readme.md">Readme.md</a> file and look at the difference.</p>
+<p>Check your modifications
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></p>
+<section id="check-your-status">
+<h3>Check your status<a class="headerlink" href="#check-your-status" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p>
+</section>
+<section id="stage-files-to-update">
+<h3>Stage files to update<a class="headerlink" href="#stage-files-to-update" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code>
+or
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>
+or
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">README.md</span></code></p>
+</section>
+</section>
+<section id="advanced-file-adding">
+<h2>Advanced File Adding<a class="headerlink" href="#advanced-file-adding" title="Permalink to this headline">#</a></h2>
+<section id="adding-files-one-by-one">
+<h3>Adding files one by one<a class="headerlink" href="#adding-files-one-by-one" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">filename</span></code></p>
+</section>
+<section id="adding-all-files-in-the-current-directory">
+<h3>Adding all files in the current directory<a class="headerlink" href="#adding-all-files-in-the-current-directory" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code></p>
+</section>
+<section id="adding-all-file-changes-in-the-current-directory">
+<h3>Adding all file changes in the current directory<a class="headerlink" href="#adding-all-file-changes-in-the-current-directory" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code></p>
+</section>
+<section id="choosing-what-changes-to-add-this-will-go-through-all-your-changes-and-you-can-y-or-n-the-changes">
+<h3>Choosing what changes to add (this will go through all your changes and you can ‘Y’ or ‘N’ the changes)<a class="headerlink" href="#choosing-what-changes-to-add-this-will-go-through-all-your-changes-and-you-can-y-or-n-the-changes" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-p</span></code></p>
+</section>
+</section>
+<section id="commit-files">
+<h2>Commit Files<a class="headerlink" href="#commit-files" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;INSERT</span> <span class="pre">TEXT</span> <span class="pre">HERE&quot;</span></code>
+<br>
+it is essential to add a comment, so you know what your commit is</p>
+</section>
+<section id="advanced-commits">
+<h2>Advanced Commits<a class="headerlink" href="#advanced-commits" title="Permalink to this headline">#</a></h2>
+<section id="commit-staged-file-s">
+<h3>Commit staged file(s)<a class="headerlink" href="#commit-staged-file-s" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="this-is-typically-used-for-shorter-commit-messages">
+<h3>This is typically used for shorter commit messages<a class="headerlink" href="#this-is-typically-used-for-shorter-commit-messages" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">'commit</span> <span class="pre">message'</span></code></p>
+</section>
+<section id="add-file-and-commit-in-one-shot">
+<h3>Add file and commit in one shot<a class="headerlink" href="#add-file-and-commit-in-one-shot" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">filename</span> <span class="pre">-m</span> <span class="pre">'commit</span> <span class="pre">message'</span></code></p>
+</section>
+<section id="add-file-and-commit-staged-file">
+<h3>Add file and commit staged file<a class="headerlink" href="#add-file-and-commit-staged-file" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-am</span> <span class="pre">'insert</span> <span class="pre">commit</span> <span class="pre">message'</span></code></p>
+</section>
+<section id="changing-your-most-recent-commit-message">
+<h3>Changing your most recent commit message<a class="headerlink" href="#changing-your-most-recent-commit-message" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span> <span class="pre">'new</span> <span class="pre">commit</span> <span class="pre">message'</span></code></p>
+</section>
+<section id="combine-a-sequence-of-commits-into-a-single-one">
+<h3>Combine a sequence of commits into a single one<a class="headerlink" href="#combine-a-sequence-of-commits-into-a-single-one" title="Permalink to this headline">#</a></h3>
+<section id="you-might-use-this-to-organize-a-messy-commit-history">
+<h4>You might use this to organize a messy commit history<a class="headerlink" href="#you-might-use-this-to-organize-a-messy-commit-history" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">-i</span></code></p>
+</section>
+</section>
+<section id="this-will-give-you-an-interface-on-your-core-editor">
+<h3>This will give you an interface on your core editor:<a class="headerlink" href="#this-will-give-you-an-interface-on-your-core-editor" title="Permalink to this headline">#</a></h3>
+<section id="commands">
+<h4>Commands:<a class="headerlink" href="#commands" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code>, <code class="docutils literal notranslate"><span class="pre">pick</span></code> = use commit <br>
+<code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">reword</span></code> = use commit, but edit the commit message <br>
+<code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">edit</span></code> = use commit, but stop for amending <br>
+<code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">squash</span></code> = use commit, but meld into previous commit <br>
+<code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">fixup</span></code> = like “squash”, but discard this commit’s log message <br>
+<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">exec</span></code> = run command (the rest of the line) using shell</p>
+</section>
+</section>
+</section>
+<section id="pull-commits">
+<h2>Pull Commits<a class="headerlink" href="#pull-commits" title="Permalink to this headline">#</a></h2>
+<p>In case someone else has made changes to the repository while you are working, you should pull those changes to your local repository <br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code> <br></p>
+<p><code class="docutils literal notranslate"><span class="pre">origin</span></code> - means the repository you are in</p>
+</section>
+<section id="push-to-online-repository">
+<h2>Push to Online repository<a class="headerlink" href="#push-to-online-repository" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code></p>
+</section>
+<section id="branching">
+<h2>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">#</a></h2>
+<p><strong>Branching</strong> is the way to work on different versions of a repository at the same time</p>
+<ul class="simple">
+<li><p>By default, your repository has a branch named <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p></li>
+<li><p>Good to use a branch to experiment and create edits before committing them to the <code class="docutils literal notranslate"><span class="pre">master</span></code></p></li>
+<li><p>When working on a branch, you are taking the <code class="docutils literal notranslate"><span class="pre">master</span></code> at a point in time</p>
+<ul>
+<li><p>If others make changes to master, you can <code class="docutils literal notranslate"><span class="pre">pull</span></code> them to your branch</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="diagram-of-workflow">
+<h2>Diagram of workflow<a class="headerlink" href="#diagram-of-workflow" title="Permalink to this headline">#</a></h2>
+<p><img alt="figure" src="../../_images/branch.png" />
+Diagram shows:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">master</span></code> branch</p></li>
+<li><p>A new branch called <code class="docutils literal notranslate"><span class="pre">feature</span></code></p></li>
+<li><p>The journey that <code class="docutils literal notranslate"><span class="pre">feature</span></code> takes before it is merged with the <code class="docutils literal notranslate"><span class="pre">master</span></code></p></li>
+</ul>
+<p>Branches accomplish a similar goal in a GitHub Repository</p>
+<ul class="simple">
+<li><p>Work on code in <code class="docutils literal notranslate"><span class="pre">branch</span></code> … once verified, merge it to the <code class="docutils literal notranslate"><span class="pre">master</span></code></p></li>
+</ul>
+</section>
+<section id="syntax-for-branching">
+<h2>Syntax for branching<a class="headerlink" href="#syntax-for-branching" title="Permalink to this headline">#</a></h2>
+<section id="create-a-local-branch-to-work-on">
+<h3>Create a local branch to work on<a class="headerlink" href="#create-a-local-branch-to-work-on" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">branchname</span></code></p>
+</section>
+<section id="switching-between-2-branches">
+<h3>Switching between 2 branches<a class="headerlink" href="#switching-between-2-branches" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_1</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_2</span></code></p>
+</section>
+<section id="pushing-your-new-local-branch-to-remote-as-back-up">
+<h3>Pushing your new local branch to remote as back up<a class="headerlink" href="#pushing-your-new-local-branch-to-remote-as-back-up" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">branch_2</span></code></p>
+</section>
+<section id="deleting-a-local-branch">
+<h3>Deleting a local branch<a class="headerlink" href="#deleting-a-local-branch" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>This won’t let you delete a branch that hasn’t been merged yet</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">branch_2</span></code></p>
+</section>
+<section id="id1">
+<h3>Deleting a local branch<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>This WILL delete a branch even if it hasn’t been merged yet!</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-D</span> <span class="pre">branch_2</span></code></p>
+</section>
+<section id="viewing-all-current-branches-for-the-repository">
+<h3>Viewing all current branches for the repository<a class="headerlink" href="#viewing-all-current-branches-for-the-repository" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Includes both local and remote branches. Great to see if you already have a branch for a particular feature addition, especially on bigger projects</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code></p>
+</section>
+<section id="viewing-all-branches-that-have-been-merged-into-your-current-branch">
+<h3>Viewing all branches that have been merged into your current  branch<a class="headerlink" href="#viewing-all-branches-that-have-been-merged-into-your-current-branch" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Including local and remote. Great for seeing where all your code has come from!
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span> <span class="pre">--merged</span></code></p></li>
+</ul>
+</section>
+<section id="viewing-all-branches-that-haven-t-been-merged-into-your-current-branch">
+<h3>Viewing all branches that haven’t been merged into your current branch<a class="headerlink" href="#viewing-all-branches-that-haven-t-been-merged-into-your-current-branch" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>including local and remote
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span> <span class="pre">--no-merged</span></code></p></li>
+</ul>
+</section>
+<section id="viewing-all-local-branches">
+<h3>Viewing all local branches<a class="headerlink" href="#viewing-all-local-branches" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></p>
+</section>
+<section id="viewing-all-remote-branches">
+<h3>Viewing all remote branches<a class="headerlink" href="#viewing-all-remote-branches" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-r</span></code></p>
+</section>
+<section id="rebase-master-branch-into-a-local-branch">
+<h3>Rebase master branch into a local branch<a class="headerlink" href="#rebase-master-branch-into-a-local-branch" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">origin/master</span></code></p>
+</section>
+<section id="pushing-local-branch-after-rebasing-master-into-a-local-branch">
+<h3>Pushing local branch after rebasing master into a local branch<a class="headerlink" href="#pushing-local-branch-after-rebasing-master-into-a-local-branch" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">branchname</span></code></p>
+</section>
+</section>
+<section id="example-with-branches">
+<h2>Example with Branches<a class="headerlink" href="#example-with-branches" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">new_branch</span></code></p>
+<section id="list-the-location-of-the-repository">
+<h3>list the location of the repository<a class="headerlink" href="#list-the-location-of-the-repository" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code></p>
+</section>
+<section id="lists-the-branches-local-or-remote">
+<h3>lists the branches local or remote<a class="headerlink" href="#lists-the-branches-local-or-remote" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code></p>
+</section>
+<section id="switching-or-checking-out-a-branch">
+<h3>Switching or checking out a branch<a class="headerlink" href="#switching-or-checking-out-a-branch" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">new_branch</span></code></p>
+<p>Let’s make a copy of the <code class="docutils literal notranslate"><span class="pre">readme.md</span></code> file in the branch</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code>  Only affects the local branch <code class="docutils literal notranslate"><span class="pre">new_branch</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;new</span> <span class="pre">branch</span> <span class="pre">changes&quot;</span></code></p>
+</section>
+<section id="push-branch-to-an-online-repository">
+<h3>Push branch to an online repository<a class="headerlink" href="#push-branch-to-an-online-repository" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">u</span></code> - means associates the local branch with the online branch <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">new_branch</span></code></p>
+</section>
+<section id="checkout-master">
+<h3>Checkout Master<a class="headerlink" href="#checkout-master" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code></p>
+</section>
+<section id="good-idea-to-pull-again">
+<h3>Good idea to pull again<a class="headerlink" href="#good-idea-to-pull-again" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p>
+</section>
+<section id="merge-branches">
+<h3>Merge branches<a class="headerlink" href="#merge-branches" title="Permalink to this headline">#</a></h3>
+<section id="check-the-branches-that-we-have-merged-thus-far">
+<h4>Check the branches that we have merged thus far<a class="headerlink" href="#check-the-branches-that-we-have-merged-thus-far" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">--merged</span></code></p>
+</section>
+<section id="id2">
+<h4>Merge branches<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">new_branch</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code></p>
+</section>
+<section id="push-changes">
+<h4>Push changes<a class="headerlink" href="#push-changes" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code></p>
+</section>
+</section>
+<section id="deleting-old-branch">
+<h3>Deleting old branch<a class="headerlink" href="#deleting-old-branch" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">--merged</span></code></p>
+</section>
+<section id="deletes-the-local-branch-br">
+<h3>Deletes the local branch: <br><a class="headerlink" href="#deletes-the-local-branch-br" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">new_branch</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code></p>
+</section>
+<section id="deletes-the-remote-branch-br">
+<h3>Deletes the remote branch <br><a class="headerlink" href="#deletes-the-remote-branch-br" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">--delete</span> <span class="pre">new_branch</span></code></p>
+</section>
+</section>
+<section id="fixing-common-mistakes">
+<h2>Fixing Common Mistakes<a class="headerlink" href="#fixing-common-mistakes" title="Permalink to this headline">#</a></h2>
+<section id="switch-to-the-version-of-the-code-of-the-most-recent-commit">
+<h3>Switch to the version of the code of the most recent commit<a class="headerlink" href="#switch-to-the-version-of-the-code-of-the-most-recent-commit" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD</span> <span class="pre">--</span> <span class="pre">filename</span></code> - for a specific file</p>
+</section>
+<section id="switch-to-the-version-of-the-code-before-the-most-recent-commit">
+<h3>Switch to the version of the code before the most recent commit<a class="headerlink" href="#switch-to-the-version-of-the-code-before-the-most-recent-commit" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD^</span> <span class="pre">--</span> <span class="pre">filename</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD^</span></code> – filename # for a specific file</p>
+</section>
+<section id="switch-back-3-or-5-commits">
+<h3>Switch back 3 or 5 commits<a class="headerlink" href="#switch-back-3-or-5-commits" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD~3</span></code> – filename <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD~3</span></code> – filename - for a specific file <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD~5</span></code> – filename <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD~5</span></code> – filename - for a specific file</p>
+</section>
+<section id="soft-reset">
+<h3>Soft reset<a class="headerlink" href="#soft-reset" title="Permalink to this headline">#</a></h3>
+<section id="switch-back-to-a-specific-commit">
+<h4>Switch back to a specific commit<a class="headerlink" href="#switch-back-to-a-specific-commit" title="Permalink to this headline">#</a></h4>
+<p>Where the ‘0766c053’ is the commit ID</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">0766c053</span> <span class="pre">--</span> <span class="pre">filename</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">0766c053</span> <span class="pre">--</span> <span class="pre">filename</span></code> -for a specific file</p>
+</section>
+</section>
+<section id="hard-reset">
+<h3>Hard reset<a class="headerlink" href="#hard-reset" title="Permalink to this headline">#</a></h3>
+<p>The previous commands were what’s known as “soft” resets. Your code is reset, but git will keep a copy of the other code handy in case you need it. On the other hand, the –hard flag tells Git to overwrite all changes in the working directory.
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">0766c053</span></code></p>
+</section>
+<section id="error-to-the-commit-message">
+<h3>Error to the commit message<a class="headerlink" href="#error-to-the-commit-message" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span> <span class="pre">-m</span> <span class="pre">&quot;completed</span> <span class="pre">subtract</span> <span class="pre">function&quot;</span></code> <br>
+Note this will change the hash</p>
+</section>
+</section>
+<section id="how-to-delete-all-changes">
+<h2>How to delete all changes<a class="headerlink" href="#how-to-delete-all-changes" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">[commit]</span></code></p>
+</section>
+<section id="git-stash">
+<h2>Git Stash<a class="headerlink" href="#git-stash" title="Permalink to this headline">#</a></h2>
+<p>Stores files that you are not ready to commit but you want to save for a later use</p>
+<ul class="simple">
+<li><p>Good when you have uncommitted files that you want to move between branches</p></li>
+</ul>
+<section id="saves-the-stash-br">
+<h3>Saves the stash <br><a class="headerlink" href="#saves-the-stash-br" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">save</span> <span class="pre">&quot;message&quot;</span></code></p>
+</section>
+<section id="checking-the-stash-br">
+<h3>Checking the stash <br><a class="headerlink" href="#checking-the-stash-br" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">list</span></code></p>
+</section>
+<section id="applying-the-stash-br">
+<h3>Applying the stash <br><a class="headerlink" href="#applying-the-stash-br" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">apply</span></code></p>
+</section>
+<section id="deleting-stash-br">
+<h3>Deleting stash <br><a class="headerlink" href="#deleting-stash-br" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">drop</span> <span class="pre">[stash</span> <span class="pre">number]</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">clear</span></code></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Git Cheat Sheet</span>
+<span class="n">IFrame</span><span class="p">(</span>
+    <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="800"
+    height="1000"
+    src="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+</section>
+</section>
+<section id="other-useful-tricks">
+<h2>Other Useful Tricks<a class="headerlink" href="#other-useful-tricks" title="Permalink to this headline">#</a></h2>
+<section id="searching">
+<h3>Searching<a class="headerlink" href="#searching" title="Permalink to this headline">#</a></h3>
+<p>Searches for parts of strings in a directory <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">grep</span> <span class="pre">'something'</span></code></p>
+<p>Searches for parts of strings in a directory, and the -n prints out the line numbers where git has found matches<br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">grep</span> <span class="pre">-n</span> <span class="pre">'something'</span></code></p>
+<p>Searches for parts of a string with some context (some lines  before and some after the ‘something’ we are looking for) <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">grep</span> <span class="pre">-C&lt;number</span> <span class="pre">of</span> <span class="pre">lines&gt;</span> <span class="pre">'something'</span></code></p>
+<p>Searches for parts of the string and also shows lines BEFORE it <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">grep</span> <span class="pre">-B&lt;number</span> <span class="pre">of</span> <span class="pre">lines&gt;</span> <span class="pre">'something'</span></code></p>
+<p>Searches for parts of the string and also shows lines AFTER it <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">grep</span> <span class="pre">-A&lt;number</span> <span class="pre">of</span> <span class="pre">lines&gt;</span> <span class="pre">'something'</span></code></p>
+</section>
+<section id="checking-authorship">
+<h3>Checking Authorship<a class="headerlink" href="#checking-authorship" title="Permalink to this headline">#</a></h3>
+<p>Show alteration history of a file with the name of the author <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">blame</span> <span class="pre">'filename'</span></code></p>
+<p>Show alteration history of a file with the name of the author and the git commit ID <br>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">blame</span> <span class="pre">'filename'</span> <span class="pre">-l</span></code></p>
+</section>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">#</a></h3>
+<p>Show a list of all commits in a repository. This command shows everything about a commit, such as a commit ID, author, date and commit message.<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></p>
+<p>List of commits showing only commit messages and changes<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-p</span></code></p>
+<p>List of commits with the particular string you are looking for<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-S</span> <span class="pre">'something'</span></code></p>
+<p>List of commits by author<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--author</span> <span class="pre">'Author</span> <span class="pre">Name'</span></code></p>
+<p>Show a summary of the list of commits in a repository. This shows a shorter version of the commit ID and the commit message.<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code></p>
+<p>Show a list of commits in a repository since yesterday<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--since=yesterday</span></code></p>
+<p>Shows log by author and searching for specific term inside the  commit message<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--grep</span> <span class="pre">&quot;term&quot;</span> <span class="pre">--author</span> <span class="pre">&quot;name&quot;</span></code></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Topic_2/5_Introduction_to_git"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../4_working_in_colab/Welcome_To_Colaboratory.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome to Colaboratory</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../Homeworks/Homeworks.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework Assignments</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

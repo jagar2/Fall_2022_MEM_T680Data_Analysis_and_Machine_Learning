@@ -28,6 +28,7 @@ parts:
           - file: Topic_2/2_Navigating_Jupyter/navigating_jupyter
           - file: Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment
           - file: Topic_2/4_working_in_colab/Welcome_To_Colaboratory
+          - file: Topic_2/5_Introduction_to_git/Introduction_to_GIT
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks

@@ -11,7 +11,7 @@
 
 *Dates:* Sep 19, 2022 - Dec 10, 2022
 *Times:* Tuesday/Thursday 02:00 pm - 03:20 pm 
-*Class Room:* XXX
+*Class Room:* Randell 238A
 
 ### Course Description
 

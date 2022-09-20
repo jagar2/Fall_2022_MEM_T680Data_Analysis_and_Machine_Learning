@@ -47,7 +47,7 @@
 from IPython.display import HTML
 
 HTML(
-    '<iframe width="926" height="521" src="https://www.youtube.com/embed/A5YyoCKxEOU" title="How to Use JupyterLab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    '<iframe width="800" height="450" src="https://www.youtube.com/embed/A5YyoCKxEOU" title="How to Use JupyterLab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
 )
 
 
@@ -89,7 +89,7 @@ import sklearn.cluster as cluster
 # In[3]:
 
 
-get_ipython().run_line_magic('pinfo2', ' cluster.KMeans')
+get_ipython().run_line_magic('pinfo2', 'cluster.KMeans')
 
 
 # ### Structure of Notebook Document
