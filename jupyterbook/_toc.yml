@@ -29,6 +29,12 @@ parts:
           - file: Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment
           - file: Topic_2/4_working_in_colab/Welcome_To_Colaboratory
           - file: Topic_2/5_Introduction_to_git/Introduction_to_GIT
+  - caption: "Topic 3\uFE0F\u20E3"
+    chapters:
+      - file: Topic_3/Objectives
+        title: "What You Can Do With Machine Learning"
+        sections:
+          - file: Topic_3/1_What_you_can_do_with_ML/What_you_can_do_with_machine_learning
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
