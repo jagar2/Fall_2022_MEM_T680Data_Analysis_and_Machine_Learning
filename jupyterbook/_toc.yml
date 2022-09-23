@@ -41,6 +41,12 @@ parts:
         sections:
           - file: "Homeworks/Homework_1_Designing A Metadata Schema/Homework 1 Designing a Metadata Schema"
             title: "\U0001F4DD Homework 1 Designing a Metadata Schema"
+  - caption: "Final Project Resources"
+    chapters:
+      - file: Homeworks/Homeworks
+        sections:
+          - file: "Final Project Resources/How_to_find_a_Dataset"
+            title: "How to Find a Dataset?"
 # - caption: "Week 2\uFE0F\u20E3"
 #   chapters:
 #     - file: week_2/Objectives
