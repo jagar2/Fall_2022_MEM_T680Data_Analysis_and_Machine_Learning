@@ -35,6 +35,12 @@ parts:
         title: "What You Can Do With Machine Learning"
         sections:
           - file: Topic_3/1_What_you_can_do_with_ML/What_you_can_do_with_machine_learning
+  - caption: "Topic 4\uFE0F\u20E3"
+    chapters:
+      - file: Topic_4/Objectives
+        title: "A Crash Course in Python"
+        sections:
+          - file: Topic_4/Crash_Course_in_Python_Part_1
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
@@ -43,7 +49,7 @@ parts:
             title: "\U0001F4DD Homework 1 Designing a Metadata Schema"
   - caption: "Final Project Resources"
     chapters:
-      - file: Homeworks/Homeworks
+      - file: Final Project Resources/TOC.md
         sections:
           - file: "Final Project Resources/How_to_find_a_Dataset"
             title: "How to Find a Dataset?"
