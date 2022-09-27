@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 jupyterbook/_build/html/_sources/.DS_Store
+notes.txt

@@ -41,46 +41,20 @@ parts:
         title: "A Crash Course in Python"
         sections:
           - file: Topic_4/Crash_Course_in_Python_Part_1
+          - file: Topic_4/Crash_Course_in_Python_Part_2
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
         sections:
           - file: "Homeworks/Homework_1_Designing A Metadata Schema/Homework 1 Designing a Metadata Schema"
             title: "\U0001F4DD Homework 1 Designing a Metadata Schema"
+          - file: Homeworks/Homework_2_scripting/Homework 2_Assignment
+            title: "\U0001F4DD Homework 2 Scripting in Python"
   - caption: "Final Project Resources"
     chapters:
       - file: Final Project Resources/TOC.md
         sections:
           - file: "Final Project Resources/How_to_find_a_Dataset"
             title: "How to Find a Dataset?"
-# - caption: "Week 2\uFE0F\u20E3"
-#   chapters:
-#     - file: week_2/Objectives
-#       title: "Week 2: Introduction to Computing and Machine Learning"
-#       sections:
-#         - file: week_2/setting_up_your_computing_env/setting_up_your_computing_environment
-#         - file: week_2/Navigating_Jupyter/navigating_jupyter
-#         - file: week_2/working_in_colab/Welcome_To_Colaboratory
-#         - file: week_2/Introduction_to_git/Introduction_to_GIT
-#         - file: week_2/What_you_can_do_with_machine_learning/What_you_can_do_with_machine_learning
-# - caption: "Week 3\uFE0F\u20E3"
-#   chapters:
-#     - file: week_3/Objectives
-#       title: A Crash Course in Python
-#       sections:
-#         - file: week_3/Introduction_to_python_part_1/Introduction_to_Python_variables_data_types_structures
-# - caption: "Week 4\uFE0F\u20E3"
-#   chapters:
-#     - file: Introduction_to_Numpy/Objectives.md
-#       title: Introduction to Numpy
-#       sections:
-#         - file: Introduction_to_Numpy/Basics_of_numpy
-#         - file: Introduction_to_Numpy/Introduction_to_numpy
-#         - file: Intro_to_scipy/introduction_to_scipy
-# - caption: "Homework Assignments \U0001F4DD"
-#   chapters:
-#     - file: homework
-#       title: Homeworks
-#       sections:
-#         - file: "Homework 2/Homework 2"
-#           title: Homework 2 Python with Flow Control
+          - file: "Final Project Resources/white_paper_submission"
+            title: White Paper Submission
