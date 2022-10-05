@@ -65,7 +65,7 @@ from matplotlib import pyplot as plt
 ys = 200 + np.random.randn(100)
 x = [x for x in range(len(ys))]
 
-plt.plot(x, ys, "-")
+plt.plot(x, ys, "k-")
 plt.fill_between(x, ys, 195, where=(ys > 195), facecolor="g", alpha=0.6)
 
 plt.title("Sample Visualization")
@@ -148,7 +148,7 @@ gpu()
 
 # Run the op several times.
 print(
-    "Time (s) to convolve 32x7x7x3 filter over random 100x100x100x3 images "
+    "Time (s) to co nvolve 32x7x7x3 filter over random 100x100x100x3 images "
     "(batch x height x width x channel). Sum of ten runs."
 )
 print("CPU (s):")

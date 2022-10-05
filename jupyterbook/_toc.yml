@@ -42,6 +42,7 @@ parts:
         sections:
           - file: Topic_4/Crash_Course_in_Python_Part_1
           - file: Topic_4/Crash_Course_in_Python_Part_2
+          - file: Topic_4/Crash_Course_in_Python_Part_3
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
