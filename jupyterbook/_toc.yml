@@ -43,6 +43,13 @@ parts:
           - file: Topic_4/Crash_Course_in_Python_Part_1
           - file: Topic_4/Crash_Course_in_Python_Part_2
           - file: Topic_4/Crash_Course_in_Python_Part_3
+  - caption: "Topic 5\uFE0F\u20E3"
+    chapters:
+      - file: Topic_5/Objectives
+        title: "Tools for Scientific Python"
+        sections:
+          - file: Topic_5/Introduction_to_Numpy/Introduction_to_numpy
+          - file: Topic_5/Introduction_to_Numpy/Basics_of_numpy
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks

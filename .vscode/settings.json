@@ -1,17 +1,15 @@
 {
-    "grammarly.selectors": [
-        {
-            "language": "markdown",
-            "scheme": "file",
-            "pattern": "jupyterbook/Course_Materials/Final_project.md"
-        },
-        {
-            "language": "markdown",
-            "scheme": "vscode-notebook-cell"
-        }
-    ],
-    "python.formatting.provider": "black",
-    "cSpell.words": [
-        "dsum"
-    ]
+  "grammarly.selectors": [
+    {
+      "language": "markdown",
+      "scheme": "file",
+      "pattern": "jupyterbook/Course_Materials/Final_project.md"
+    },
+    {
+      "language": "markdown",
+      "scheme": "vscode-notebook-cell"
+    }
+  ],
+  "python.formatting.provider": "black",
+  "cSpell.words": ["conda", "dsum"]
 }
