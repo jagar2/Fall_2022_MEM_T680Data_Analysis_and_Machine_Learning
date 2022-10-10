@@ -50,6 +50,7 @@ parts:
         sections:
           - file: Topic_5/Introduction_to_Numpy/Introduction_to_numpy
           - file: Topic_5/Introduction_to_Numpy/Basics_of_numpy
+          - file: Topic_5/Intro_to_scipy/introduction_to_scipy
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
