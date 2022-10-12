@@ -340,7 +340,7 @@ from IPython.display import HTML
 
 HTML(
     '<iframe width="800" height="450" src="https://www.youtube.com/embed/cQ54GDm1eL0" title="You Won’t Believe What Obama Says In This Video! 😉" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-)
+) 
 
 
 # ![](./figs/Faceswap.jpeg)
