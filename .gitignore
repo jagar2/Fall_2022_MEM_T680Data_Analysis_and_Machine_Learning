@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 jupyterbook/_build/html/_sources/.DS_Store
 notes.txt
+jupyterbook/Topic_5/Interactive Plotting/dash_scripts/*
+
