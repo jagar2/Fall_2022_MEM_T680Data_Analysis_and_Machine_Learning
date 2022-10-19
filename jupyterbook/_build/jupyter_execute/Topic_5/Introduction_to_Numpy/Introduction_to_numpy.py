@@ -45,7 +45,7 @@
 # In[1]:
 
 
-get_ipython().run_cell_magic('time', '', 'a = range(0,1000000)\nb = range(0,1000000)\n\nc = []\nfor i in range(len(a)):\n    c.append(a[i]*b[i])\n')
+get_ipython().run_cell_magic('time', '', 'a = range(0,1000000)\nb = range(0,1000000)\n\nc = []\nfor i in range(len(a)):\n    c.append(a[i]*b[i])')
 
 
 # We get the right answer but it takes a long time. There are ways that we could write this in C that are much more efficient. The good thing about python is that someone has done this for you.
@@ -71,7 +71,7 @@ b = np.array(b)
 # In[3]:
 
 
-get_ipython().run_cell_magic('time', '', '\nc = a * b\n')
+get_ipython().run_cell_magic('time', '', '\nc = a * b')
 
 
 # ## Why is NumPy so Fast?

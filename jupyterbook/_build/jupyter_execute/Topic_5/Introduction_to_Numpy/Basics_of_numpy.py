@@ -7,7 +7,7 @@
 # 
 # ## Installing NumPy
 # 
-# Most Python distributions include NumPy, if you do not have it installed you can install it with:
+# Most Python distributions include NumPy; if you do not have it installed, you can install it with:
 # 
 # `conda install numpy`
 # 
@@ -17,7 +17,7 @@
 
 # ## Importing NumPy
 # 
-# To use NumPy you need to import it. The convention for importing NumPy is:
+# To use NumPy, you need to import it. The convention for importing NumPy is:
 # 
 # `import numpy as np`
 
@@ -32,7 +32,7 @@
 # ## What is an Array? 
 # 
 # * An array is a central data structure of the NumPy library. 
-# * An array is a grid of values and it contains information about the raw data, how to locate an element, and how to interpret an element. 
+# * An array is a grid of values, and it contains information about the raw data, how to locate an element, and how to interpret an element. 
 # * It has a grid of elements that can be indexed in [various ways](https://numpy.org/doc/stable/user/quickstart.html#quickstart-indexing-slicing-and-iterating). 
 # * The elements are all of the same type, referred to as the array dtype.
 # 
@@ -73,7 +73,7 @@ a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
 # 
 # * We can access the elements in the array using square brackets. 
 # * When you’re accessing elements, remember that indexing in NumPy starts at 0. 
-#     * That means that if you want to access the first element in your array, you’ll be accessing element “0”.
+#     * That means that if you want to access the first element in your array, you’ll access element “0”.
 
 # In[4]:
 
@@ -135,7 +135,7 @@ print(a)
 a = np.array([1,2,3])
 
 
-# ### Other array creation methods
+# ### Other array-creation methods
 
 # #### Zeros
 
@@ -160,13 +160,13 @@ print(np.ones(2))
 # In[11]:
 
 
-get_ipython().run_cell_magic('time', '', 'a = np.zeros((10000,1000,1000))\n')
+get_ipython().run_cell_magic('time', '', 'a = np.zeros((10000,1000,1000))')
 
 
 # In[12]:
 
 
-get_ipython().run_cell_magic('time', '', 'del(a)\na = np.empty((10000,1000,1000))\n')
+get_ipython().run_cell_magic('time', '', 'del(a)\na = np.empty((10000,1000,1000))')
 
 
 # #### An ordered array
@@ -458,7 +458,7 @@ five_up = (a > 5) | (a == 5)
 print(five_up)
 
 
-# You can also find the index that satisfy a condition using `np.argwhere`
+# You can also find the index that satisfies a condition using `np.argwhere`
 
 # In[43]:
 
@@ -495,7 +495,7 @@ arr1 = a[3:8]
 arr1
 
 
-# Here, you grabbed a section of your array from index position 3 through index position 8.
+# You grabbed a section of your array from index position 3 through index position 8.
 
 # You can also stack two existing arrays, both vertically and horizontally. Let’s say you have two arrays, `a1` and `a2`:
 
@@ -557,7 +557,7 @@ f(a)
 f(b)
 
 
-# See, they really are the same, this is useful if you want to save memory
+# See, they are the same; this is useful if you want to save memory
 
 # ### View or Shallow Copy
 # 
@@ -600,7 +600,7 @@ c[0, 4] = 1234         # a's data changes
 a
 
 
-# Note that operations on the object can be applied without effecting the original object. If a value is changed it does effect the original object.
+# Note that operations on the object can be applied without affecting the original object. If a value is changed, it does affect the original object.
 
 # ### Deep Copy
 # The copy method makes a complete copy of the array and its data
@@ -677,7 +677,7 @@ data * data
 data / data
 
 
-# Basic operations are simple with NumPy. If you want to find the sum of the elements in an array, you’d use `sum()`. This works for 1D arrays, 2D arrays, and arrays in higher dimensions.
+# Basic operations are simple with NumPy. If you want to find the sum of the elements in an array, you will use `sum`()`. This works for 1D arrays, 2D arrays, and arrays in higher dimensions.
 
 # In[67]:
 
@@ -708,12 +708,12 @@ b.sum(axis=1)
 
 # [Learn More about basic operations here](https://numpy.org/doc/stable/user/quickstart.html#quickstart-basic-operations)
 
-# Besides `sum` there are a plethora of built in calculations. You can discover more [here](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation)
+# Besides `sum` there are a plethora of built-in calculations. You can discover more [here](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation)
 
 # ## Broadcasting
 # 
 # There are times when you might want to carry out an operation between an array and a single number (also called an operation between a vector and a scalar) or between arrays of two different sizes. 
-# * For example, your array (we’ll call it “data”) might contain information about distance in miles but you want to convert the information to kilometers. You can perform this operation with:
+# * For example, your array (we’ll call it “data”) might contain information about distance in miles, but you want to convert the information to kilometers. You can perform this operation with:
 
 # In[70]:
 
@@ -724,7 +724,7 @@ data * 1.6
 
 # ![](figs/np_multiply_broadcasting.png)
 # 
-# NumPy understands that the multiplication should happen with each cell.  
+# NumPy understands that multiplication should happen with each cell.  
 # * Broadcasting is a mechanism that allows NumPy to perform operations on arrays of different shapes. 
 # * The dimensions of your array must be compatible, for example, when the dimensions of both arrays are equal or when one of them is 1. 
 # * If the dimensions are not compatible, you will get a ValueError.
@@ -743,13 +743,15 @@ data * 1.6
 # In[71]:
 
 
+
 a = np.array([11, 11, 12, 13, 14, 15, 16, 17, 12, 13, 11, 14, 18, 19, 20])
 
 
-# you can use `np.unique` to print the unique values in your array:
+# You can use `np.unique` to print the unique values in your array:
 # 
 
 # In[72]:
+
 
 
 unique_values = np.unique(a)
@@ -765,12 +767,12 @@ unique_values, indices_list = np.unique(a, return_index=True)
 print(indices_list)
 
 
-# There are many more options which can be read in the doc string
+# There are many more options that can be read in the doc string
 
 # In[74]:
 
 
-get_ipython().run_line_magic('pinfo2', ' np.unique')
+get_ipython().run_line_magic('pinfo2', 'np.unique')
 
 
 # ## Transposing and Reshaping
@@ -786,7 +788,7 @@ data = np.array([[1, 2], [3, 4], [5, 6]])
 data.T
 
 
-# You may also need to switch the dimensions of a matrix. This can happen when, for example, you have a model that expects a certain input shape that is different from your dataset. This is where the `reshape` method can be useful. You simply need to pass in the new dimensions that you want for the matrix.
+# You may also need to switch the dimensions of a matrix. This can happen when, for example, you have a model that expects a specific input shape that is different from your dataset. This is where the `reshape` method can be helpful. You simply need to pass in the new dimensions that you want for the matrix.
 # 
 # ![](figs/np_reshape.png)
 

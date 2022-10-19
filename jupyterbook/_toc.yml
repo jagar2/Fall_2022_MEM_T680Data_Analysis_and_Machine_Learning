@@ -69,3 +69,5 @@ parts:
             title: "How to Find a Dataset?"
           - file: "Final Project Resources/white_paper_submission"
             title: White Paper Submission
+          - file: "Final Project Resources/Final_project_booking"
+            title: Final Project Booking

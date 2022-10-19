@@ -310,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
      Welcome to NumPy!
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Intro_to_scipy/introduction_to_scipy.html">
+     Introduction to SciPy
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -365,7 +370,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../Final%20Project%20Resources/white_paper_submission.html">
-     White Paper Submission
+     Final_project_booking
     </a>
    </li>
   </ul>
@@ -841,7 +846,11 @@ With Colab, you can harness the full power of popular Python libraries to analyz
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found GPU at: /device:GPU:0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found GPU at: /device:GPU:0Metal device set to: Apple M1 Max
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-11 13:54:46.930243: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2022-10-11 13:54:46.930375: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/device:GPU:0 with 0 MB memory) -&gt; physical PluggableDevice (device: 0, name: METAL, pci bus id: &lt;undefined&gt;)
 </pre></div>
 </div>
 </div>
@@ -906,10 +915,16 @@ to compare execution speed.</p>
 CPU (s):
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6084959998261184
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-11 13:54:46.936622: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2022-10-11 13:54:46.936634: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/device:GPU:0 with 0 MB memory) -&gt; physical PluggableDevice (device: 0, name: METAL, pci bus id: &lt;undefined&gt;)
+2022-10-11 13:54:46.936973: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2022-10-11 13:54:46.936979: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -&gt; physical PluggableDevice (device: 0, name: METAL, pci bus id: &lt;undefined&gt;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5061626669994439
 GPU (s):
-0.02882780018262565
-GPU speedup over CPU: 21x
+0.12393245899875183
+GPU speedup over CPU: 4x
 </pre></div>
 </div>
 </div>
@@ -942,7 +957,7 @@ GPU speedup over CPU: 21x
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Topic_2\4_working_in_colab"
+            path: "./Topic_2/4_working_in_colab"
         },
         predefinedOutput: true
     }
