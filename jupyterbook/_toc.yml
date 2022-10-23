@@ -63,6 +63,10 @@ parts:
             title: "\U0001F4DD Homework 2 Scripting in Python"
   - caption: "Final Project Resources"
     chapters:
+      - file: Midterm/midterm
+        title: Take Home Midterm
+  - caption: "Final Project Resources"
+    chapters:
       - file: Final Project Resources/TOC.md
         sections:
           - file: "Final Project Resources/How_to_find_a_Dataset"
