@@ -206,7 +206,7 @@ plt.show()
 # 
 # There are several general interpolation facilities available in SciPy, for data in 1, 2, and higher dimensions:
 # 
-# - A class representing an interpolant ([interp1d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d)) in 1-D, offering several interpolation methods.
+# - A class representing an interplant ([interp1d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d)) in 1-D, offering several interpolation methods.
 # - Convenience function [griddata](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata) offer a simple interface to interpolation in N dimensions (N = 1, 2, 3, 4, …). Object-oriented interface for the underlying routines is also available.
 # - [RegularGridInterpolator](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RegularGridInterpolator.html#scipy.interpolate.RegularGridInterpolator) provides several interpolation methods on a regular grid in arbitrary (N) dimensions,
 # 

@@ -3,6 +3,8 @@
 
 # # Take Home Midterm -- Building a Game of Craps
 # 
+# **Due Nov. 15, 2022 - 2:00 pm**
+# 
 # ## Overview
 # 
 # This class is about developing new skills -- not memorization. The only way to develop new skills is to provide challenges that push your boundaries. I expect this midterm will achieve this objective. Since the exam is non-traditional, the grading will be as well. Your assignment is to build part of a playable texted-based game of craps.
