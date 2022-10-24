@@ -754,6 +754,7 @@ print(x.__next__())
 # In[1]:
 
 
+
 def nextSquare():
     # Your Code here
 
@@ -767,6 +768,7 @@ for i in range(100):
 
 
 # In[37]:
+
 
 
 def nextSquare():

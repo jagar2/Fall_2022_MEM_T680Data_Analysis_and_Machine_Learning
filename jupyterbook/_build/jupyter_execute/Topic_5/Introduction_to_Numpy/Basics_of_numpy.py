@@ -160,13 +160,13 @@ print(np.ones(2))
 # In[11]:
 
 
-get_ipython().run_cell_magic('time', '', 'a = np.zeros((10000,1000,1000))\n')
+get_ipython().run_cell_magic('time', '', 'a = np.zeros((10000,1000,1000))')
 
 
 # In[12]:
 
 
-get_ipython().run_cell_magic('time', '', 'del(a)\na = np.empty((10000,1000,1000))\n')
+get_ipython().run_cell_magic('time', '', 'del(a)\na = np.empty((10000,1000,1000))')
 
 
 # #### An ordered array
@@ -743,6 +743,7 @@ data * 1.6
 # In[71]:
 
 
+
 a = np.array([11, 11, 12, 13, 14, 15, 16, 17, 12, 13, 11, 14, 18, 19, 20])
 
 
@@ -750,6 +751,7 @@ a = np.array([11, 11, 12, 13, 14, 15, 16, 17, 12, 13, 11, 14, 18, 19, 20])
 # 
 
 # In[72]:
+
 
 
 unique_values = np.unique(a)
@@ -770,7 +772,7 @@ print(indices_list)
 # In[74]:
 
 
-get_ipython().run_line_magic('pinfo2', ' np.unique')
+get_ipython().run_line_magic('pinfo2', 'np.unique')
 
 
 # ## Transposing and Reshaping

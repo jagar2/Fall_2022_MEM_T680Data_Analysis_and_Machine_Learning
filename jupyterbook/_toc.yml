@@ -53,6 +53,8 @@ parts:
           - file: Topic_5/Introduction_Matplotlib/Introduction_to_Plotting
           - file: Topic_5/Interactive Plotting/Interactive_Graphing_with_Dash
           - file: Topic_5/Intro_to_scipy/introduction_to_scipy
+          - file: Topic_5/SymPy/SymPy
+            title: Symbolic Solving with SymPy
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
@@ -61,7 +63,7 @@ parts:
             title: "\U0001F4DD Homework 1 Designing a Metadata Schema"
           - file: Homeworks/Homework_2_scripting/Homework 2_Assignment
             title: "\U0001F4DD Homework 2 Scripting in Python"
-  - caption: "Final Project Resources"
+  - caption: "Take Home Midterm"
     chapters:
       - file: Midterm/midterm
         title: Take Home Midterm

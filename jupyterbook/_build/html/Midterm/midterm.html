@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Take Home Midterm – Building a Game of Craps &#8212; MEM T680: Fall 2022: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/Drexel_M3_Logo-01.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Final Project Resources" href="../Final%20Project%20Resources/TOC.html" />
+    <link rel="prev" title="Homework 2: Learning How to Script in Python" href="../Homeworks/Homework_2_scripting/Homework%202_Assignment.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/Drexel_M3_Logo-01.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2022: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    MEM T680: Data Analysis and Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Course_Materials/Course_materials.html">
+   Course Materials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/syllabus.html">
+     Syllabus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/Course_survey.html">
+     Course Survey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/Survey_Response.html">
+     Survey Responses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/Final_project.html">
+     Final Project
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_1/Objectives.html">
+   Importance and Challenges in Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_1/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+     Importance of Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_1/T2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">
+     Challenges in Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_2/Objectives.html">
+   Setting Up Your Computing Environment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/1_Introduction_to_MEMT680/Introduction_to_MEMT680.html">
+     Introduction to the Course Machinery
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/2_Navigating_Jupyter/navigating_jupyter.html">
+     Using Project Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment.html">
+     Setting up your Computing Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/4_working_in_colab/Welcome_To_Colaboratory.html">
+     Welcome to Colaboratory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/5_Introduction_to_git/Introduction_to_GIT.html">
+     Introduction to GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_3/Objectives.html">
+   What You Can Do With Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_3/1_What_you_can_do_with_ML/What_you_can_do_with_machine_learning.html">
+     What You Can Do With Machine Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_4/Objectives.html">
+   A Crash Course in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_4/Crash_Course_in_Python_Part_1.html">
+     A Crash Course in Python: Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_4/Crash_Course_in_Python_Part_2.html">
+     Crash Course in Python Part 2: Flow Control, Loops, Functions, and Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_4/Crash_Course_in_Python_Part_3.html">
+     A Crash Course in Python: Part 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_5/Objectives.html">
+   Tools for Scientific Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Introduction_to_Numpy/Introduction_to_numpy.html">
+     What is NumPy?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Introduction_to_Numpy/Basics_of_numpy.html">
+     Welcome to NumPy!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Introduction_Matplotlib/Introduction_to_Plotting.html">
+     Introduction to Plotting in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Interactive%20Plotting/Interactive_Graphing_with_Dash.html">
+     Interactive Graphing with Dash
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Intro_to_scipy/introduction_to_scipy.html">
+     Introduction to SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/SymPy/SymPy.html">
+     Symbolic Solving with SymPy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Homeworks/Homeworks.html">
+   Homework Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Homeworks/Homework_1_Designing%20A%20Metadata%20Schema/Homework%201%20Designing%20a%20Metadata%20Schema.html">
+     📝 Homework 1 Designing a Metadata Schema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Homeworks/Homework_2_scripting/Homework%202_Assignment.html">
+     📝 Homework 2 Scripting in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Take Home Midterm
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Take Home Midterm
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Final Project Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Final%20Project%20Resources/TOC.html">
+   Final Project Resources
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Final%20Project%20Resources/How_to_find_a_Dataset.html">
+     How to Find a Dataset?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Final%20Project%20Resources/white_paper_submission.html">
+     White Paper Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Final%20Project%20Resources/Final_project_booking.html">
+     Final Project Booking
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/main?urlpath=tree/jupyterbook/Midterm/midterm.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook&urlpath=tree/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Midterm/midterm.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/blob/main/jupyterbook/Midterm/midterm.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook/issues/new?title=Issue%20on%20page%20%2FMidterm/midterm.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Midterm/midterm.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rules-of-engagement">
+     Rules of Engagement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-play-craps">
+   How to Play Craps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rules-of-craps">
+     Rules of Craps
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#come-out-phase">
+       Come Out Phase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#point-phase">
+       Point Phase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#payouts">
+       Payouts
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-game">
+     Your Game
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Take Home Midterm – Building a Game of Craps</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rules-of-engagement">
+     Rules of Engagement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-play-craps">
+   How to Play Craps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rules-of-craps">
+     Rules of Craps
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#come-out-phase">
+       Come Out Phase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#point-phase">
+       Point Phase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#payouts">
+       Payouts
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-game">
+     Your Game
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="take-home-midterm-building-a-game-of-craps">
+<h1>Take Home Midterm – Building a Game of Craps<a class="headerlink" href="#take-home-midterm-building-a-game-of-craps" title="Permalink to this headline">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<p>This class is about developing new skills – not memorization. The only way to develop new skills is to provide challenges that push your boundaries. I expect this midterm will achieve this objective. Since the exam is non-traditional, the grading will be as well. Your assignment is to build part of a playable texted-based game of craps.</p>
+<section id="rules-of-engagement">
+<h3>Rules of Engagement<a class="headerlink" href="#rules-of-engagement" title="Permalink to this headline">#</a></h3>
+<p>I would like you to work collaboratively to solve this problem. I imagine most of you would struggle with this assignment independently, while collectively, it should be doable. I, however, want to make sure your work is original. To ensure this, I am requesting the following:</p>
+<ol class="simple">
+<li><p>You are allowed to work and discuss with your classmates, <strong>but do not share code</strong>. You can look at each other’s code, but you should write it yourself.</p></li>
+<li><p>Your code should be documented with extreme detail. Please explain why every line of code is necessary and what it does. The documentation of your code will be more critical in determining your grade than the code itself.</p></li>
+<li><p>In this assignment, I expect you to create a github repository for your code. I would like you to make regular commits to the git repository during the stages of your code development. I will use this to evaluate effort, troubleshooting, and learning. I could not complete this assignment without making significant revisions to the structure of the code. I want to see this learning process in the git repository.</p></li>
+<li><p>In your git repository, include a <a class="reference external" href="http://readme.md">readme.md</a> that tells me how to run your code.</p></li>
+<li><p>You should turn in your midterm by providing me a link to your git repository</p></li>
+</ol>
+</section>
+</section>
+<section id="how-to-play-craps">
+<h2>How to Play Craps<a class="headerlink" href="#how-to-play-craps" title="Permalink to this headline">#</a></h2>
+<p>Craps is a game where players can bet on a dice roll of two dice. In craps, there are many bets that a player can make. We will implement some of them.</p>
+<section id="rules-of-craps">
+<h3>Rules of Craps<a class="headerlink" href="#rules-of-craps" title="Permalink to this headline">#</a></h3>
+<p>Players take turns rolling two dice, and whoever throws the dice is called the “shooter”. Players can bet on the various options by placing chips directly on the appropriately-marked sections of the table.</p>
+<p>While acting as the shooter, a player must have a bet on the “Pass” line and the “Don’t Pass” line. “Pass” and “Don’t Pass” are sometimes called “Win” and “Don’t Win” or “Right” and “Wrong” bets. The game is played in rounds, and these “Pass” and “Don’t Pass” bets are betting on the outcome of a round.</p>
+<p>Each round has two phases: “come-out” and “point”. The shooter makes one or more “come-out” rolls to start a round.</p>
+<section id="come-out-phase">
+<h4>Come Out Phase<a class="headerlink" href="#come-out-phase" title="Permalink to this headline">#</a></h4>
+<p>A come-out roll of 2, 3, or 12 is called “craps” or “crapping out,” and anyone betting the Pass line loses. On the other hand, anyone betting the Don’t Pass line on come out wins with a roll of 2 or 3, and ties (pushes) if a 12 is rolled.</p>
+<p>Shooters may keep rolling after crapping out; the dice are only required to be passed if a shooter sevens out (rolls a seven after a point has been established). A come-out roll of 7 or 11 is a “natural”; the Pass line wins and Don’t Pass loses.</p>
+<p>The other possible numbers are point numbers: 4, 5, 6, 8, 9, and 10. If the shooter rolls one of these numbers on the come-out roll, this establishes the “point” – to “pass” or “win”, the point number must be rolled again before a seven to win.</p>
+</section>
+<section id="point-phase">
+<h4>Point Phase<a class="headerlink" href="#point-phase" title="Permalink to this headline">#</a></h4>
+<p>The dealer flips a button to the “On” side and moves it to the point number signifying the second phase of the round.</p>
+<p>If the shooter “hits” the point value again (any value of the dice that sum to the point) before rolling a seven, the Pass line wins, and a new round starts.</p>
+<p>If the shooter rolls any seven before repeating the point number (a “seven-out”), the Pass line loses, and the Don’t Pass line wins.</p>
+<p>Once a point has been established, any multi-roll bet (including Pass and Don’t Pass line bets and odds) are unaffected by the 2, 3, 11, or 12; the only numbers which affect the round are the established point, any specific bet on a number, or any 7.</p>
+</section>
+<section id="payouts">
+<h4>Payouts<a class="headerlink" href="#payouts" title="Permalink to this headline">#</a></h4>
+<p>Each bet has different payouts and betting rules.</p>
+<p>A win on the pass line pays 1:1 odds, with a house edge of 1.41%.</p>
+<p>A win on the don’t pass line pays 1:1 odds, with a house edge of 1.36%</p>
+<p>Once the point is established, you can place an odds bet. These bets have no house edge. Generally, the casino will stipulate that odds bets are restricted to 3x, 4x, 5x the pass line bet for the (4 and 10), (5 and 9), and (6 and 8), respectively. These bets pay the odds: 2 and 10 pays 2 to 1, 5 and 9 pays 3 to 2, and 4 and 6 pays 5 to 6.</p>
+<p>When the odds bets wins, the initial bet is removed from the table. If the pass or do not pass line wins the initial bet remains on the table.</p>
+<p><img alt="" src="../_images/Odds.png" /></p>
+<p>Before trying to implement the game of craps I would recommend playing a few games online</p>
+<p><a class="reference external" href="https://wizardofodds.com/play/craps/v2/">Online Craps Game</a></p>
+</section>
+</section>
+<section id="your-game">
+<h3>Your Game<a class="headerlink" href="#your-game" title="Permalink to this headline">#</a></h3>
+<p>You will implement these initial betting options in a text-based craps game for your midterm. To provide some guidance, you should adhere to the following guidelines.</p>
+<p>Hint: For each class with inheritance, the initialization the first line should include <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code>. This will allow you to refer to the parent classes without explicitly naming them.</p>
+<ol>
+<li><p>You should define a class called <code class="docutils literal notranslate"><span class="pre">Dice</span></code>. This class should hold the current value of two dice. (<strong>10 points</strong>)</p>
+<ol class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Dice</span></code> should have a method <code class="docutils literal notranslate"><span class="pre">roll</span></code> that rolls the 6-sided dice</p></li>
+</ol>
+</li>
+<li><p>You should define a class <code class="docutils literal notranslate"><span class="pre">Table</span></code> (<strong>10 points</strong>)</p>
+<ol class="simple">
+<li><p>This class should inherit the <code class="docutils literal notranslate"><span class="pre">Dice</span></code> which are associated with the table.</p></li>
+<li><p>The table has a state <code class="docutils literal notranslate"><span class="pre">point</span></code> that determines if the point has been set or not.</p></li>
+</ol>
+</li>
+<li><p>Define a <code class="docutils literal notranslate"><span class="pre">Class</span></code> for the player - note the player belongs to the table and thus should inherit from it. (<strong>15 points</strong>)</p>
+<ol>
+<li><p>In the initialization, the code should ask the user to input a name and save the player’s name. Hint: you can use the built-in method <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p></li>
+<li><p>In the initialization, it should ask the player what their bankroll is? That is how much money they have on the table</p></li>
+<li><p>The table only allows bets of dollars, cents cannot be used. Figure out a way to enforce this.</p>
+<ol class="simple">
+<li><p>The script should tell the player they cannot have a bankroll that is not convertible into a dollar amount.</p></li>
+</ol>
+<ul class="simple">
+<li><p>You can use error handling <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> for this</p></li>
+</ul>
+<ol class="simple">
+<li><p>If the user enters a value that is not acceptable - prompt the user to enter their bankroll again. Hint: This might be an excellent place to use a decorator</p></li>
+<li><p>The script should continue to ask the user for their bankroll until a valid number is entered.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Define an <code class="docutils literal notranslate"><span class="pre">Class</span></code> for <code class="docutils literal notranslate"><span class="pre">bets</span></code> (<strong>65 Points - you can earn 80</strong>)</p>
+<ol class="simple">
+<li><p>The bets should belong to the player and thus, it would make sense to inherit from them.</p></li>
+<li><p>Within the <code class="docutils literal notranslate"><span class="pre">bets</span></code> <code class="docutils literal notranslate"><span class="pre">class</span></code> you should keep track of all the possible bets - <code class="docutils literal notranslate"><span class="pre">pass</span> <span class="pre">line</span></code>, <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">not</span> <span class="pre">pass</span></code>, <code class="docutils literal notranslate"><span class="pre">odds_bet</span></code>; it might also be good to store the maximum allowable odds bet in the current state.</p></li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">insufficient_funds</span></code> that is called if the player enters a bet greater than their bankroll. This should print the name of the player, and that they have insufficient funds to place a bet (list the amount) on the bet position. (<strong>5 points</strong>)</p>
+<ul class="simple">
+<li><p>It should prompt the player to make another bet</p></li>
+</ul>
+</li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">pass_line</span></code> - this method should allow the player to set a bet on the pass line only if the point has not been established and the player has enough funds for their bet.</p>
+<ul class="simple">
+<li><p>Make sure to update the bankroll (<strong>5 points</strong>)</p></li>
+</ul>
+</li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">do_not_pass</span></code> - - this method should allow the player to set a bet on the do not pass line only if the point has not been established and the player has enough funds for their bet.</p>
+<ul class="simple">
+<li><p>Make sure to update the bankroll (<strong>5 points</strong>)</p></li>
+</ul>
+</li>
+<li><p>Implement a method betting_turn that starts the betting phase (<strong>10 points</strong>)</p>
+<ol class="simple">
+<li><p>Ask the user if they want to place any bets. Accepts a yes or no answer - case insensitive</p></li>
+<li><p>Ask the user where they want to bet - there are two options, pass line or do not pass line. – Make sure this is case insensitive. You should save where you are placing your bets.</p></li>
+<li><p>Call an <code class="docutils literal notranslate"><span class="pre">ingest_bet</span></code> method which we will define later. This method should return the bet amount.</p></li>
+<li><p>If the player inputs an invalid bet name, call this method again so the player can make a valid bet</p></li>
+</ol>
+</li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">ingest_bet</span></code> this method should: (<strong>10 points</strong>)</p>
+<ol class="simple">
+<li><p>Prompt the user for a bet - enforce that this is an integer value – if not, tell the player that a non-integer value cannot be used and prompt them to make another wager.</p></li>
+<li><p>Check to see if the player made a zero bet – if they did, prompt them that it is not allowed and ask them to make another wager</p></li>
+<li><p>Check to make sure the player did not bet more money than they have – If they did, tell them they cannot and tell them the maximum value they can bet</p></li>
+<li><p>Make sure this method returns the bet amount.</p></li>
+</ol>
+</li>
+<li><p>Build methods that print the bet made, bet won, and bets lost. These should identify the amount of money won or lost and the remaining balance. (<strong>5 points</strong>)</p></li>
+<li><p>Build a method called <code class="docutils literal notranslate"><span class="pre">Shooter</span></code> that checks if any there are any active bets - if there are, it should roll the dice and evaluate payouts (<strong>5 points</strong>)</p></li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">Bet_loser</span></code> that prints that save the losing bet type and amount. This should then call the <code class="docutils literal notranslate"><span class="pre">bets_lost</span></code> method (<strong>5 points</strong>)</p></li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">Bet_winner</span></code> this should: (<strong>10 points</strong>)</p>
+<ol class="simple">
+<li><p>Save the winning bet type and amount.</p></li>
+<li><p>Add the winning amount to your bankroll</p></li>
+<li><p>Remove the odds bets - as these are only allowed once the point is established. They should be returned to the bankroll.</p></li>
+<li><p>Call the method to print the winning bet</p></li>
+</ol>
+</li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">Odds</span></code>, this method, when called should: (<strong>5 points</strong>)</p>
+<ol class="simple">
+<li><p>Check to see if an odds bet can be made. - There must be an existing pass-line bet by the player</p></li>
+<li><p>Determine the maximum bet that can be placed. This is the lower of the bankroll or the allowable multiple of the pass-line bet set by the casino 3-4-5.</p></li>
+<li><p>Print a statement providing the user with the maximum bet they can place, and their current bankroll</p></li>
+<li><p>Call the ingest bet function to place an odds bet</p></li>
+<li><p>Remove the bet amount from the current bankroll</p></li>
+</ol>
+</li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">Payout</span></code>. This method I will not provide a guideline for this, however, it should: (<strong>15 points</strong>)</p>
+<ol class="simple">
+<li><p>Reconcile all bets based on outcomes</p></li>
+<li><p>If there are no active bets, it should prompt the user to make a new bet or walk away with their remaining money</p>
+<ul class="simple">
+<li><p>If they do this, it should tell them how much they won or lost</p></li>
+</ul>
+</li>
+<li><p>If there are active bets, it should prompt them to roll the dice again</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Midterm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Homeworks/Homework_2_scripting/Homework%202_Assignment.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Homework 2: Learning How to Script in Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Final%20Project%20Resources/TOC.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Final Project Resources</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
