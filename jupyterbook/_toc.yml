@@ -55,6 +55,12 @@ parts:
           - file: Topic_5/Intro_to_scipy/introduction_to_scipy
           - file: Topic_5/SymPy/SymPy
             title: Symbolic Solving with SymPy
+  - caption: "Topic 6\uFE0F\u20E3"
+    chapters:
+      - file: Topic_6/Objectives
+        title: "Image Analysis in Python"
+        sections:
+          - file: Topic_6/Image_Analysis
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
