@@ -61,6 +61,14 @@ parts:
         title: "Image Analysis in Python"
         sections:
           - file: Topic_6/Image_Analysis
+  - caption: "Topic 7\uFE0F\u20E3"
+    chapters:
+      - file: Topic_7/Objectives
+        title: "Scientific Data Management with DataFed"
+        sections:
+          - file: Topic_7/DataFed/DataFed_Installation
+          - file: Topic_7/DataFed/DataFed_An_Introduction
+          - file: Topic_7/DataFed/DataFed_Tutorial
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
