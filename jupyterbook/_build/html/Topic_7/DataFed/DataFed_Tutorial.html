@@ -1,0 +1,4057 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DataFed Tutorial &#8212; MEM T680: Fall 2022: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/Drexel_M3_Logo-01.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Homework Assignments" href="../../Homeworks/Homeworks.html" />
+    <link rel="prev" title="Introduction to DataFed" href="DataFed_An_Introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/Drexel_M3_Logo-01.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2022: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MEM T680: Data Analysis and Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Course_Materials/Course_materials.html">
+   Course Materials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/syllabus.html">
+     Syllabus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Course_survey.html">
+     Course Survey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Survey_Response.html">
+     Survey Responses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Final_project.html">
+     Final Project
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_1/Objectives.html">
+   Importance and Challenges in Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+     Importance of Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">
+     Challenges in Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_2/Objectives.html">
+   Setting Up Your Computing Environment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/1_Introduction_to_MEMT680/Introduction_to_MEMT680.html">
+     Introduction to the Course Machinery
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/2_Navigating_Jupyter/navigating_jupyter.html">
+     Using Project Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment.html">
+     Setting up your Computing Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/4_working_in_colab/Welcome_To_Colaboratory.html">
+     Welcome to Colaboratory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/5_Introduction_to_git/Introduction_to_GIT.html">
+     Introduction to GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_3/Objectives.html">
+   What You Can Do With Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_3/1_What_you_can_do_with_ML/What_you_can_do_with_machine_learning.html">
+     What You Can Do With Machine Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_4/Objectives.html">
+   A Crash Course in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_1.html">
+     A Crash Course in Python: Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_2.html">
+     Crash Course in Python Part 2: Flow Control, Loops, Functions, and Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_3.html">
+     A Crash Course in Python: Part 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_5/Objectives.html">
+   Tools for Scientific Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_to_Numpy/Introduction_to_numpy.html">
+     What is NumPy?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_to_Numpy/Basics_of_numpy.html">
+     Welcome to NumPy!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_Matplotlib/Introduction_to_Plotting.html">
+     Introduction to Plotting in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Interactive%20Plotting/Interactive_Graphing_with_Dash.html">
+     Interactive Graphing with Dash
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Intro_to_scipy/introduction_to_scipy.html">
+     Introduction to SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/SymPy/SymPy.html">
+     Symbolic Solving with SymPy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_6/Objectives.html">
+   Image Analysis in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_6/Image_Analysis.html">
+     Introduction to Image Analysis with Scikit-Image
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7️⃣
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Objectives.html">
+   Scientific Data Management with DataFed
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="DataFed_Installation.html">
+     Installing DataFed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DataFed_An_Introduction.html">
+     Introduction to DataFed
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     DataFed Tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Homeworks/Homeworks.html">
+   Homework Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_1_Designing%20A%20Metadata%20Schema/Homework%201%20Designing%20a%20Metadata%20Schema.html">
+     📝 Homework 1 Designing a Metadata Schema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_2_scripting/Homework%202_Assignment.html">
+     📝 Homework 2 Scripting in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Take Home Midterm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Midterm/midterm.html">
+   Take Home Midterm
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Final Project Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Final%20Project%20Resources/TOC.html">
+   Final Project Resources
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/How_to_find_a_Dataset.html">
+     How to Find a Dataset?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/white_paper_submission.html">
+     White Paper Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/Final_project_booking.html">
+     Final Project Booking
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/main?urlpath=tree/jupyterbook/Topic_7/DataFed/DataFed_Tutorial.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook&urlpath=tree/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/DataFed_Tutorial.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/blob/main/jupyterbook/Topic_7/DataFed/DataFed_Tutorial.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook/issues/new?title=Issue%20on%20page%20%2FTopic_7/DataFed/DataFed_Tutorial.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Topic_7/DataFed/DataFed_Tutorial.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started-with-datafed">
+   Getting Started with DataFed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-datafed-function">
+     First DataFed function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datafed-messages">
+     DataFed Messages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contexts">
+     Contexts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-contexts">
+     Specifying contexts:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subscripting-and-iterating-messages">
+     Subscripting and Iterating messages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subscripting">
+     Subscripting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterating">
+     Iterating
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aliases-and-ids">
+   Aliases and IDs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-green-exercise-span">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-context">
+     Setting Context:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-records">
+   Data Records
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-context">
+     Specifying context:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-data-records">
+     Creating Data Records:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updating-data-records">
+     Updating Data Records
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-data-records">
+     Viewing Data Records
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#provenance">
+   Provenance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-relationships">
+     Specifying Relationships
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transferring-data-in-datafed">
+   Transferring Data in DataFed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uploading-raw-data">
+   Uploading raw data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-raw-data">
+   Downloading raw data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks">
+   Tasks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-tasks">
+     Viewing Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listing-tasks">
+     Listing Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-green-example-scenario-simulations-span">
+     <span style="color:green">
+      Example scenario - Simulations
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fake-simulation">
+       Fake simulation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-series-of-simulations">
+     Run the series of simulations:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collections-and-queries-in-datafed">
+   Collections and Queries in DataFed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-use-case">
+   Example use case:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-collection">
+     Create Collection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#populate-with-training-data">
+     Populate with training data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#define-a-function-to-generate-fake-training-data">
+       Define a function to generate (fake) training data:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generate-5-examples-of-cats-and-dogs">
+       Generate 5 examples of cats and dogs:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listing-items-in-a-collection">
+   Listing items in a Collection:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-query-search">
+   Data Query / Search
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-saved-queries">
+   Finding Saved Queries:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-saved-query">
+     View the saved query
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-a-saved-query">
+     Run a saved query
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#separating-cats-from-dogs">
+   Separating cats from dogs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-items-to-collection">
+   Adding Items to Collection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#search-or-organize">
+   Search or Organize?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-entire-collection">
+     Download entire Collection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>DataFed Tutorial</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started-with-datafed">
+   Getting Started with DataFed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-datafed-function">
+     First DataFed function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datafed-messages">
+     DataFed Messages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contexts">
+     Contexts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-contexts">
+     Specifying contexts:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subscripting-and-iterating-messages">
+     Subscripting and Iterating messages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subscripting">
+     Subscripting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterating">
+     Iterating
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aliases-and-ids">
+   Aliases and IDs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-green-exercise-span">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-context">
+     Setting Context:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-records">
+   Data Records
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-context">
+     Specifying context:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-data-records">
+     Creating Data Records:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updating-data-records">
+     Updating Data Records
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-data-records">
+     Viewing Data Records
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#provenance">
+   Provenance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-relationships">
+     Specifying Relationships
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     <span style="color:green">
+      Exercise:
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transferring-data-in-datafed">
+   Transferring Data in DataFed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uploading-raw-data">
+   Uploading raw data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-raw-data">
+   Downloading raw data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks">
+   Tasks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-tasks">
+     Viewing Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listing-tasks">
+     Listing Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-green-example-scenario-simulations-span">
+     <span style="color:green">
+      Example scenario - Simulations
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fake-simulation">
+       Fake simulation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-series-of-simulations">
+     Run the series of simulations:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collections-and-queries-in-datafed">
+   Collections and Queries in DataFed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-use-case">
+   Example use case:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-collection">
+     Create Collection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#populate-with-training-data">
+     Populate with training data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#define-a-function-to-generate-fake-training-data">
+       Define a function to generate (fake) training data:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generate-5-examples-of-cats-and-dogs">
+       Generate 5 examples of cats and dogs:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listing-items-in-a-collection">
+   Listing items in a Collection:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-query-search">
+   Data Query / Search
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-saved-queries">
+   Finding Saved Queries:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-the-saved-query">
+     View the saved query
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-a-saved-query">
+     Run a saved query
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#separating-cats-from-dogs">
+   Separating cats from dogs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-items-to-collection">
+   Adding Items to Collection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#search-or-organize">
+   Search or Organize?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-entire-collection">
+     Download entire Collection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     <span style="color:green">
+      Exercise
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="datafed-tutorial">
+<h1>DataFed Tutorial<a class="headerlink" href="#datafed-tutorial" title="Permalink to this headline">#</a></h1>
+<section id="getting-started-with-datafed">
+<h2>Getting Started with DataFed<a class="headerlink" href="#getting-started-with-datafed" title="Permalink to this headline">#</a></h2>
+<p>In this notebook we will be going over basic concepts such as <code class="docutils literal notranslate"><span class="pre">contexts</span></code>, <code class="docutils literal notranslate"><span class="pre">projects</span></code>, understanding how DataFed responds to function calls, etc.</p>
+<p>To get started, we need to import only the <code class="docutils literal notranslate"><span class="pre">API</span></code> class from <code class="docutils literal notranslate"><span class="pre">CommandLab</span></code> in the datafed package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datafed.CommandLib</span> <span class="kn">import</span> <span class="n">API</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we need to instantiate the <code class="docutils literal notranslate"><span class="pre">API</span></code> class as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span> <span class="o">=</span> <span class="n">API</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="first-datafed-function">
+<h3>First DataFed function<a class="headerlink" href="#first-datafed-function" title="Permalink to this headline">#</a></h3>
+<p>Let’s try out the DataFed API by simply asking DataFed for a list of all projects that we are part of using the <code class="docutils literal notranslate"><span class="pre">projectList()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pl_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">projectList</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pl_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(item {
+  id: &quot;p/2021_berkeley_pfm_database&quot;
+  title: &quot;2021_Berkeley_PFM_Database&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2021_lane_martin_afm_database&quot;
+  title: &quot;2021_Lane_Martin_AFM_Database&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2021_lehigh_cornell_tem&quot;
+  title: &quot;2021_Lehigh_Cornell_TEM&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2021_lehigh_wallpaper_group_symmetry&quot;
+  title: &quot;2021_Lehigh_Wallpaper_Group_Symmetry&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2022_4dtem_noisy_benchmark&quot;
+  title: &quot;2022_TEM_Noisy_Benchmark&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2022_afm_oxford&quot;
+  title: &quot;AFM Repository Oxford Instruments&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2022_datafed_tutorial_lehigh&quot;
+  title: &quot;2022_DataFed_Tutorial_Lehigh&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2022_materials_project&quot;
+  title: &quot;Materials Project Piezoresponse&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/2022_pld_plume_recording&quot;
+  title: &quot;2022_PLD_Plume_Recording&quot;
+  owner: &quot;u/yig319&quot;
+  creator: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/lehigh_2021_band_excitation_pfm&quot;
+  title: &quot;Band_Excitation_Piezoresponse_Force_Microscopy&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/lehigh_queens_university_belfast_2021&quot;
+  title: &quot;2021_4D_TEM_needles&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/lehigh.cellsorter.2021&quot;
+  title: &quot;Cell Sorter Project&quot;
+  owner: &quot;u/jca318&quot;
+}
+item {
+  id: &quot;p/lehigh.test&quot;
+  title: &quot;Lehigh Test Project&quot;
+  owner: &quot;u/stansberrydv&quot;
+}
+item {
+  id: &quot;p/trn001&quot;
+  title: &quot;TRN001 : DataFed Training&quot;
+  owner: &quot;u/somnaths&quot;
+}
+offset: 0
+count: 20
+total: 14
+, &#39;ListingReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datafed-messages">
+<h3>DataFed Messages<a class="headerlink" href="#datafed-messages" title="Permalink to this headline">#</a></h3>
+<p>DataFed responds using <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Protocol</span> <span class="pre">Buffer</span></code> or <code class="docutils literal notranslate"><span class="pre">protobuf</span></code> messages</p>
+<p>Let’s take a closer look at this response:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pl_resp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">pl_resp</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;tuple&#39;&gt; 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the reply is a tuple containing two objects, namely the protobuf message reply itself, <code class="docutils literal notranslate"><span class="pre">[0]</span></code> and the type of reply received, <code class="docutils literal notranslate"><span class="pre">ListingReply</span></code> at <code class="docutils literal notranslate"><span class="pre">[1]</span></code>. We can confirm this by checking the response type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">pl_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SDMS_Auth_pb2.ListingReply
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="contexts">
+<h3>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline">#</a></h3>
+<p>DataFed allows us to work within multiple different “data spaces” – such as our own <code class="docutils literal notranslate"><span class="pre">Personal</span> <span class="pre">Data</span></code>, and those of our <code class="docutils literal notranslate"><span class="pre">Project</span></code>s. Let’s find out what <code class="docutils literal notranslate"><span class="pre">context</span></code> DataFed automatically put us into using <code class="docutils literal notranslate"><span class="pre">getContext()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_api</span><span class="o">.</span><span class="n">getContext</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u/jca318
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, DataFed sets our working space or <code class="docutils literal notranslate"><span class="pre">context</span></code> to our own <code class="docutils literal notranslate"><span class="pre">Personal</span> <span class="pre">Data</span></code> (<code class="docutils literal notranslate"><span class="pre">u/username</span></code>).</p>
+</section>
+<section id="specifying-contexts">
+<h3>Specifying contexts:<a class="headerlink" href="#specifying-contexts" title="Permalink to this headline">#</a></h3>
+<p>If we want to take a look at the <code class="docutils literal notranslate"><span class="pre">root</span></code> collection of the Training Project, we need to specify that using the <code class="docutils literal notranslate"><span class="pre">context</span></code> keyword argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_api</span><span class="o">.</span><span class="n">collectionView</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;p/trn001&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(coll {
+  id: &quot;c/p_trn001_root&quot;
+  title: &quot;Root Collection&quot;
+  alias: &quot;root&quot;
+  desc: &quot;Root collection for project trn001&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+, &#39;CollDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s what we get when we give the same <code class="docutils literal notranslate"><span class="pre">collectionView</span></code> request without the project context:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_api</span><span class="o">.</span><span class="n">collectionView</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(coll {
+  id: &quot;c/u_jca318_root&quot;
+  title: &quot;Root Collection&quot;
+  alias: &quot;root&quot;
+  desc: &quot;Root collection for user Joshua C Agar (jca318)&quot;
+  owner: &quot;u/jca318&quot;
+  notes: 0
+}
+, &#39;CollDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="subscripting-and-iterating-messages">
+<h3>Subscripting and Iterating messages<a class="headerlink" href="#subscripting-and-iterating-messages" title="Permalink to this headline">#</a></h3>
+<p>Let us take a look at the contents of the Project (its <code class="docutils literal notranslate"><span class="pre">root</span></code> Collection) using <code class="docutils literal notranslate"><span class="pre">collectionItemsList()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionItemsList</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;p/trn001&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ls_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(item {
+  id: &quot;c/35747646&quot;
+  title: &quot;Addi Thakur Malviya&quot;
+  alias: &quot;malviyaa&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/35667650&quot;
+  title: &quot;Alka Singh&quot;
+  alias: &quot;singhar&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/43524172&quot;
+  title: &quot;Austin Ladshaw&quot;
+  alias: &quot;ladshawap&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/248807016&quot;
+  title: &quot;Ben Chance&quot;
+  alias: &quot;chancebr&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/somnaths&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/35761498&quot;
+  title: &quot;Bjoern Enders&quot;
+  alias: &quot;benders&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/43594529&quot;
+  title: &quot;Bowen Li&quot;
+  alias: &quot;shelllbw&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/43644629&quot;
+  title: &quot;Brian Kaul&quot;
+  alias: &quot;bkaul&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/43643184&quot;
+  title: &quot;Charles Finney&quot;
+  alias: &quot;ceafinney&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/35522723&quot;
+  title: &quot;Chris Lindsley&quot;
+  alias: &quot;lindsley&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/34559268&quot;
+  title: &quot;Dale V. Stansberry&quot;
+  alias: &quot;stansberrydv&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/43524401&quot;
+  title: &quot;Denis Ladychenko&quot;
+  alias: &quot;dladyche&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/35574448&quot;
+  title: &quot;External Collaboration&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/35522343&quot;
+  title: &quot;Flavio Dal Forno Chuahy&quot;
+  alias: &quot;dalfornochuf&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/43523994&quot;
+  title: &quot;Jens Glaser&quot;
+  alias: &quot;glaserj&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/34559341&quot;
+  title: &quot;Jessica U. Breet&quot;
+  alias: &quot;breetju&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/35522132&quot;
+  title: &quot;Johannes P. Blaschke&quot;
+  alias: &quot;jpblaschke&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/43524585&quot;
+  title: &quot;Jonathan Sakkos&quot;
+  alias: &quot;sakkosjo&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/35760936&quot;
+  title: &quot;Joseph Weaver&quot;
+  alias: &quot;joeeweaver&quot;
+  owner: &quot;p/trn001&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/50107115&quot;
+  title: &quot;Josh Agar&quot;
+  alias: &quot;jca318&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/somnaths&quot;
+  notes: 0
+}
+item {
+  id: &quot;c/50103213&quot;
+  title: &quot;Jouny Zedan&quot;
+  alias: &quot;zedanjouny&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/somnaths&quot;
+  notes: 0
+}
+offset: 0
+count: 20
+total: 35
+, &#39;ListingReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Much like the <code class="docutils literal notranslate"><span class="pre">projectList()</span></code>, we get a <code class="docutils literal notranslate"><span class="pre">ListingReply</span></code> in this case as well</p>
+</section>
+<section id="subscripting">
+<h3>Subscripting<a class="headerlink" href="#subscripting" title="Permalink to this headline">#</a></h3>
+<p>The listing reply <code class="docutils literal notranslate"><span class="pre">item</span></code> behaves similarly to a python list in terms of subscriptability. We can use indexing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Josh Agar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="iterating">
+<h3>Iterating<a class="headerlink" href="#iterating" title="Permalink to this headline">#</a></h3>
+<p>These messages also mirror python lists in their iterability.</p>
+<p>We can iterate through the items in this listing and use the subscripting capability to only extract the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">alias</span></code> fields of each of the collections</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">ls_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">alias</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c/35747646 	 malviyaa
+c/35667650 	 singhar
+c/43524172 	 ladshawap
+c/248807016 	 chancebr
+c/35761498 	 benders
+c/43594529 	 shelllbw
+c/43644629 	 bkaul
+c/43643184 	 ceafinney
+c/35522723 	 lindsley
+c/34559268 	 stansberrydv
+c/43524401 	 dladyche
+c/35574448 	 
+c/35522343 	 dalfornochuf
+c/43523994 	 glaserj
+c/34559341 	 breetju
+c/35522132 	 jpblaschke
+c/43524585 	 sakkosjo
+c/35760936 	 joeeweaver
+c/50107115 	 jca318
+c/50103213 	 zedanjouny
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="aliases-and-ids">
+<h2>Aliases and IDs<a class="headerlink" href="#aliases-and-ids" title="Permalink to this headline">#</a></h2>
+<p>Let’s try taking a closer look at the <code class="docutils literal notranslate"><span class="pre">PROJSHARE</span></code> collection using its <code class="docutils literal notranslate"><span class="pre">alias</span></code>:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">collectionView</span><span class="p">(</span><span class="s2">&quot;projshare&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above request failed because we asked DataFed to look for a Collection with alias: <code class="docutils literal notranslate"><span class="pre">projshare</span></code> without specifying the <code class="docutils literal notranslate"><span class="pre">context</span></code>. Naturally, DataFed assumed that we meant our own <code class="docutils literal notranslate"><span class="pre">Personal</span> <span class="pre">Data</span></code> rather than the training <code class="docutils literal notranslate"><span class="pre">Project</span></code>.</p>
+<p>If we want to address an item by its <code class="docutils literal notranslate"><span class="pre">alias</span></code>, we need to be careful about its <code class="docutils literal notranslate"><span class="pre">context</span></code> since:</p>
+<p><strong>An <code class="docutils literal notranslate"><span class="pre">alias</span></code> is unique only within a given <code class="docutils literal notranslate"><span class="pre">context</span></code></strong> such as <code class="docutils literal notranslate"><span class="pre">Personal</span> <span class="pre">Data</span></code> or a <code class="docutils literal notranslate"><span class="pre">Project</span></code></p>
+<section id="span-style-color-green-exercise-span">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#span-style-color-green-exercise-span" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Correct the above function call to view <code class="docutils literal notranslate"><span class="pre">projshare</span></code> collection: </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">collectionView</span><span class="p">(</span><span class="s2">&quot;projshare&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;p/trn001&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(coll {
+   id: &quot;c/34559108&quot;
+   title: &quot;Project Share&quot;
+   alias: &quot;projshare&quot;
+   owner: &quot;p/trn001&quot;
+   ct: 1610905739
+   ut: 1611853827
+   notes: 0
+ },
+ &#39;CollDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, we can view the correct collection by referring to it using its <code class="docutils literal notranslate"><span class="pre">id</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">collectionView</span><span class="p">(</span><span class="s2">&quot;c/34559108&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(coll {
+   id: &quot;c/34559108&quot;
+   title: &quot;Project Share&quot;
+   alias: &quot;projshare&quot;
+   owner: &quot;p/trn001&quot;
+   ct: 1610905739
+   ut: 1611853827
+   notes: 0
+ },
+ &#39;CollDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above command worked even though we did not specify a <code class="docutils literal notranslate"><span class="pre">context</span></code> because:</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">ID</span></code>s are unique across DataFed and do not need a <code class="docutils literal notranslate"><span class="pre">context</span></code></strong></p>
+</section>
+<section id="setting-context">
+<h3>Setting Context:<a class="headerlink" href="#setting-context" title="Permalink to this headline">#</a></h3>
+<p>Having to specify the context for every function call can be tiring if we are sure we are working within a single context.</p>
+<p>We can set the context via the <code class="docutils literal notranslate"><span class="pre">setContext()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">setContext</span><span class="p">(</span><span class="s2">&quot;p/trn001&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">setContext()</span></code> is valid within the scope of a single python session. You would need to call the function each time you instantiate the DataFed <code class="docutils literal notranslate"><span class="pre">CommandLib.API</span></code> class. E.g. - at the top of every notebook</p>
+</div>
+<p>Let’s attempt to view the <code class="docutils literal notranslate"><span class="pre">projshare</span></code> Collection via its <code class="docutils literal notranslate"><span class="pre">alias</span></code> <strong>without</strong> specifying the <code class="docutils literal notranslate"><span class="pre">context</span></code> keyword argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">collectionView</span><span class="p">(</span><span class="s2">&quot;projshare&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(coll {
+   id: &quot;c/34559108&quot;
+   title: &quot;Project Share&quot;
+   alias: &quot;projshare&quot;
+   owner: &quot;p/trn001&quot;
+   ct: 1610905739
+   ut: 1611853827
+   notes: 0
+ },
+ &#39;CollDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Using the DataFed API’s <code class="docutils literal notranslate"><span class="pre">collectionView()</span></code>, extract the create time (<code class="docutils literal notranslate"><span class="pre">ct</span></code>) of your own personal collection within the training project or <code class="docutils literal notranslate"><span class="pre">projshare</span></code>. <br><br> <b> Bonus: </b> Consider using the built-in <code class="docutils literal notranslate"><span class="pre">df_api.timestampToStr()</span></code> function or <code class="docutils literal notranslate"><span class="pre">datetime.datetime.fromtimestamp</span></code> from the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> package to convert the unix formatted time to a human readable string </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">personal_collection_id</span> <span class="o">=</span> <span class="s2">&quot;c/34559108&quot;</span>
+<span class="n">create_time</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionView</span><span class="p">(</span><span class="n">personal_collection_id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coll</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ct</span>
+
+<span class="c1"># Bonus:</span>
+<span class="n">df_api</span><span class="o">.</span><span class="n">timestampToStr</span><span class="p">(</span><span class="n">create_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;01/17/2021,12:48&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-records">
+<h2>Data Records<a class="headerlink" href="#data-records" title="Permalink to this headline">#</a></h2>
+<p>We will be going over how to create, add metadata and other contextual information, edit, establish relationships between <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Records</span></code> - the fundamental unit in DataFed</p>
+<section id="specifying-context">
+<h3>Specifying context:<a class="headerlink" href="#specifying-context" title="Permalink to this headline">#</a></h3>
+<p>Since we want to work within the <code class="docutils literal notranslate"><span class="pre">context</span></code> of the Training Project:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">setContext</span><span class="p">(</span><span class="s2">&quot;p/trn001&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To begin with, you will be working within your own private collection whose <code class="docutils literal notranslate"><span class="pre">alias</span></code> is the same as your DataFed username.</p>
+</section>
+<section id="id2">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Enter your username into the <code class="docutils literal notranslate"><span class="pre">parent_collection</span></code> variable </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent_collection</span> <span class="o">=</span> <span class="s2">&quot;jca318&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-data-records">
+<h3>Creating Data Records:<a class="headerlink" href="#creating-data-records" title="Permalink to this headline">#</a></h3>
+<p>Data Records can hold a whole lot of contextual information about the raw data.</p>
+<ul class="simple">
+<li><p>Ideally, we would get this metadata from the headers of the raw data file or some other log file that was generated along with the raw data.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DataFed expects scientific metadata to be specified <strong>like</strong> a python dictionary.</p>
+</div>
+<p>For now, let’s set up some dummy metadata:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">7.123</span><span class="p">],</span>
+    <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;Something important&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">19</span><span class="p">},</span>  <span class="c1"># Can use nested dictionaries</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>DataFed currently takes metadata as a JSON file, this can be achieved using <code class="docutils literal notranslate"><span class="pre">json.dumps</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;{&quot;a&quot;: 4, &quot;b&quot;: [1, 2, -4, 7.123], &quot;c&quot;: &quot;Something important&quot;, &quot;d&quot;: {&quot;x&quot;: 14, &quot;y&quot;: -19}}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">dataCreate()</span></code> function to make our new record, and the <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code> function to format the python dictionary to JSON:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataCreate</span><span class="p">(</span>
+    <span class="s2">&quot;my important data&quot;</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">),</span>
+    <span class="n">parent_id</span><span class="o">=</span><span class="n">parent_collection</span><span class="p">,</span>
+    <span class="c1"># The parent collection, whose alias is your username</span>
+<span class="p">)</span>
+<span class="n">dc_resp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(data {
+   id: &quot;d/412686165&quot;
+   title: &quot;my important data&quot;
+   metadata: &quot;{\&quot;a\&quot;:4,\&quot;b\&quot;:[1,2,-4,7.123],\&quot;c\&quot;:\&quot;Something important\&quot;,\&quot;d\&quot;:{\&quot;x\&quot;:14,\&quot;y\&quot;:-19}}&quot;
+   repo_id: &quot;repo/cades-cnms&quot;
+   size: 0.0
+   ext_auto: true
+   ct: 1667098575
+   ut: 1667098575
+   owner: &quot;p/trn001&quot;
+   creator: &quot;u/jca318&quot;
+   parent_id: &quot;c/50107115&quot;
+ },
+ &#39;RecordDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Extract the <code class="docutils literal notranslate"><span class="pre">ID</span></code> of the data record from the message returned from <code class="docutils literal notranslate"><span class="pre">dataCreate()</span></code> for future use: </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record_id</span> <span class="o">=</span> <span class="n">dc_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">record_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d/412686165
+</pre></div>
+</div>
+</div>
+</div>
+<p>Data Records and the information in them are not static and can always be modified at any time</p>
+</section>
+<section id="updating-data-records">
+<h3>Updating Data Records<a class="headerlink" href="#updating-data-records" title="Permalink to this headline">#</a></h3>
+<p>Let’s add some additional metadata and change the title of our record:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">du_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataUpdate</span><span class="p">(</span>
+    <span class="n">record_id</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Some new title for the data&quot;</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;appended_metadata&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">du_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(data {
+  id: &quot;d/412686165&quot;
+  title: &quot;Some new title for the data&quot;
+  metadata: &quot;{\&quot;a\&quot;:4,\&quot;appended_metadata\&quot;:true,\&quot;b\&quot;:[1,2,-4,7.123],\&quot;c\&quot;:\&quot;Something important\&quot;,\&quot;d\&quot;:{\&quot;x\&quot;:14,\&quot;y\&quot;:-19}}&quot;
+  repo_id: &quot;repo/cades-cnms&quot;
+  size: 0.0
+  ext_auto: true
+  ct: 1667098575
+  ut: 1667098575
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  notes: 0
+}
+update {
+  id: &quot;d/412686165&quot;
+  title: &quot;Some new title for the data&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  size: 0.0
+  notes: 0
+  deps_avail: true
+}
+, &#39;RecordDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="viewing-data-records">
+<h3>Viewing Data Records<a class="headerlink" href="#viewing-data-records" title="Permalink to this headline">#</a></h3>
+<p>We can get full information about a data record including the complete metadata via the <code class="docutils literal notranslate"><span class="pre">dataView()</span></code> function. Let us use this function to verify that the changes have been incorporated:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dv_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataView</span><span class="p">(</span><span class="n">record_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dv_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(data {
+  id: &quot;d/412686165&quot;
+  title: &quot;Some new title for the data&quot;
+  metadata: &quot;{\&quot;a\&quot;:4,\&quot;appended_metadata\&quot;:true,\&quot;b\&quot;:[1,2,-4,7.123],\&quot;c\&quot;:\&quot;Something important\&quot;,\&quot;d\&quot;:{\&quot;x\&quot;:14,\&quot;y\&quot;:-19}}&quot;
+  repo_id: &quot;repo/cades-cnms&quot;
+  size: 0.0
+  ext_auto: true
+  ct: 1667098575
+  ut: 1667098575
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  notes: 0
+}
+, &#39;RecordDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Try isolating the updated metadata and converting it to a python dictionary. </span></p>
+<p>Hint - <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> is the opposite of <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">dv_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: 4, &#39;appended_metadata&#39;: True, &#39;b&#39;: [1, 2, -4, 7.123], &#39;c&#39;: &#39;Something important&#39;, &#39;d&#39;: {&#39;x&#39;: 14, &#39;y&#39;: -19}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Now try to <strong>replace</strong> the metadata. <br><br>Hint: look at the <code class="docutils literal notranslate"><span class="pre">metadata_set</span></code> keyword argument in the docstrings. </span></p>
+<p>You can make the new metadata <code class="docutils literal notranslate"><span class="pre">new_metadata</span> <span class="pre">=</span> <span class="pre">{&quot;key&quot;:</span> <span class="pre">&quot;value&quot;,</span> <span class="pre">&quot;E&quot;:</span> <span class="pre">&quot;mc^2&quot;}</span></code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>With the cursor just past the starting parenthesis of <code class="docutils literal notranslate"><span class="pre">dataUpdate(</span></code>, simultaneously press the <code class="docutils literal notranslate"><span class="pre">Shift</span></code> and <code class="docutils literal notranslate"><span class="pre">Tab</span></code> keys once, twice, or four times to view more of the documentation about the function.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;mc^2&quot;</span><span class="p">}</span>
+<span class="n">du_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataUpdate</span><span class="p">(</span>
+    <span class="n">record_id</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_metadata</span><span class="p">),</span> <span class="n">metadata_set</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">dv_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataView</span><span class="p">(</span><span class="n">record_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">dv_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E&#39;: &#39;mc^2&#39;, &#39;key&#39;: &#39;value&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DataFed currently does not support version control of metadata. If you wanted to implement this it could be really valuable</p>
+</div>
+</section>
+</section>
+<section id="provenance">
+<h2>Provenance<a class="headerlink" href="#provenance" title="Permalink to this headline">#</a></h2>
+<p>Along with in-depth, detailed scientific metadata describing each data record, DataFed also provides a very handy tool for tracking data provenance, i.e. recording the relationships between Data Records which can be used to track the history, lineage, and origins of a data object.</p>
+<section id="id6">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Create a new record meant to hold some processed version of the first data record. <br> <strong>Caution</strong>: Make sure to create it in the correct Collection.</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="s2">&quot;counting&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+
+<span class="n">dc2_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataCreate</span><span class="p">(</span>
+    <span class="s2">&quot;Subsequent Record&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_params</span><span class="p">),</span> <span class="n">parent_id</span><span class="o">=</span><span class="n">parent_collection</span>
+<span class="p">)</span>
+
+<span class="n">clean_rec_id</span> <span class="o">=</span> <span class="n">dc2_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clean_rec_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d/412686316
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="specifying-relationships">
+<h3>Specifying Relationships<a class="headerlink" href="#specifying-relationships" title="Permalink to this headline">#</a></h3>
+<p>Now that we have two records, we can specify the second record’s relationship to the first by adding a <strong>dependency</strong> via the <code class="docutils literal notranslate"><span class="pre">deps_add</span></code> keyword argument of the <code class="docutils literal notranslate"><span class="pre">dataUpdate()</span></code> function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dependencies must be specified as a <code class="docutils literal notranslate"><span class="pre">list</span></code> of relationships. Each relationship is expressed as a <code class="docutils literal notranslate"><span class="pre">list</span></code> where the first item is a dependency type (a string) and the second is the data record (also a string)</p>
+</div>
+<p>DataFed currently supports three relationship types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">der</span></code> - Is derived from</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comp</span></code> - Is comprised of</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ver</span></code> - Is new version of</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dep_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataUpdate</span><span class="p">(</span><span class="n">clean_rec_id</span><span class="p">,</span> <span class="n">deps_add</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;der&quot;</span><span class="p">,</span> <span class="n">record_id</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dep_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(data {
+  id: &quot;d/412686316&quot;
+  title: &quot;Subsequent Record_412686316&quot;
+  metadata: &quot;{\&quot;counting\&quot;:[1,2,3,4],\&quot;hello\&quot;:\&quot;world\&quot;}&quot;
+  repo_id: &quot;repo/cades-cnms&quot;
+  size: 0.0
+  ext_auto: true
+  ct: 1667098576
+  ut: 1667098576
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  deps {
+    id: &quot;d/412686165&quot;
+    type: DEP_IS_DERIVED_FROM
+    dir: DEP_OUT
+  }
+  notes: 0
+}
+update {
+  id: &quot;d/412686316&quot;
+  title: &quot;Subsequent Record_412686316&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  size: 0.0
+  notes: 0
+  deps_avail: true
+  dep {
+    id: &quot;d/412686165&quot;
+    type: DEP_IS_DERIVED_FROM
+    dir: DEP_OUT
+  }
+}
+, &#39;RecordDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Take a look at the records on the DataFed Web Portal in order to see a graphical representation of the data provenance. </span></p>
+</section>
+<section id="id8">
+<h3><span style="color:green"> Exercise: </span><a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green">1. Create a new data record to hold a figure in your journal article. <br>2. Extract the record ID. <br>3. Now establish a provenance link between this figure record and the processed data record we just created. You may try out a different dependency type if you like. <br>4. Take a look at the DataFed web portal to see the update to the Provenance of the records</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1</span>
+<span class="n">reply</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataCreate</span><span class="p">(</span><span class="s2">&quot;Figure 1&quot;</span><span class="p">,</span> <span class="n">parent_id</span><span class="o">=</span><span class="n">parent_collection</span><span class="p">)</span>
+<span class="c1"># 2</span>
+<span class="n">fig_id</span> <span class="o">=</span> <span class="n">reply</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="c1"># 3</span>
+<span class="n">provenance_link</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataUpdate</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">deps_add</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;comp&quot;</span><span class="p">,</span> <span class="n">clean_rec_id</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">provenance_link</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id: &quot;d/412686352&quot;
+title: &quot;Figure 1_412686352&quot;
+repo_id: &quot;repo/cades-cnms&quot;
+size: 0.0
+ext_auto: true
+ct: 1667098576
+ut: 1667098576
+owner: &quot;p/trn001&quot;
+creator: &quot;u/jca318&quot;
+deps {
+  id: &quot;d/412686316&quot;
+  type: DEP_IS_COMPONENT_OF
+  dir: DEP_OUT
+}
+notes: 0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="transferring-data-in-datafed">
+<h2>Transferring Data in DataFed<a class="headerlink" href="#transferring-data-in-datafed" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imports necessary packages</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">datafed.CommandLib</span> <span class="kn">import</span> <span class="n">API</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instantiate the DataFed API and set <code class="docutils literal notranslate"><span class="pre">context</span></code> to the Training project:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span> <span class="o">=</span> <span class="n">API</span><span class="p">()</span>
+<span class="n">df_api</span><span class="o">.</span><span class="n">setContext</span><span class="p">(</span><span class="s2">&quot;p/trn001&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id9">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Enter your username to work within your personal Collection. </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent_collection</span> <span class="o">=</span> <span class="s2">&quot;jca318&quot;</span>  <span class="c1"># your username here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id10">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Copy over the ID for the record you created previously  </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record_id</span> <span class="o">=</span> <span class="s2">&quot;d/412681057&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="uploading-raw-data">
+<h2>Uploading raw data<a class="headerlink" href="#uploading-raw-data" title="Permalink to this headline">#</a></h2>
+<p>We will learn how to upload data to the record we just created. For demonstration purposes, we will just create a simple text file and use this as the raw data for the Data Record</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DataFed does not impose any restrictions on the file extension / format for the raw data</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;./datapath&#39;</span>
+
+<span class="c1"># This just writes some text</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;/raw_data.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+    <span class="n">file_handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;This is some data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure that your Globus endpoint is active and that your files are located in a directory that is visible to the Globus Endpoint</p>
+</div>
+<p>Uploading data files to DataFed is done using the <code class="docutils literal notranslate"><span class="pre">dataPut</span></code> command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">put_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataPut</span><span class="p">(</span>
+    <span class="n">record_id</span><span class="p">,</span>
+    <span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;/raw_data.txt&quot;</span><span class="p">,</span>
+    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Waits until transfer completes.</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">put_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(task {
+  id: &quot;task/412686392&quot;
+  type: TT_DATA_PUT
+  status: TS_SUCCEEDED
+  client: &quot;u/jca318&quot;
+  step: 3
+  steps: 4
+  msg: &quot;Finished&quot;
+  ct: 1667098577
+  ut: 1667098582
+  source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+  dest: &quot;d/412681057&quot;
+}
+, &#39;TaskDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get two components in the response:</p>
+<ul class="simple">
+<li><p>Information about the Data Record, data was uploaded to</p></li>
+<li><p>Information about the data transfer <code class="docutils literal notranslate"><span class="pre">task</span></code> - more on this later</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">dataPut()</span></code> method <strong>initiates a Globus transfer</strong> on our behalf from the machine <strong>wherever</strong> the file was present to wherever the default data repository is located. In this case, the file was in our local file system and on the same machine where we are executing the command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above data file was specified by its relative local path, so DataFed used our pre-configured default Globus endpoint to find the data file. As long as we have the id for any <em>active</em> Globus endpoint that we have authenticated access to, we can transfer data from that endpoint with its full absolute file path – even if the file system is not attached ot the local machine. Look for more information on this in later examples.</p>
+</div>
+<p>Let’s view the data record now that we’ve uploaded our data. Pay attention to the <code class="docutils literal notranslate"><span class="pre">ext</span></code> and <code class="docutils literal notranslate"><span class="pre">source</span></code> fields which should now populated:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dv_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataView</span><span class="p">(</span><span class="n">record_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dv_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(data {
+  id: &quot;d/412681057&quot;
+  title: &quot;Some new title for the data&quot;
+  metadata: &quot;{\&quot;E\&quot;:\&quot;mc^2\&quot;,\&quot;key\&quot;:\&quot;value\&quot;}&quot;
+  source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+  repo_id: &quot;repo/cades-cnms&quot;
+  size: 17.0
+  ext: &quot;.txt&quot;
+  ext_auto: true
+  ct: 1667097842
+  ut: 1667098228
+  dt: 1667098228
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  deps {
+    id: &quot;d/412681212&quot;
+    type: DEP_IS_DERIVED_FROM
+    dir: DEP_IN
+  }
+  notes: 0
+}
+, &#39;RecordDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="downloading-raw-data">
+<h2>Downloading raw data<a class="headerlink" href="#downloading-raw-data" title="Permalink to this headline">#</a></h2>
+<p>DataFed is also capable of getting data stored in a DataFed repository and placing it in the local or other Globus-visible filesystem via the <code class="docutils literal notranslate"><span class="pre">dataGet()</span></code> function.</p>
+<p>Let us download the content in the data record we have been working on so far for demonstration purposes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataGet</span><span class="p">(</span>
+    <span class="n">record_id</span><span class="p">,</span>
+    <span class="n">datapath</span><span class="p">,</span>  <span class="c1"># directory where data should be downloaded</span>
+    <span class="n">orig_fname</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># do not name file by its original name</span>
+    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Wait until Globus transfer completes</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(task {
+  id: &quot;task/412686509&quot;
+  type: TT_DATA_GET
+  status: TS_SUCCEEDED
+  client: &quot;u/jca318&quot;
+  step: 2
+  steps: 3
+  msg: &quot;Finished&quot;
+  ct: 1667098585
+  ut: 1667098590
+  source: &quot;d/412681057&quot;
+  dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath&quot;
+}
+, &#39;TaskDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the response we only get back information about the data transfer <code class="docutils literal notranslate"><span class="pre">task</span></code> - more on this shortly</p>
+<p><code class="docutils literal notranslate"><span class="pre">dataGet()</span></code> reveals its capability to <strong>download multiple data records or even Collections.</strong></p>
+<p>Let’s confirm that the data has been downloaded successfully:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">datapath</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;408461737.txt&#39;, &#39;412681057.txt&#39;, &#39;raw_data.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath</span><span class="p">,</span> <span class="n">record_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;d/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Does a file with this name: &quot;</span> <span class="o">+</span> <span class="n">expected_file_name</span> <span class="o">+</span> <span class="s2">&quot; exist?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">expected_file_name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Does a file with this name: ./datapath\412681057.txt exist?
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A DataFed task may itself contain / be responsible for several Globus file transfers, potentially from / to multiple locations</p>
+</div>
+<p>DataFed makes it possible to check on the status of transfer tasks in an easy and programmatic manner.</p>
+<p>Before we learn more about tasks, first lets try to get the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the task in <code class="docutils literal notranslate"><span class="pre">get_resp</span></code> from the recent <code class="docutils literal notranslate"><span class="pre">dataGet()</span></code> function call:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">task_id</span> <span class="o">=</span> <span class="n">get_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>task/412686509
+</pre></div>
+</div>
+</div>
+</div>
+<section id="viewing-tasks">
+<h3>Viewing Tasks<a class="headerlink" href="#viewing-tasks" title="Permalink to this headline">#</a></h3>
+<p>We can get more information about a given transfer via the <code class="docutils literal notranslate"><span class="pre">taskView()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">task_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">taskView</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">task_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(task {
+  id: &quot;task/412686509&quot;
+  type: TT_DATA_GET
+  status: TS_SUCCEEDED
+  client: &quot;u/jca318&quot;
+  step: 2
+  steps: 3
+  msg: &quot;Finished&quot;
+  ct: 1667098585
+  ut: 1667098590
+  source: &quot;d/412681057&quot;
+  dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath&quot;
+}
+, &#39;TaskDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get a new kind of message - a <code class="docutils literal notranslate"><span class="pre">TaskDataReply</span></code>.
+Key fields to keep an eye on:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest</span></code></p></li>
+</ul>
+<p>If we are interested in monitoring tasks, triggering activities or subsequent steps of workflows based on transfers, we would need to know how to get the <code class="docutils literal notranslate"><span class="pre">status</span></code> property from the <code class="docutils literal notranslate"><span class="pre">TaskDataReply</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">task_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">status</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Even though the message above says <code class="docutils literal notranslate"><span class="pre">TS_SUCCEEDED</span></code>, we see that this task status codes to the integer <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cheat sheet for interpreting task statuses:</p>
+<p><code class="docutils literal notranslate"><span class="pre">2</span></code>: in progress</p>
+<p><code class="docutils literal notranslate"><span class="pre">3</span></code>: complete</p>
+<p>anything else - problem</p>
+</div>
+</section>
+<section id="listing-tasks">
+<h3>Listing Tasks<a class="headerlink" href="#listing-tasks" title="Permalink to this headline">#</a></h3>
+<p>We can request a listing of all our recently initiated tasks:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">taskList</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(task {
+   id: &quot;task/412686509&quot;
+   type: TT_DATA_GET
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 2
+   steps: 3
+   msg: &quot;Finished&quot;
+   ct: 1667098585
+   ut: 1667098590
+   source: &quot;d/412681057&quot;
+   dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath&quot;
+ }
+ task {
+   id: &quot;task/412686392&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098577
+   ut: 1667098582
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412681057&quot;
+ }
+ task {
+   id: &quot;task/412685350&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098510
+   ut: 1667098525
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685344&quot;
+ }
+ task {
+   id: &quot;task/412685327&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098510
+   ut: 1667098525
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685321&quot;
+ }
+ task {
+   id: &quot;task/412685304&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098510
+   ut: 1667098524
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685298&quot;
+ }
+ task {
+   id: &quot;task/412685208&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098509
+   ut: 1667098520
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685202&quot;
+ }
+ task {
+   id: &quot;task/412685281&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098510
+   ut: 1667098520
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685275&quot;
+ }
+ task {
+   id: &quot;task/412685258&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098510
+   ut: 1667098519
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685252&quot;
+ }
+ task {
+   id: &quot;task/412685235&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098509
+   ut: 1667098519
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685229&quot;
+ }
+ task {
+   id: &quot;task/412685181&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098509
+   ut: 1667098514
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685175&quot;
+ }
+ task {
+   id: &quot;task/412685127&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098508
+   ut: 1667098514
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685121&quot;
+ }
+ task {
+   id: &quot;task/412685154&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098509
+   ut: 1667098514
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412685148&quot;
+ }
+ task {
+   id: &quot;task/412684960&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098502
+   ut: 1667098507
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/408461737.txt&quot;
+   dest: &quot;d/412684954&quot;
+ }
+ task {
+   id: &quot;task/412684882&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098497
+   ut: 1667098502
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/408461737.txt&quot;
+   dest: &quot;d/412684876&quot;
+ }
+ task {
+   id: &quot;task/412684798&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098492
+   ut: 1667098497
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/408461737.txt&quot;
+   dest: &quot;d/412684792&quot;
+ }
+ task {
+   id: &quot;task/412684738&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098486
+   ut: 1667098492
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/408461737.txt&quot;
+   dest: &quot;d/412684732&quot;
+ }
+ task {
+   id: &quot;task/412684639&quot;
+   type: TT_DATA_GET
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 2
+   steps: 3
+   msg: &quot;Finished&quot;
+   ct: 1667098473
+   ut: 1667098478
+   source: &quot;d/412681057&quot;
+   dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath&quot;
+ }
+ task {
+   id: &quot;task/412684536&quot;
+   type: TT_DATA_PUT
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 3
+   steps: 4
+   msg: &quot;Finished&quot;
+   ct: 1667098465
+   ut: 1667098470
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412681057&quot;
+ }
+ task {
+   id: &quot;task/412683328&quot;
+   type: TT_DATA_PUT
+   status: TS_FAILED
+   client: &quot;u/jca318&quot;
+   step: 1
+   steps: 4
+   msg: &quot;globus connect offline&quot;
+   ct: 1667098268
+   ut: 1667098283
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412683322&quot;
+ }
+ task {
+   id: &quot;task/412683305&quot;
+   type: TT_DATA_PUT
+   status: TS_FAILED
+   client: &quot;u/jca318&quot;
+   step: 1
+   steps: 4
+   msg: &quot;globus connect offline&quot;
+   ct: 1667098268
+   ut: 1667098283
+   source: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath/raw_data.txt&quot;
+   dest: &quot;d/412683299&quot;
+ },
+ &#39;TaskDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output of this listing would be very helpful for the exercise below</p>
+</section>
+<section id="span-style-color-green-example-scenario-simulations-span">
+<h3><span style="color:green">Example scenario - Simulations </span><a class="headerlink" href="#span-style-color-green-example-scenario-simulations-span" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Let’s say that we want to run a series of simulations where one or more parameters are varied and each simulation is run with a unique set of parameters. Let’s also assume that our eventual goal is to build a surrogate model for the computationally expensive simulation using machine learning. So, we <strong>want to capture the metadata and data associated with the series of simulations</strong> to train the machine learning model later on.</span></p>
+<p><span style="color:green"> We have set up skeleton functions and code snippets to help you mimic the data management for such a simulation. We would like you to take what you have learnt so far and fill in the blanks </span></p>
+<section id="fake-simulation">
+<h4>Fake simulation<a class="headerlink" href="#fake-simulation" title="Permalink to this headline">#</a></h4>
+<p>Here, we have simulated a computationally “expensive” simulation that simply sleeps for a few seconds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">expensive_simulation</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="c1"># Yes, this simulation is deterministic and always results in the same result:</span>
+    <span class="n">path_to_results</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;/408461737.txt&quot;</span>
+    <span class="c1"># The simulation uses the same combination of parameters</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mf">3.14</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">path_to_results</span><span class="p">,</span> <span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id11">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Define a function that: <br> 1. creates a new Data Record with the provided metadata (as a dictionary) and other details, <br> 2. extracts the record id, <br> 3. puts the raw data into the record, <br> 4. extracts <br> 5. Returns the task ID. <br><br> Feel free to print any messages that may help you track things. </span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pay attention to the <code class="docutils literal notranslate"><span class="pre">wait</span></code> keyword argument when putting the raw data into record</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">capture_data</span><span class="p">(</span>
+    <span class="n">simulation_index</span><span class="p">,</span>  <span class="c1"># integer - counter to signify the Nth simulation in the series</span>
+    <span class="n">metadata</span><span class="p">,</span>  <span class="c1"># dictionary - combination of parameters used for this simulation</span>
+    <span class="n">raw_data_path</span><span class="p">,</span>  <span class="c1"># string - Path to the raw data file that needs to be put into the receord</span>
+    <span class="n">parent_collection</span><span class="o">=</span><span class="n">parent_collection</span><span class="p">,</span>  <span class="c1"># string - Collection to create this Data Record into</span>
+<span class="p">):</span>
+
+    <span class="c1"># 1. Create a new Data Record with the metadata and use the simulation index to provide a unique title</span>
+    <span class="n">rec_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataCreate</span><span class="p">(</span>
+        <span class="s2">&quot;Simulation_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">simulation_index</span><span class="p">),</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">metadata</span><span class="p">),</span>
+        <span class="n">parent_id</span><span class="o">=</span><span class="n">parent_collection</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 2. Extract the record ID from the response</span>
+    <span class="n">this_rec_id</span> <span class="o">=</span> <span class="n">rec_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="c1"># 3. Put the raw data into this record:</span>
+    <span class="n">put_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataPut</span><span class="p">(</span><span class="n">this_rec_id</span><span class="p">,</span> <span class="n">raw_data_path</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># 4. Extract the ID for the data transfer task</span>
+    <span class="n">task_id</span> <span class="o">=</span> <span class="n">put_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="c1"># 5. Return the task ID</span>
+    <span class="k">return</span> <span class="n">task_id</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id12">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Try out this function to make sure it works. See what it does on the <strong>DataFed web portal</strong>. </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_results</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">expensive_simulation</span><span class="p">()</span>
+
+<span class="n">task_id</span> <span class="o">=</span> <span class="n">capture_data</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">path_to_results</span><span class="p">)</span>
+<span class="n">task_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;task/412686610&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We might want a simple function to monitor the status of all the data upload tasks. Define a function that accepts a list of task IDs and returns their status after looking them up on DataFed</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_xfer_status</span><span class="p">(</span><span class="n">task_ids</span><span class="p">):</span>
+
+    <span class="c1"># put singular task ID into a list</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">task_ids</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">task_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">task_ids</span><span class="p">]</span>
+
+    <span class="c1"># Create a list to hold the statuses of each of the tasks</span>
+    <span class="n">statuses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="c1"># Iterate over each of the task IDs</span>
+    <span class="k">for</span> <span class="n">this_task_id</span> <span class="ow">in</span> <span class="n">task_ids</span><span class="p">:</span>
+
+        <span class="c1"># For each task ID, get detailed information about it</span>
+        <span class="n">task_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">taskView</span><span class="p">(</span><span class="n">this_task_id</span><span class="p">)</span>
+
+        <span class="c1"># Extract the task status from the detailed information</span>
+        <span class="n">this_status</span> <span class="o">=</span> <span class="n">task_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">status</span>
+
+        <span class="c1"># Append this status to the list of statuses</span>
+        <span class="n">statuses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">this_status</span><span class="p">)</span>
+
+    <span class="c1"># Return the list of statuses</span>
+    <span class="k">return</span> <span class="n">statuses</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id13">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Try out your function using the IDs of the recent <code class="docutils literal notranslate"><span class="pre">dataPut()</span></code> and <code class="docutils literal notranslate"><span class="pre">dataGet()</span></code> functions. </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">check_xfer_status</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-the-series-of-simulations">
+<h3>Run the series of simulations:<a class="headerlink" href="#run-the-series-of-simulations" title="Permalink to this headline">#</a></h3>
+<p>Use the three functions defined above to mimic the process of exploring a parameter space using simulations, where for each iteration, we:</p>
+<ol class="simple">
+<li><p>Run a simulation</p></li>
+<li><p>Capture the data + metadata into DataFed</p></li>
+<li><p>Monitor the data upload tasks.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xfer_tasks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting simulation #</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ind</span><span class="p">))</span>
+    <span class="c1"># Run the simulation.</span>
+    <span class="n">path_to_results</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">expensive_simulation</span><span class="p">()</span>
+    <span class="c1"># Capture the data and metadata into DataFed</span>
+    <span class="n">task_id</span> <span class="o">=</span> <span class="n">capture_data</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">path_to_results</span><span class="p">)</span>
+    <span class="c1"># Append the task ID for this data upload into xfer_tasks</span>
+    <span class="n">xfer_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+    <span class="c1"># Print out the status of the data transfers</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transfer status: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">check_xfer_status</span><span class="p">(</span><span class="n">xfer_tasks</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulations complete! Waiting for uploads to complete</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">statuses</span> <span class="o">=</span> <span class="n">check_xfer_status</span><span class="p">(</span><span class="n">xfer_tasks</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transfer status: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statuses</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">this</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">this</span> <span class="ow">in</span> <span class="n">statuses</span><span class="p">]):</span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Finished uploading all data!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting simulation #0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transfer status: [2]
+
+Starting simulation #1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transfer status: [2, 2]
+
+Starting simulation #2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transfer status: [3, 2, 2]
+
+Simulations complete! Waiting for uploads to complete
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transfer status: [3, 3, 3]
+
+Finished uploading all data!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to perform data orchestration (especially large data movement - upload / download) operations outside the scope of heavy / parallel computation operations in order to avoid wasting precious wall time on compute clusters</p>
+</div>
+</section>
+</section>
+<section id="collections-and-queries-in-datafed">
+<h2>Collections and Queries in DataFed<a class="headerlink" href="#collections-and-queries-in-datafed" title="Permalink to this headline">#</a></h2>
+<p>In this notebook, we will be going over creating Collections, viewing contained items, organizing Collections, downloading Collections, and searching for data</p>
+<p>Import necessary libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">datafed.CommandLib</span> <span class="kn">import</span> <span class="n">API</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instantiate the DataFed API and set <code class="docutils literal notranslate"><span class="pre">context</span></code> to the Training project</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span> <span class="o">=</span> <span class="n">API</span><span class="p">()</span>
+<span class="n">df_api</span><span class="o">.</span><span class="n">setContext</span><span class="p">(</span><span class="s2">&quot;p/trn001&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id14">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Reset this variable to your username or Globus ID so that you work within your own collection by default </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent_collection</span> <span class="o">=</span> <span class="s2">&quot;jca318&quot;</span>  <span class="c1"># Name of this user</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-use-case">
+<h2>Example use case:<a class="headerlink" href="#example-use-case" title="Permalink to this headline">#</a></h2>
+<p>Let us assume that we are working on a machine learning problem aimed at putting together training data for a machine learning model. For illustration purposes, we will assume that we aim to train a classifier for classifying animals</p>
+<section id="create-collection">
+<h3>Create Collection<a class="headerlink" href="#create-collection" title="Permalink to this headline">#</a></h3>
+<p>First, let us create a collection to hold all our data.</p>
+<p>We will be using the <code class="docutils literal notranslate"><span class="pre">collectionCreate()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coll_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionCreate</span><span class="p">(</span>
+    <span class="s2">&quot;Image classification training data&quot;</span><span class="p">,</span> <span class="n">parent_id</span><span class="o">=</span><span class="n">parent_collection</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coll_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(coll {
+  id: &quot;c/412686982&quot;
+  title: &quot;Image classification training data&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  ct: 1667098620
+  ut: 1667098620
+  parent_id: &quot;c/50107115&quot;
+}
+, &#39;CollDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case we got back a <code class="docutils literal notranslate"><span class="pre">CollDataReply</span></code> object. This is somewhat similar to what you get from <code class="docutils literal notranslate"><span class="pre">dataCreate()</span></code> we just saw.</p>
+<p>Now, let’s Extract the <code class="docutils literal notranslate"><span class="pre">id</span></code> of this newly created collection:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_coll_id</span> <span class="o">=</span> <span class="n">coll_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coll</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_coll_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c/412686982
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="populate-with-training-data">
+<h3>Populate with training data<a class="headerlink" href="#populate-with-training-data" title="Permalink to this headline">#</a></h3>
+<p>Now that we have a place to put the training data, let us populate this collection with examples of animals</p>
+<section id="define-a-function-to-generate-fake-training-data">
+<h4>Define a function to generate (fake) training data:<a class="headerlink" href="#define-a-function-to-generate-fake-training-data" title="Permalink to this headline">#</a></h4>
+<p>We need a function to:</p>
+<ul class="simple">
+<li><p>Create a Data Record</p></li>
+<li><p>Put data into this Data Record</p></li>
+</ul>
+<p>For simplicity we will use some dummy data from a public Globus Endpoint This information has been filled in for you via the <code class="docutils literal notranslate"><span class="pre">raw_data_path</span></code> variable.</p>
+<p>We have a skeleton function prepared for you along with comments to guide you</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">generate_animal_data</span><span class="p">(</span><span class="n">is_dog</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">this_animal</span> <span class="o">=</span> <span class="s2">&quot;cat&quot;</span>
+    <span class="k">if</span> <span class="n">is_dog</span><span class="p">:</span>
+        <span class="n">this_animal</span> <span class="o">=</span> <span class="s2">&quot;dog&quot;</span>
+    <span class="c1"># Ideally, we would have more sensible titles such as &quot;Doberman&quot;, &quot;Poodle&quot;, etc. instead of &quot;Dog_234&quot;</span>
+    <span class="c1"># To mimic a real-life scenario, we append a number to the animal type to denote</span>
+    <span class="c1"># the N-th example of a cat or dog. In this case, we use a random integer.</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">this_animal</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="c1"># Create the record here:</span>
+    <span class="n">rec_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataCreate</span><span class="p">(</span>
+        <span class="n">title</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;animal&quot;</span><span class="p">:</span> <span class="n">this_animal</span><span class="p">}),</span> <span class="n">parent_id</span><span class="o">=</span><span class="n">train_coll_id</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Extract the ID of the Record:</span>
+    <span class="n">this_rec_id</span> <span class="o">=</span> <span class="n">rec_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="c1"># path to the file containing the (dummy) raw data</span>
+    <span class="n">raw_data_path</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;/raw_data.txt&quot;</span>
+
+    <span class="c1"># Put the raw data into the record you just created:</span>
+    <span class="n">put_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataPut</span><span class="p">(</span><span class="n">this_rec_id</span><span class="p">,</span> <span class="n">raw_data_path</span><span class="p">)</span>
+
+    <span class="c1"># Only return the ID of the Data Record you created:</span>
+    <span class="k">return</span> <span class="n">this_rec_id</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-5-examples-of-cats-and-dogs">
+<h4>Generate 5 examples of cats and dogs:<a class="headerlink" href="#generate-5-examples-of-cats-and-dogs" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">dog_records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">dog_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generate_animal_data</span><span class="p">(</span><span class="n">is_dog</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">cat_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generate_animal_data</span><span class="p">(</span><span class="n">is_dog</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cat_records</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d/412687128&#39;, &#39;d/412687151&#39;, &#39;d/412687174&#39;, &#39;d/412687197&#39;, &#39;d/412687220&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dog_records</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d/412686997&#39;, &#39;d/412687024&#39;, &#39;d/412687051&#39;, &#39;d/412687078&#39;, &#39;d/412687105&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="listing-items-in-a-collection">
+<h2>Listing items in a Collection:<a class="headerlink" href="#listing-items-in-a-collection" title="Permalink to this headline">#</a></h2>
+<p>Let us take a look at the training data we have assembled so far using the <code class="docutils literal notranslate"><span class="pre">colectionItemsList()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coll_list_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionItemsList</span><span class="p">(</span><span class="n">train_coll_id</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coll_list_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(item {
+  id: &quot;d/412686997&quot;
+  title: &quot;dog_164&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  size: 0.0
+  notes: 0
+}
+item {
+  id: &quot;d/412687105&quot;
+  title: &quot;dog_177&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  size: 0.0
+  notes: 0
+}
+item {
+  id: &quot;d/412687024&quot;
+  title: &quot;dog_473&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  size: 0.0
+  notes: 0
+}
+item {
+  id: &quot;d/412687078&quot;
+  title: &quot;dog_527&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  size: 0.0
+  notes: 0
+}
+item {
+  id: &quot;d/412687051&quot;
+  title: &quot;dog_531&quot;
+  owner: &quot;p/trn001&quot;
+  creator: &quot;u/jca318&quot;
+  size: 0.0
+  notes: 0
+}
+offset: 5
+count: 20
+total: 10
+, &#39;ListingReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If we had several dozens, hundreds, or even thousands of items in a Collection, we would need to call <code class="docutils literal notranslate"><span class="pre">collectionItemsList()</span></code> multiple times by stepping up the <code class="docutils literal notranslate"><span class="pre">offset</span></code> keyword argument each time to get the next “page” of results.</p>
+</div>
+<div class="admonition-discussion admonition">
+<p class="admonition-title">Discussion</p>
+<p>Let’s say that we are only interested in finding records that have cats in this (potentially) large collection of training data. How do we go about doing that?</p>
+</div>
+</section>
+<section id="data-query-search">
+<h2>Data Query / Search<a class="headerlink" href="#data-query-search" title="Permalink to this headline">#</a></h2>
+<p>Use the DataFed web interface to:</p>
+<ul class="simple">
+<li><p>Search for cats</p></li>
+<li><p>Specifically in your collection</p></li>
+<li><p>Save the query</p></li>
+</ul>
+<p><img alt="" src="../../_images/saving_a_search.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Saved queries can be found in the bottom of the navigation (left) pane under <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Data</span></code> and <code class="docutils literal notranslate"><span class="pre">Saved</span> <span class="pre">Queries</span></code></p>
+</div>
+</section>
+<section id="finding-saved-queries">
+<h2>Finding Saved Queries:<a class="headerlink" href="#finding-saved-queries" title="Permalink to this headline">#</a></h2>
+<p>We can list all saved queries via <code class="docutils literal notranslate"><span class="pre">queryList()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ql_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">queryList</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ql_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(item {
+  id: &quot;q/408394603&quot;
+  title: &quot;cat&quot;
+}
+item {
+  id: &quot;q/412653216&quot;
+  title: &quot;cat&quot;
+}
+item {
+  id: &quot;q/412658711&quot;
+  title: &quot;cat&quot;
+}
+item {
+  id: &quot;q/408540273&quot;
+  title: &quot;cat&quot;
+}
+item {
+  id: &quot;q/412658874&quot;
+  title: &quot;cat2&quot;
+}
+item {
+  id: &quot;q/408540601&quot;
+  title: &quot;catter&quot;
+}
+item {
+  id: &quot;q/249837250&quot;
+  title: &quot;L1_A1&quot;
+}
+offset: 0
+count: 20
+total: 7
+, &#39;ListingReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id15">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Get the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the desired query out of the response: </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">id_</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">title</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ql_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;cat2&quot;</span><span class="p">)</span>
+<span class="n">query_id</span> <span class="o">=</span> <span class="n">ql_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">[</span><span class="n">id_</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">query_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>q/412658874
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="view-the-saved-query">
+<h3>View the saved query<a class="headerlink" href="#view-the-saved-query" title="Permalink to this headline">#</a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">queryView()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">queryView</span><span class="p">(</span><span class="n">query_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(id: &quot;q/412658874&quot;
+ title: &quot;cat2&quot;
+ owner: &quot;u/jca318&quot;
+ ct: 1667072632
+ ut: 1667072632
+ query {
+   mode: SM_DATA
+   owner: &quot;p/trn001&quot;
+   coll: &quot;c/412657579&quot;
+   meta: &quot;animal == \&quot;cat\&quot;&quot;
+   sort: SORT_TITLE
+   sort_rev: false
+ },
+ &#39;QueryDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-a-saved-query">
+<h3>Run a saved query<a class="headerlink" href="#run-a-saved-query" title="Permalink to this headline">#</a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">queryExec()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">queryExec</span><span class="p">(</span><span class="n">query_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">query_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(item {
+  id: &quot;d/412657841&quot;
+  title: &quot;cat_159&quot;
+  owner: &quot;p/trn001&quot;
+  size: 17.0
+  notes: 0
+}
+item {
+  id: &quot;d/412657739&quot;
+  title: &quot;cat_18&quot;
+  owner: &quot;p/trn001&quot;
+  size: 17.0
+  notes: 0
+}
+item {
+  id: &quot;d/412657818&quot;
+  title: &quot;cat_357&quot;
+  owner: &quot;p/trn001&quot;
+  size: 17.0
+  notes: 0
+}
+item {
+  id: &quot;d/412657795&quot;
+  title: &quot;cat_693&quot;
+  owner: &quot;p/trn001&quot;
+  size: 17.0
+  notes: 0
+}
+item {
+  id: &quot;d/412657766&quot;
+  title: &quot;cat_882&quot;
+  owner: &quot;p/trn001&quot;
+  size: 17.0
+  notes: 0
+}
+offset: 0
+count: 5
+total: 5
+, &#39;ListingReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yet again, we get back the <code class="docutils literal notranslate"><span class="pre">ListingReply</span></code> message.</p>
+<p>Now let us extract just the <code class="docutils literal notranslate"><span class="pre">id</span></code>s from each of the items in the message:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_rec_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">query_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">:</span>
+    <span class="n">cat_rec_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+<span class="c1"># one could also use list comprehensions to get the answer in one line:</span>
+<span class="c1"># cat_rec_ids = [record.id for record in query_resp[0].item]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cat_rec_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d/412657841&#39;, &#39;d/412657739&#39;, &#39;d/412657818&#39;, &#39;d/412657795&#39;, &#39;d/412657766&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We already have the ground truth in <code class="docutils literal notranslate"><span class="pre">cat_records</span></code>. Is this the same as what we got from the query?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note, you might get a false response if you have run this script more than once</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">cat_rec_ids</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">cat_records</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="separating-cats-from-dogs">
+<h2>Separating cats from dogs<a class="headerlink" href="#separating-cats-from-dogs" title="Permalink to this headline">#</a></h2>
+<p>Our goal now is to gather all cat Data Records into a dedicated Collection</p>
+<section id="id16">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Create a new collection to hold the Cats record </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coll_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionCreate</span><span class="p">(</span><span class="s2">&quot;Cats&quot;</span><span class="p">,</span> <span class="n">parent_id</span><span class="o">=</span><span class="n">train_coll_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id17">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Extract the <code class="docutils literal notranslate"><span class="pre">id</span></code> for this Collection: </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_coll_id</span> <span class="o">=</span> <span class="n">coll_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coll</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cat_coll_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c/412687393
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="adding-items-to-collection">
+<h2>Adding Items to Collection<a class="headerlink" href="#adding-items-to-collection" title="Permalink to this headline">#</a></h2>
+<p>Now let us add only the cat Data Records into this new collection using the <code class="docutils literal notranslate"><span class="pre">collectionItemsUpdate()</span></code> function:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cup_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionItemsUpdate</span><span class="p">(</span><span class="n">cat_coll_id</span><span class="p">,</span> <span class="n">add_ids</span><span class="o">=</span><span class="n">cat_rec_ids</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cup_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(, &#39;ListingReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unlike most DataFed functions, this function doesn’t really return much</p>
+<p>Now, let us view the contents of the Cats Collection to make sure that all Cat Data Records are present in this Collection.</p>
+<p>Just to keep the output clean and short, we will only extract the ID and title of the items</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionItemsList</span><span class="p">(</span><span class="n">cat_coll_id</span><span class="p">)</span>
+<span class="c1"># Iterating through the items in the Collection and only extracting a few items:</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">ls_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d/412657841 cat_159
+d/412657739 cat_18
+d/412657818 cat_357
+d/412657795 cat_693
+d/412657766 cat_882
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id18">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> View the contents of the main training data Collection. <br> You may use the snippet above if you like and modify it accordingly </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionItemsList</span><span class="p">(</span><span class="n">train_coll_id</span><span class="p">)</span>
+<span class="c1"># Iterating through the items in the Collection and only extracting a few items:</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">ls_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c/412659270 Cats
+d/412657841 cat_159
+d/412657739 cat_18
+d/412657818 cat_357
+d/412657795 cat_693
+d/412657766 cat_882
+d/412657716 dog_224
+d/412657635 dog_562
+d/412657608 dog_576
+d/412657689 dog_961
+d/412657662 dog_982
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Data Records can exist in <strong>multiple</strong> Collections just like video or songs can exist on multiple playlists</p>
+</div>
+</section>
+<section id="id19">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Remove the cat Data Records from the training data collection. They already exist in the “Cats” Collection. <br> <strong>Hint</strong>: The function call is very similar to the function call for adding cats to the “Cats” collection </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cup_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionItemsUpdate</span><span class="p">(</span><span class="n">train_coll_id</span><span class="p">,</span> <span class="n">rem_ids</span><span class="o">=</span><span class="n">cat_rec_ids</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cup_resp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(, &#39;ListingReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id20">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> View the contents of the training data Collection. <br> You may reuse a code snippet from an earlier cell. <br> Do you see the individual cat Data Records in this collection? </span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">collectionItemsList</span><span class="p">(</span><span class="n">train_coll_id</span><span class="p">)</span>
+<span class="c1"># Iterating through the items in the Collection and only extracting a few items:</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">ls_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c/412659270 Cats
+d/412657716 dog_224
+d/412657635 dog_562
+d/412657608 dog_576
+d/412657689 dog_961
+d/412657662 dog_982
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="search-or-organize">
+<h2>Search or Organize?<a class="headerlink" href="#search-or-organize" title="Permalink to this headline">#</a></h2>
+<p>If you could always search for your data, what is the benefit to organizing them into collections?</p>
+<p>If you have a collection it is very easy to download the entire collection!</p>
+<section id="download-entire-collection">
+<h3>Download entire Collection<a class="headerlink" href="#download-entire-collection" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DataFed can download arbitrarily large number of Records regardless of the physical locations of the DataFed repositories containing the data.</p>
+</div>
+<p>Let us first make sure we don’t already have a directory with the desired name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dest_dir</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;/cat_data&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dest_dir</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">shutil</span>
+
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">dest_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id21">
+<h3><span style="color:green"> Exercise </span><a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
+<p><span style="color:green"> Download the entire Cat Collection with a single DataFed function call. <br> <strong>Hint:</strong> You may want to look at a</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code Goes Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_api</span><span class="o">.</span><span class="n">dataGet</span><span class="p">(</span><span class="n">cat_coll_id</span><span class="p">,</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;/cat_data&quot;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(task {
+   id: &quot;task/412659666&quot;
+   type: TT_DATA_GET
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 2
+   steps: 3
+   msg: &quot;Finished&quot;
+   ct: 1667073220
+   ut: 1667073235
+   source: &quot;d/412657841, d/412657739, d/412657818, d/412657795, d/412657766, ...&quot;
+   dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/c/Users/jca92/Documents/codes/MEM_Data_Analysis_Dev/Fall_2022_MEM_T680/jupyterbook/week_6/DataFed/datapath/cat_data&quot;
+ },
+ &#39;TaskDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s verify that we downloaded the data:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dest_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;412657739.txt&#39;,
+ &#39;412657766.txt&#39;,
+ &#39;412657795.txt&#39;,
+ &#39;412657818.txt&#39;,
+ &#39;412657841.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Topic_7\DataFed"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="DataFed_An_Introduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction to DataFed</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../Homeworks/Homeworks.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework Assignments</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

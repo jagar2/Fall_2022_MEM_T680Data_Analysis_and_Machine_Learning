@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to DataFed &#8212; MEM T680: Fall 2022: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/Drexel_M3_Logo-01.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DataFed Tutorial" href="DataFed_Tutorial.html" />
+    <link rel="prev" title="Installing DataFed" href="DataFed_Installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/Drexel_M3_Logo-01.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2022: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MEM T680: Data Analysis and Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Course_Materials/Course_materials.html">
+   Course Materials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/syllabus.html">
+     Syllabus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Course_survey.html">
+     Course Survey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Survey_Response.html">
+     Survey Responses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Final_project.html">
+     Final Project
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_1/Objectives.html">
+   Importance and Challenges in Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+     Importance of Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">
+     Challenges in Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_2/Objectives.html">
+   Setting Up Your Computing Environment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/1_Introduction_to_MEMT680/Introduction_to_MEMT680.html">
+     Introduction to the Course Machinery
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/2_Navigating_Jupyter/navigating_jupyter.html">
+     Using Project Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment.html">
+     Setting up your Computing Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/4_working_in_colab/Welcome_To_Colaboratory.html">
+     Welcome to Colaboratory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/5_Introduction_to_git/Introduction_to_GIT.html">
+     Introduction to GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_3/Objectives.html">
+   What You Can Do With Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_3/1_What_you_can_do_with_ML/What_you_can_do_with_machine_learning.html">
+     What You Can Do With Machine Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_4/Objectives.html">
+   A Crash Course in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_1.html">
+     A Crash Course in Python: Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_2.html">
+     Crash Course in Python Part 2: Flow Control, Loops, Functions, and Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_3.html">
+     A Crash Course in Python: Part 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_5/Objectives.html">
+   Tools for Scientific Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_to_Numpy/Introduction_to_numpy.html">
+     What is NumPy?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_to_Numpy/Basics_of_numpy.html">
+     Welcome to NumPy!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_Matplotlib/Introduction_to_Plotting.html">
+     Introduction to Plotting in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Interactive%20Plotting/Interactive_Graphing_with_Dash.html">
+     Interactive Graphing with Dash
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Intro_to_scipy/introduction_to_scipy.html">
+     Introduction to SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/SymPy/SymPy.html">
+     Symbolic Solving with SymPy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_6/Objectives.html">
+   Image Analysis in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_6/Image_Analysis.html">
+     Introduction to Image Analysis with Scikit-Image
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7️⃣
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Objectives.html">
+   Scientific Data Management with DataFed
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="DataFed_Installation.html">
+     Installing DataFed
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Introduction to DataFed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DataFed_Tutorial.html">
+     DataFed Tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Homeworks/Homeworks.html">
+   Homework Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_1_Designing%20A%20Metadata%20Schema/Homework%201%20Designing%20a%20Metadata%20Schema.html">
+     📝 Homework 1 Designing a Metadata Schema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_2_scripting/Homework%202_Assignment.html">
+     📝 Homework 2 Scripting in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Take Home Midterm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Midterm/midterm.html">
+   Take Home Midterm
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Final Project Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Final%20Project%20Resources/TOC.html">
+   Final Project Resources
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/How_to_find_a_Dataset.html">
+     How to Find a Dataset?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/white_paper_submission.html">
+     White Paper Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/Final_project_booking.html">
+     Final Project Booking
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/main?urlpath=tree/jupyterbook/Topic_7/DataFed/DataFed_An_Introduction.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook&urlpath=tree/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/DataFed_An_Introduction.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/blob/main/jupyterbook/Topic_7/DataFed/DataFed_An_Introduction.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook/issues/new?title=Issue%20on%20page%20%2FTopic_7/DataFed/DataFed_An_Introduction.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Topic_7/DataFed/DataFed_An_Introduction.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-datafed">
+   What is DataFed?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datafed-lifecycle">
+   DataFed Lifecycle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-datafed">
+   Why DataFed?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-overview">
+   System Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interfaces">
+   Interfaces
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to DataFed</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-datafed">
+   What is DataFed?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datafed-lifecycle">
+   DataFed Lifecycle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-datafed">
+   Why DataFed?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-overview">
+   System Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interfaces">
+   Interfaces
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-datafed">
+<h1>Introduction to DataFed<a class="headerlink" href="#introduction-to-datafed" title="Permalink to this headline">#</a></h1>
+<section id="what-is-datafed">
+<h2>What is DataFed?<a class="headerlink" href="#what-is-datafed" title="Permalink to this headline">#</a></h2>
+<p>DataFed is a federated and scalable scientific data management and collaboration system that addresses the critical need for holistic and FAIR-principled “big data” handling within, and across, scientific domains and facilities with the goal of enhancing the productivity and reproducibility of data-oriented scientific research.</p>
+<ul class="simple">
+<li><p>DataFed supports the early lifecycle stages of “working” scientific data and serves as a tool to ease the burden associated with capturing, organizing, and sharing potentially large volumes of heterogeneous scientific data.</p></li>
+</ul>
+<ul class="simple">
+<li><p>DataFed provides an environment in which scientific data can be precisely controlled and refined in preparation for eventual data publishing.</p></li>
+</ul>
+</section>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>The primary goal of DataFed is to improve scientific data quality by enabling precise early-lifecycle control over data artifacts, with the ability to uniformly share and access data across geographically distributed facilities</p></li>
+</ul>
+<ul class="simple">
+<li><p>DataFed can be thought of as a “tier 2+” distributed data storage system - meaning it is intended for creating and working with data that is of medium- to long-term significance to the owner and/or collaborators</p></li>
+</ul>
+<ul class="simple">
+<li><p>Unlike a tier 1 storage system (i.e. a local file system), DataFed compromises raw data access performance in favor of FAIR data principles</p></li>
+</ul>
+<ul class="simple">
+<li><p>This means that DataFed is used for finding and saving data, not working with data directly.</p></li>
+</ul>
+<ul class="simple">
+<li><p>DataFed is just one platform, there are other similar platforms each with their own advantages and disadvantages.</p></li>
+<li><p>DataFed solves many of the critical problem areas faced within the University system</p></li>
+</ul>
+</section>
+<section id="datafed-lifecycle">
+<h2>DataFed Lifecycle<a class="headerlink" href="#datafed-lifecycle" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>DataFed is an enabling technology for the early lifecycle stages of scientific data - from data ingest to pre-publication</p></li>
+</ul>
+<p><img alt="" src="../../_images/data_lifecycle.png" /></p>
+<ul class="simple">
+<li><p>DataFed provides interfaces that can be used to capture metadata, provenance, and raw data from the creation stage</p></li>
+</ul>
+<ul class="simple">
+<li><p>New records may be created and linked to input records or dedicated context records.</p></li>
+</ul>
+</section>
+<section id="why-datafed">
+<h2>Why DataFed?<a class="headerlink" href="#why-datafed" title="Permalink to this headline">#</a></h2>
+<p><strong>Geographically Dispersed</strong></p>
+<ul class="simple">
+<li><p>DataFed directly benefits both individual researchers and teams of geographically dispersed collaborators who need to capture, manage, share, and access scientific data from within, or across, any of the experimental, observational, compute, or analytics resources</p></li>
+<li><p>DataFed allows you to use trusted authentication services to share data around the world</p></li>
+</ul>
+<p><strong>Domain Agnosticism</strong></p>
+<ul class="simple">
+<li><p>DataFed is domain- and methodology-neutral in that it does not require users to utilize pre-defined data formats or processes</p></li>
+<li><p>DataFed provides powerful domain-specific metadata indexing and query capabilities augmented by user/community defined schemas.</p></li>
+</ul>
+<p><strong>Working Data Support</strong></p>
+<ul class="simple">
+<li><p>DataFed supports the pre-publication data lifecycle which is both critical and complex in collaborative scientific research - yet is under served by existing data management systems’</p></li>
+<li><p>There are many services to publish data, however, there are less tools for important failed, or non-published experiments</p></li>
+</ul>
+<p><strong>Scalability</strong></p>
+<ul class="simple">
+<li><p>DataFed was designed to easily scale-out across multiple/many organizations and facilities by relying on federated identity technology and a common access control mechanism</p></li>
+<li><p>Individual organizations are still able to manage their own data storage resources and policies</p></li>
+<li><p>Most scientific data management systems are restricted to a single organization</p></li>
+</ul>
+<p><strong>Big Data Support</strong></p>
+<ul class="simple">
+<li><p>DataFed was design to support “big data” and the often complex environments</p></li>
+<li><p>DataFed utilizes Globus (GridFTP) for data transfer between facilities because it is the defacto standard for high performance movement of very large data sets (Petabyte scale) between government-funded user facilities (DoE), research universities, and commercial cloud computing services</p></li>
+</ul>
+<p><strong>Foundations for Data Applications</strong></p>
+<ul class="simple">
+<li><p>DataFed provide application programming interfaces (APIs) to allow other services or applications to be utilize DataFed’s data management capabilities</p></li>
+</ul>
+</section>
+<section id="system-overview">
+<h2>System Overview<a class="headerlink" href="#system-overview" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>DataFed is a scientific data federation formed from a network of distributed services and data storage repositories that enable users to create, locate, share, and access working scientific data from any organization, facility, or workstation within the DataFed network</p></li>
+</ul>
+<ul class="simple">
+<li><p>DataFed provides a software framework for the federation of distributed raw data storage resources along with centralized metadata indexing, data discovery, and collaboration services that combine to form a virtual “data backplane” connecting otherwise disjoint systems into a uniform data environment</p></li>
+</ul>
+<ul class="simple">
+<li><p>DataFed features a robust and scalable centralized data indexing and orchestration service that ties potentially large numbers of independent DataFed data storage repositories together with high-performance data transfer protocols and federated identity technologies</p></li>
+</ul>
+<ul class="simple">
+<li><p>Currently, DataFed’s central services are hosted within the Oak Ridge Leadership Computing Facility (OLCF) at the Department of Energy’s Oak Ridge National Laboratory (ORNL)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Data that is managed by a DataFed repository is maintained in system-controlled storage with no user-level file system access. This is to both protect the managed data from inadvertent changes or deletions, and to ensure that all data read/write operations go through a DataFed interface for proper system-wide coordination and access control.</p></li>
+</ul>
+<p><img alt="" src="../../_images/simplified_architecture.png" /></p>
+<ol class="simple">
+<li><p>DataFed Services - Hosts the central metadata server</p></li>
+</ol>
+<ol class="simple">
+<li><p>Observational Facility - This is a place where data is collected and collocated with a repository</p></li>
+</ol>
+<ol class="simple">
+<li><p>Computational Facility - This is a facility where computation is conducted, there could be a federated repository located there</p></li>
+</ol>
+<ol class="simple">
+<li><p>Experimental Facility - This is a place where data is collected</p></li>
+</ol>
+<ol class="simple">
+<li><p>Workstation - This is an end user that can view and analyze the data</p></li>
+</ol>
+<ol class="simple">
+<li><p>Data Backplane - This is the high speed GridFTP transfer bus</p></li>
+</ol>
+<ol class="simple">
+<li><p>Core Channel - This is the low speed internet protocol for communicating between metadata services</p></li>
+</ol>
+</section>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Web Application</strong> The easiest way to interact with DataFed is through the web application (see <a class="reference external" href="https://ornl.github.io/DataFed/user/web/portal.html">DataFed Web Portal</a>), and the web application is where users initially register for DataFed accounts</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Command Line Interface (CLI)</strong> There is both a low- and high-level (Python) applications programming interface (API)</p></li>
+</ul>
+<ul class="simple">
+<li><p>DataFed’s interfaces can be used from any workstation, laptop, or compute node; however, these interfaces only provide users with the ability to issue commands to the DataFed central service.</p></li>
+</ul>
+<ul class="simple">
+<li><p>If users need to be able to also transfer raw data to or from a given host machine, the local file system of the host machine must be connected to a Globus endpoint</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Topic_7\DataFed"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="DataFed_Installation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Installing DataFed</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="DataFed_Tutorial.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DataFed Tutorial</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

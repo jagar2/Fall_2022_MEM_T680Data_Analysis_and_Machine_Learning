@@ -1,0 +1,1317 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Installing DataFed &#8212; MEM T680: Fall 2022: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/Drexel_M3_Logo-01.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction to DataFed" href="DataFed_An_Introduction.html" />
+    <link rel="prev" title="Section : Scientific Data Management Systems" href="../Objectives.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/Drexel_M3_Logo-01.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2022: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MEM T680: Data Analysis and Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Course_Materials/Course_materials.html">
+   Course Materials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/syllabus.html">
+     Syllabus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Course_survey.html">
+     Course Survey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Survey_Response.html">
+     Survey Responses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Course_Materials/Final_project.html">
+     Final Project
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_1/Objectives.html">
+   Importance and Challenges in Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+     Importance of Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_1/T2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">
+     Challenges in Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_2/Objectives.html">
+   Setting Up Your Computing Environment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/1_Introduction_to_MEMT680/Introduction_to_MEMT680.html">
+     Introduction to the Course Machinery
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/2_Navigating_Jupyter/navigating_jupyter.html">
+     Using Project Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment.html">
+     Setting up your Computing Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/4_working_in_colab/Welcome_To_Colaboratory.html">
+     Welcome to Colaboratory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_2/5_Introduction_to_git/Introduction_to_GIT.html">
+     Introduction to GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_3/Objectives.html">
+   What You Can Do With Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_3/1_What_you_can_do_with_ML/What_you_can_do_with_machine_learning.html">
+     What You Can Do With Machine Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_4/Objectives.html">
+   A Crash Course in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_1.html">
+     A Crash Course in Python: Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_2.html">
+     Crash Course in Python Part 2: Flow Control, Loops, Functions, and Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_4/Crash_Course_in_Python_Part_3.html">
+     A Crash Course in Python: Part 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_5/Objectives.html">
+   Tools for Scientific Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_to_Numpy/Introduction_to_numpy.html">
+     What is NumPy?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_to_Numpy/Basics_of_numpy.html">
+     Welcome to NumPy!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Introduction_Matplotlib/Introduction_to_Plotting.html">
+     Introduction to Plotting in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Interactive%20Plotting/Interactive_Graphing_with_Dash.html">
+     Interactive Graphing with Dash
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/Intro_to_scipy/introduction_to_scipy.html">
+     Introduction to SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_5/SymPy/SymPy.html">
+     Symbolic Solving with SymPy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Topic_6/Objectives.html">
+   Image Analysis in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Topic_6/Image_Analysis.html">
+     Introduction to Image Analysis with Scikit-Image
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7️⃣
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Objectives.html">
+   Scientific Data Management with DataFed
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Installing DataFed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DataFed_An_Introduction.html">
+     Introduction to DataFed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DataFed_Tutorial.html">
+     DataFed Tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Homeworks/Homeworks.html">
+   Homework Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_1_Designing%20A%20Metadata%20Schema/Homework%201%20Designing%20a%20Metadata%20Schema.html">
+     📝 Homework 1 Designing a Metadata Schema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Homeworks/Homework_2_scripting/Homework%202_Assignment.html">
+     📝 Homework 2 Scripting in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Take Home Midterm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Midterm/midterm.html">
+   Take Home Midterm
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Final Project Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Final%20Project%20Resources/TOC.html">
+   Final Project Resources
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/How_to_find_a_Dataset.html">
+     How to Find a Dataset?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/white_paper_submission.html">
+     White Paper Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Final%20Project%20Resources/Final_project_booking.html">
+     Final Project Booking
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/main?urlpath=tree/jupyterbook/Topic_7/DataFed/DataFed_Installation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook&urlpath=tree/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/DataFed_Installation.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/blob/main/jupyterbook/Topic_7/DataFed/DataFed_Installation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook/issues/new?title=Issue%20on%20page%20%2FTopic_7/DataFed/DataFed_Installation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Topic_7/DataFed/DataFed_Installation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting Started
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-a-globus-account">
+     Get a Globus account
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-a-globus-id">
+     Get a Globus ID
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-at-datafed">
+     Register at DataFed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-data-allocations">
+     Get data allocations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-a-globus-endpoint">
+     Install a Globus Endpoint
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-personal-computers-and-workstations">
+     Using Personal Computers and Workstations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checking-datafed-installation-and-configuration">
+   Checking DataFed Installation and Configuration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-information">
+     0. Machine information:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-datafed-installation">
+     1. Verify DataFed installation:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-user-authentication">
+     2. Verify user authentication:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensure-globus-endpoint-is-set">
+     3. Ensure Globus Endpoint is set:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-globus-endpoint">
+     4. Test Globus Endpoint:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-for-windows-test-for-admin-privileges">
+     (Optional) for Windows - Test for Admin privileges
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Installing DataFed</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting Started
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-a-globus-account">
+     Get a Globus account
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-a-globus-id">
+     Get a Globus ID
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register-at-datafed">
+     Register at DataFed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-data-allocations">
+     Get data allocations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-a-globus-endpoint">
+     Install a Globus Endpoint
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-personal-computers-and-workstations">
+     Using Personal Computers and Workstations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checking-datafed-installation-and-configuration">
+   Checking DataFed Installation and Configuration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-information">
+     0. Machine information:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-datafed-installation">
+     1. Verify DataFed installation:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-user-authentication">
+     2. Verify user authentication:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensure-globus-endpoint-is-set">
+     3. Ensure Globus Endpoint is set:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-globus-endpoint">
+     4. Test Globus Endpoint:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-for-windows-test-for-admin-privileges">
+     (Optional) for Windows - Test for Admin privileges
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="installing-datafed">
+<h1>Installing DataFed<a class="headerlink" href="#installing-datafed" title="Permalink to this headline">#</a></h1>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h2>
+<p>Please follow this guide to get started with DataFed</p>
+<section id="get-a-globus-account">
+<h3>Get a Globus account<a class="headerlink" href="#get-a-globus-account" title="Permalink to this headline">#</a></h3>
+<p>Follow only step 1 of instructions <a class="reference external" href="https://docs.globus.org/how-to/get-started/">here</a> to get a Globus account.</p>
+</section>
+<section id="get-a-globus-id">
+<h3>Get a Globus ID<a class="headerlink" href="#get-a-globus-id" title="Permalink to this headline">#</a></h3>
+<p>Ensure that your <code class="docutils literal notranslate"><span class="pre">globus</span> <span class="pre">ID</span></code> is linked with your institutional ID in your globus account:</p>
+<ol class="simple">
+<li><p>Log into <a class="reference external" href="https://www.globus.org/">globus.org</a></p></li>
+</ol>
+<ol class="simple">
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Account</span></code> on the left hand pane</p></li>
+</ol>
+<ol class="simple">
+<li><p>Select the <code class="docutils literal notranslate"><span class="pre">Identities</span></code> tab in the window that opens up</p></li>
+</ol>
+<p>You should see (at least these) two identities:</p>
+<ul class="simple">
+<li><p>One from your home institution (that is listed as primary with a crown)</p></li>
+<li><p>Globus ID (<a class="reference external" href="mailto:your_username&#37;&#52;&#48;globusid&#46;org">your_username<span>&#64;</span>globusid<span>&#46;</span>org</a>)</p></li>
+<li><p>If you do not see the <code class="docutils literal notranslate"><span class="pre">Globus</span> <span class="pre">ID</span></code>, click on <code class="docutils literal notranslate"><span class="pre">Link</span> <span class="pre">another</span> <span class="pre">identity</span></code>. Select <code class="docutils literal notranslate"><span class="pre">Globus</span> <span class="pre">ID</span></code> and link this ID.</p></li>
+</ul>
+</section>
+<section id="register-at-datafed">
+<h3>Register at DataFed<a class="headerlink" href="#register-at-datafed" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Once you have a Globus ID, visit the <a class="reference external" href="https://datafed.ornl.gov/">DataFed web portal</a>.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Log</span> <span class="pre">in</span> <span class="pre">/</span> <span class="pre">Register</span></code> button on the top right of the page.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Follow the steps to register yourself with DataFed.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Though you can log into the DataFed web portal with your institution’s credentials, you will need the username and password you set up during your registration for scripting.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your institutional credentials are not the same as your DataFed credentials. The latter is only required for using DataFed via python / CLI.</p>
+</div>
+</section>
+<section id="get-data-allocations">
+<h3>Get data allocations<a class="headerlink" href="#get-data-allocations" title="Permalink to this headline">#</a></h3>
+<p>As the name suggests, a data allocation is just the data storage space that users and projects can use to store and share data of their own. Though you can start to use DataFed at this point to view and get publicly shared data, it would not be possible to create or manipulate data of your own unless you have a data allocation in a DataFed data repository.</p>
+<p>You can request a small allocation from Prof. Agar. If you would like to use DataFed for your research please email <span class="xref myst">Prof. Agar</span></p>
+</section>
+<section id="install-a-globus-endpoint">
+<h3>Install a Globus Endpoint<a class="headerlink" href="#install-a-globus-endpoint" title="Permalink to this headline">#</a></h3>
+<p>You will need a <a class="reference external" href="https://docs.cades.ornl.gov/#data-transfer-storage/globus-endpoints/">Globus endpoint</a> on every machine where you intend to download / upload data.</p>
+<ul class="simple">
+<li><p>Most computing facilities already have a Globus endpoint</p></li>
+</ul>
+</section>
+<section id="using-personal-computers-and-workstations">
+<h3>Using Personal Computers and Workstations<a class="headerlink" href="#using-personal-computers-and-workstations" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Install <a class="reference external" href="https://www.globus.org/globus-connect-personal">Globus Personal Connect</a></p></li>
+</ol>
+<ol class="simple">
+<li><p>When conducting the install make note of the endpoint name</p></li>
+</ol>
+<ol class="simple">
+<li><p>Log into Globus: Drexel does not have an organizational login, you may choose to either Sign in with Google or Sign in with ORCiD iD.</p></li>
+</ol>
+<p><img alt="" src="../../_images/globus_google.png" /></p>
+<ol class="simple">
+<li><p>Check your managed endpoints to make sure your endpoint is visible.</p>
+<ul class="simple">
+<li><p>You want to copy the UUID - this is the ID to the endpoint</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="" src="../../_images/Id.png" /></p>
+<ol>
+<li><p>Installing DataFed</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">datafed</span></code></p>
+</li>
+</ol>
+<p>Note, if you used the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file this was already installed. You can just verify that it was installed by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">command</span></code></p>
+<ol class="simple">
+<li><p>Ensure the bin Directory is in the Path</p></li>
+</ol>
+<p>If you do not see an error when you type <code class="docutils literal notranslate"><span class="pre">datafed</span></code> in your terminal, you may skip this step.</p>
+<p>If you encounter errors stating that <code class="docutils literal notranslate"><span class="pre">datafed</span> <span class="pre">was</span> <span class="pre">an</span> <span class="pre">unknown</span> <span class="pre">command</span></code>, you would need to add DataFed to your path.</p>
+<ul class="simple">
+<li><p>First, you would need to find where datafed was installed. For example, on some compute clusters, datafed was installed into directories such as <code class="docutils literal notranslate"><span class="pre">~/.local/MACHINE_NAME/PREFIXES-anaconda-SUFFIXES/bin</span></code></p></li>
+<li><p>Next, add DataFed to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable.</p></li>
+</ul>
+<p>Here is an <a class="reference external" href="https://www.makeuseof.com/python-windows-path/">external guide</a> on adding Python to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> on Windows machines</p>
+<ol class="simple">
+<li><p>Basic Configuration</p></li>
+</ol>
+<ul class="simple">
+<li><p>Type the following command into shell:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">datafed</span> <span class="pre">setup</span></code></p>
+<p>It will prompt you for your username and password.</p>
+<ul class="simple">
+<li><p>Enter the credentials you set up when registering for an account on DataFed (not your institutional credentials you use to log into the machine)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Add the Globus endpoint specific to this machine / file-system as the default endpoint via:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">datafed</span> <span class="pre">ep</span> <span class="pre">default</span> <span class="pre">set</span> <span class="pre">endpoint_name_here</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using Globus Connect Personal, visit the Settings or Preferences of the application to inspect which folders Globus has write access to. Consider adding or removing directories to suit your needs.</p>
+</div>
+</section>
+</section>
+<section id="checking-datafed-installation-and-configuration">
+<h2>Checking DataFed Installation and Configuration<a class="headerlink" href="#checking-datafed-installation-and-configuration" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">platform</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;./datapath&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="s2">&quot;./datapath&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="machine-information">
+<h3>0. Machine information:<a class="headerlink" href="#machine-information" title="Permalink to this headline">#</a></h3>
+<p>Python version:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sys.version_info(major=3, minor=10, micro=0, releaselevel=&#39;final&#39;, serial=0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Windows-10-10.0.19044-SP0&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verify-datafed-installation">
+<h3>1. Verify DataFed installation:<a class="headerlink" href="#verify-datafed-installation" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+
+    <span class="c1"># This package is not part of anaconda and may need to be installed.</span>
+    <span class="kn">from</span> <span class="nn">datafed.CommandLib</span> <span class="kn">import</span> <span class="n">API</span>
+
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;datafed not found. Installing from pip.&quot;</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;datafed&quot;</span><span class="p">])</span>
+    <span class="kn">from</span> <span class="nn">datafed.CommandLib</span> <span class="kn">import</span> <span class="n">API</span>
+
+<span class="kn">from</span> <span class="nn">datafed</span> <span class="kn">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">df_ver</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">df_ver</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;1.4&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempting to update DataFed.&quot;</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;--upgrade&quot;</span><span class="p">,</span> <span class="s2">&quot;datafed&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Please restart the python kernel or upgrade manually to V 1.1.0:1 if you are repeatedly seeing this message via&quot;</span>
+        <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">pip install --upgrade datafed&quot;</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">df_api</span> <span class="o">=</span> <span class="n">API</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success! You have DataFed: &quot;</span> <span class="o">+</span> <span class="n">df_ver</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Success! You have DataFed: 1.4.0:0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verify-user-authentication">
+<h3>2. Verify user authentication:<a class="headerlink" href="#verify-user-authentication" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">df_api</span><span class="o">.</span><span class="n">getAuthUser</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Success! You have been authenticated into DataFed as: &quot;</span> <span class="o">+</span> <span class="n">df_api</span><span class="o">.</span><span class="n">getAuthUser</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You have not authenticated into DataFed Client&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s1">&#39;Please follow instructions in the &quot;Basic Configuration&quot; section in the link below to authenticate yourself:&#39;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;https://ornl.github.io/DataFed/user/client/install.html#basic-configuration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Success! You have been authenticated into DataFed as: u/jca318
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ensure-globus-endpoint-is-set">
+<h3>3. Ensure Globus Endpoint is set:<a class="headerlink" href="#ensure-globus-endpoint-is-set" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">df_api</span><span class="o">.</span><span class="n">endpointDefaultGet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please follow instructions in the link below to find your Globus Endpoint:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;https://ornl.github.io/DataFed/system/getting_started.html#install-identify-globus-endpoint&quot;</span>
+    <span class="p">)</span>
+    <span class="n">endpoint</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
+        <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Please enter either the Endpoint UUID or Legacy Name for your Globus Endpoint: &quot;</span>
+    <span class="p">)</span>
+    <span class="n">df_api</span><span class="o">.</span><span class="n">endpointDefaultSet</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your default Globus Endpoint in DataFed is:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">df_api</span><span class="o">.</span><span class="n">endpointDefaultGet</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your default Globus Endpoint in DataFed is:
+f134f91a-572a-11ed-ba55-d5fb255a47cc
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="test-globus-endpoint">
+<h3>4. Test Globus Endpoint:<a class="headerlink" href="#test-globus-endpoint" title="Permalink to this headline">#</a></h3>
+<p>This will make sure you have write access to the folder</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a dataGet Command</span>
+<span class="n">dget_resp</span> <span class="o">=</span> <span class="n">df_api</span><span class="o">.</span><span class="n">dataGet</span><span class="p">(</span><span class="s2">&quot;d/35437908&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">datapath</span><span class="p">),</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dget_resp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(task {
+   id: &quot;task/412662990&quot;
+   type: TT_DATA_GET
+   status: TS_SUCCEEDED
+   client: &quot;u/jca318&quot;
+   step: 2
+   steps: 3
+   msg: &quot;Finished&quot;
+   ct: 1667076705
+   ut: 1667076711
+   source: &quot;d/35437908&quot;
+   dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/Users/jca92/Documents/codes/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Topic_7/DataFed/datapath&quot;
+ },
+ &#39;TaskDataReply&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see that a file was downloaded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dget_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success! Downloaded a test file to your location. Removing the file now&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;/35437908.md5sum&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">dget_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">msg</span> <span class="o">==</span> <span class="s2">&quot;globus connect offline&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;You need to activate your Globus Endpoint and/or ensure Globus Connect Personal is running.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Please visit https://globus.org to activate your Endpoint&quot;</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">dget_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">msg</span> <span class="o">==</span> <span class="s2">&quot;permission denied&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Globus does not have write access to this directory. </span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;If you are using Globus Connect Personal, ensure that this notebook runs within&quot;</span>
+            <span class="s2">&quot;one of the directories where Globus has write access. You may consider moving this&quot;</span>
+            <span class="s2">&quot;notebook to a valid directory or add this directory to the Globus Connect Personal settings&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;Get in touch with us or consider looking online to find a solution to this problem:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="o">+</span> <span class="n">dget_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">msg</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Success! Downloaded a test file to your location. Removing the file now
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="optional-for-windows-test-for-admin-privileges">
+<h3>(Optional) for Windows - Test for Admin privileges<a class="headerlink" href="#optional-for-windows-test-for-admin-privileges" title="Permalink to this headline">#</a></h3>
+<p>Admin privileges may be necessary for some operations. On Windows when you start your Anaconda Console you can <code class="docutils literal notranslate"><span class="pre">right-click</span></code> and select <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">as</span> <span class="pre">administrator</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">is_admin</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getuid</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+    <span class="n">is_admin</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">shell32</span><span class="o">.</span><span class="n">IsUserAnAdmin</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">is_admin</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;not &quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You are </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">running as an admin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are not running as an admin
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Topic_7\DataFed"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Objectives.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Section : Scientific Data Management Systems</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="DataFed_An_Introduction.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to DataFed</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
