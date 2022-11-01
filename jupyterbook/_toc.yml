@@ -69,6 +69,18 @@ parts:
           - file: Topic_7/DataFed/DataFed_Installation
           - file: Topic_7/DataFed/DataFed_An_Introduction
           - file: Topic_7/DataFed/DataFed_Tutorial
+  - caption: "Topic 8\uFE0F\u20E3"
+    chapters:
+      - file: Topic_8/Objectives
+        title: "Linear Supervised Machine Learning"
+        sections:
+          - file: Topic_8/Introduction_to_linear_ML
+          - file: Topic_8/Introduction_to_Linear_Supervised_ML_with_scikit-learn
+          - file: Topic_8/Logistic_Regression
+          - file: Topic_8/Support_Vector_Machines
+          - file: Topic_8/Non_Linear_Data
+          - file: Topic_8/Decision_Trees
+          - file: Topic_8/Hyperparemeter_Tuning
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
