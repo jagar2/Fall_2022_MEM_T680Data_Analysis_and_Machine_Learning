@@ -81,6 +81,14 @@ parts:
           - file: Topic_8/Non_Linear_Data
           - file: Topic_8/Decision_Trees
           - file: Topic_8/Hyperparemeter_Tuning
+  - caption: "Topic 9\uFE0F\u20E3"
+    chapters:
+      - file: Topic_9/Objectives
+        title: "Unsupervised Learning"
+        sections:
+          - file: Topic_9/1_Clustering_Algorithms
+          - file: Topic_9/2_Decomposition_Algorithims
+          - file: Topic_9/3_Manifold_Learning
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
