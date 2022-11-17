@@ -89,6 +89,19 @@ parts:
           - file: Topic_9/1_Clustering_Algorithms
           - file: Topic_9/2_Decomposition_Algorithims
           - file: Topic_9/3_Manifold_Learning
+  - caption: "Topic 10\uFE0F\u20E3"
+    chapters:
+      - file: Topic_10/Objectives
+        title: "Deep Learning with Pytorch"
+        sections:
+          - file: Topic_10/1_quickstart_tutorial
+          - file: Topic_10/2_tensor_tutorial
+          - file: Topic_10/3_data_tutorial
+          - file: Topic_10/4_transforms_tutorial
+          - file: Topic_10/5_buildmodel_tutorial
+          - file: Topic_10/6_autogradqs_tutorial
+          - file: Topic_10/7_optimization_tutorial
+          - file: Topic_10/8_saveloadrun_tutorial
   - caption: "\U0001F4DD Homework"
     chapters:
       - file: Homeworks/Homeworks
@@ -97,6 +110,8 @@ parts:
             title: "\U0001F4DD Homework 1 Designing a Metadata Schema"
           - file: Homeworks/Homework_2_scripting/Homework 2_Assignment
             title: "\U0001F4DD Homework 2 Scripting in Python"
+          - file: Homeworks/Homework_3_Machine_Learning/Homework_3_Assignment
+            title: "\U0001F4DD Homework 3 Machine Learning Semiconductor Manufacturing"
   - caption: "Take Home Midterm"
     chapters:
       - file: Midterm/midterm
