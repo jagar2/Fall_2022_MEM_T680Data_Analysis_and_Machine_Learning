@@ -9,7 +9,7 @@
 # ## Import functions
 # 
 
-# In[32]:
+# In[1]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -64,7 +64,7 @@ import plotly_express as px
 # ### Generating Data
 # 
 
-# In[33]:
+# In[2]:
 
 
 # sets the random state
@@ -87,7 +87,7 @@ plt.axis('equal');
 # ### Implementing PCA in Scikit-learn
 # 
 
-# In[34]:
+# In[3]:
 
 
 pca = PCA(n_components=2)
@@ -102,7 +102,7 @@ pca.fit(X)
 # These represent the directions of the largest variance
 # 
 
-# In[35]:
+# In[4]:
 
 
 print(pca.components_)
@@ -113,7 +113,7 @@ print(pca.components_)
 # This represents the amount of variance in the dataset explained by the principal component
 # 
 
-# In[36]:
+# In[5]:
 
 
 print(pca.explained_variance_)
@@ -128,7 +128,7 @@ print(pca.explained_variance_)
 # Process 2 and 3 repeats for the number of components selected
 # 
 
-# In[37]:
+# In[6]:
 
 
 def draw_vector(v0, v1, ax=None):
@@ -152,7 +152,7 @@ plt.axis('equal');
 # - The length of the vector indicates how important that axis is in describing the distribution (the variance)
 # 
 
-# In[38]:
+# In[7]:
 
 
 rng = np.random.RandomState(1)
@@ -198,7 +198,7 @@ ax[1].set(xlabel='component 1', ylabel='component 2',
 # **Example:** taking 2d data and converting it into 1d
 # 
 
-# In[39]:
+# In[8]:
 
 
 pca = PCA(n_components=1)
@@ -208,7 +208,7 @@ print("original shape:   ", X.shape)
 print("transformed shape:", X_pca.shape)
 
 
-# In[40]:
+# In[9]:
 
 
 X_new = pca.inverse_transform(X_pca)
@@ -231,7 +231,7 @@ plt.axis('equal');
 # ### Real Example of PCA
 # 
 
-# In[41]:
+# In[10]:
 
 
 # Display progress logs on stdout
@@ -265,7 +265,7 @@ print("n_classes: %d" % n_classes)
 # **Split into a training set and a test set using a stratified k-fold**
 # 
 
-# In[42]:
+# In[11]:
 
 
 # split into a training and testing set
@@ -276,7 +276,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # **Training a classifier without PCA**
 # 
 
-# In[43]:
+# In[12]:
 
 
 # Train a SVM classification model
@@ -288,7 +288,7 @@ clf = clf.fit(X_train, y_train)
 # **Evaluation of Model Quality**
 # 
 
-# In[44]:
+# In[13]:
 
 
 print("Predicting people's names on the test set")
@@ -315,7 +315,7 @@ plt.show()
 # **Compute PCA**
 # 
 
-# In[45]:
+# In[14]:
 
 
 # Compute a PCA (eigenfaces) on the face dataset (treated as unlabeled
@@ -341,7 +341,7 @@ print("done in %0.3fs" % (time() - t0))
 # **Train and SVM on the PCA data**
 # 
 
-# In[46]:
+# In[15]:
 
 
 # Train a SVM classification model
@@ -362,7 +362,7 @@ print(clf.best_estimator_)
 # **Evaluation of Model Quality**
 # 
 
-# In[47]:
+# In[16]:
 
 
 print("Predicting people's names on the test set")
@@ -389,7 +389,7 @@ plt.show()
 # **PCA of Faces**
 # 
 
-# In[48]:
+# In[17]:
 
 
 def plot_gallery(images, titles, h, w, n_row=3, n_col=4):
@@ -439,7 +439,7 @@ plt.show()
 # **Visual comparison between PCA and ICA**
 # 
 
-# In[49]:
+# In[18]:
 
 
 # Authors: Alexandre Gramfort, Gael Varoquaux
@@ -526,7 +526,7 @@ plt.subplots_adjust(0.09, 0.04, 0.94, 0.94, 0.26, 0.36)
 # We will start by creating some independent signals that will be mixed by matrix A. The independent sources signals are **(1)** a sine wave, **(2)** a saw tooth signal and **(3)** a random noise vector. After calculating their dot product with _A_ we get three linear combinations of these source signals.
 # 
 
-# In[50]:
+# In[19]:
 
 
 np.random.seed(0)
@@ -546,7 +546,7 @@ A = np.array([[1, 1, 1], [0.5, 2, 1.0], [1.5, 1.0, 2.0]])  # Mixing matrix
 X = np.dot(S, A.T)  # Generate observations
 
 
-# In[51]:
+# In[20]:
 
 
 # Compute ICA
@@ -562,7 +562,7 @@ pca = PCA(n_components=3)
 H = pca.fit_transform(X)  # Reconstruct signals based on orthogonal components
 
 
-# In[52]:
+# In[21]:
 
 
 plt.figure()
@@ -652,7 +652,7 @@ plt.show()
 # **Set Parameters**
 # 
 
-# In[53]:
+# In[22]:
 
 
 train_samples = 1000
@@ -663,7 +663,7 @@ np.random.seed(0)
 # #### Import Data
 # 
 
-# In[54]:
+# In[23]:
 
 
 (X_train, Y_train), (X_test, Y_test) = mnist.load_data()
@@ -680,7 +680,7 @@ inputs_test = inputs_test.reshape((len(inputs_test), np.prod(inputs_test.shape[1
 # #### Plots Raw Images
 # 
 
-# In[55]:
+# In[24]:
 
 
 fig=plt.figure(figsize=(8, 8))
@@ -697,7 +697,7 @@ plt.show()
 # #### Conducts NMF
 # 
 
-# In[56]:
+# In[25]:
 
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html
@@ -734,7 +734,7 @@ plt.show()
 # #### Reconstruction
 # 
 
-# In[57]:
+# In[26]:
 
 
 output = nmf.inverse_transform(W)
