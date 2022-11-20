@@ -1,0 +1,1446 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Final Exam Assignment (40 points - Total of 45 is Possible) &#8212; MEM T680: Fall 2022: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../_static/Drexel_M3_Logo-01.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Final Project Resources" href="../Final%20Project%20Resources/TOC.html" />
+    <link rel="prev" title="Final Exam" href="Final_exam.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/Drexel_M3_Logo-01.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2022: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    MEM T680: Data Analysis and Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Course_Materials/Course_materials.html">
+   Course Materials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/syllabus.html">
+     Syllabus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/Course_survey.html">
+     Course Survey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/Survey_Response.html">
+     Survey Responses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Course_Materials/Final_project.html">
+     Final Project
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_1/Objectives.html">
+   Importance and Challenges in Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_1/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+     Importance of Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_1/T2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">
+     Challenges in Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_2/Objectives.html">
+   Setting Up Your Computing Environment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/1_Introduction_to_MEMT680/Introduction_to_MEMT680.html">
+     Introduction to the Course Machinery
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/2_Navigating_Jupyter/navigating_jupyter.html">
+     Using Project Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/3_setting_up_your_computing_env/setting_up_your_computing_environment.html">
+     Setting up your Computing Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/4_working_in_colab/Welcome_To_Colaboratory.html">
+     Welcome to Colaboratory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_2/5_Introduction_to_git/Introduction_to_GIT.html">
+     Introduction to GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_3/Objectives.html">
+   What You Can Do With Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_3/1_What_you_can_do_with_ML/What_you_can_do_with_machine_learning.html">
+     What You Can Do With Machine Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_4/Objectives.html">
+   A Crash Course in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_4/Crash_Course_in_Python_Part_1.html">
+     A Crash Course in Python: Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_4/Crash_Course_in_Python_Part_2.html">
+     Crash Course in Python Part 2: Flow Control, Loops, Functions, and Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_4/Crash_Course_in_Python_Part_3.html">
+     A Crash Course in Python: Part 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_5/Objectives.html">
+   Tools for Scientific Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Introduction_to_Numpy/Introduction_to_numpy.html">
+     What is NumPy?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Introduction_to_Numpy/Basics_of_numpy.html">
+     Welcome to NumPy!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Introduction_Matplotlib/Introduction_to_Plotting.html">
+     Introduction to Plotting in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Interactive%20Plotting/Interactive_Graphing_with_Dash.html">
+     Interactive Graphing with Dash
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/Intro_to_scipy/introduction_to_scipy.html">
+     Introduction to SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_5/SymPy/SymPy.html">
+     Symbolic Solving with SymPy
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_6/Objectives.html">
+   Image Analysis in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_6/Image_Analysis.html">
+     Introduction to Image Analysis with Scikit-Image
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_7/Objectives.html">
+   Scientific Data Management with DataFed
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_7/DataFed/DataFed_Installation.html">
+     Installing DataFed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_7/DataFed/DataFed_An_Introduction.html">
+     Introduction to DataFed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_7/DataFed/DataFed_Tutorial.html">
+     DataFed Tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 8️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_8/Objectives.html">
+   Linear Supervised Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_8/Introduction_to_linear_ML.html">
+     Introduction to Linear Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_8/Introduction_to_Linear_Supervised_ML_with_scikit-learn.html">
+     Linear Supervised Machine Learning with Scikit-Learn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_8/Logistic_Regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_8/Support_Vector_Machines.html">
+     Support Vector Machines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_8/Non_Linear_Data.html">
+     Nonlinear Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_8/Decision_Trees.html">
+     Decision Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_8/Hyperparemeter_Tuning.html">
+     Hyperparameter tuning by grid-search
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 9️⃣
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_9/Objectives.html">
+   Unsupervised Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_9/1_Clustering_Algorithms.html">
+     Clustering Algorithms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_9/2_Decomposition_Algorithims.html">
+     Decomposition Algorithms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_9/3_Manifold_Learning.html">
+     Manifold Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 🔟
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Topic_10/Objectives.html">
+   Deep Learning with Pytorch
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/1_quickstart_tutorial.html">
+     Quickstart
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/2_tensor_tutorial.html">
+     Tensors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/3_data_tutorial.html">
+     Datasets &amp; DataLoaders
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/4_transforms_tutorial.html">
+     Transforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/5_buildmodel_tutorial.html">
+     What is a neural network
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/6_autogradqs_tutorial.html">
+     Automatic Differentiation with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       torch.autograd
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/7_optimization_tutorial.html">
+     Optimizing Model Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Topic_10/8_saveloadrun_tutorial.html">
+     Save and Load the Model
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Homeworks/Homeworks.html">
+   Homework Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Homeworks/Homework_1_Designing%20A%20Metadata%20Schema/Homework%201%20Designing%20a%20Metadata%20Schema.html">
+     📝 Homework 1 Designing a Metadata Schema
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Homeworks/Homework_2_scripting/Homework%202_Assignment.html">
+     📝 Homework 2 Scripting in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Homeworks/Homework_3_Machine_Learning/Homework_3_Assignment.html">
+     📝 Homework 3 Machine Learning Semiconductor Manufacturing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Take Home Midterm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Midterm/midterm.html">
+   Take Home Midterm
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Final Exam Materials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Final_exam.html">
+   Topics for Final Exam
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Final Exam Assignment
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Final Project Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Final%20Project%20Resources/TOC.html">
+   Final Project Resources
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Final%20Project%20Resources/How_to_find_a_Dataset.html">
+     How to Find a Dataset?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Final%20Project%20Resources/white_paper_submission.html">
+     White Paper Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Final%20Project%20Resources/Final_project_booking.html">
+     Final Project Booking
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/main?urlpath=tree/jupyterbook/Final_exam/Final_Exam_Assignment.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook&urlpath=tree/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/jupyterbook/Final_exam/Final_Exam_Assignment.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/blob/main/jupyterbook/Final_exam/Final_Exam_Assignment.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning/tree/main/jupyterbook/issues/new?title=Issue%20on%20page%20%2FFinal_exam/Final_Exam_Assignment.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Final_exam/Final_Exam_Assignment.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#due-december-7-2022-8-00-am">
+   Due December 7, 2022, @ 8:00 am
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-data-3-points">
+   Loading the Data (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprocessing-the-data-5-points">
+   Preprocessing the Data (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-the-dataset-5-points">
+   Building the Dataset (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-test-split-3-points">
+   Train-test Split (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-the-dataloader-3-points">
+   Build the Dataloader (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-neural-network-5-points">
+   Building a Neural Network (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiate-the-model-3-points">
+   Instantiate the Model (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-the-model-5-points">
+   Train the Model (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validate-the-model-3-points">
+   Validate the Model (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crack-your-code-3-points">
+   Crack Your Code (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reveal-your-code-3-points">
+   Reveal Your Code (3 points)
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Final Exam Assignment (40 points - Total of 45 is Possible)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#due-december-7-2022-8-00-am">
+   Due December 7, 2022, @ 8:00 am
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-data-3-points">
+   Loading the Data (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprocessing-the-data-5-points">
+   Preprocessing the Data (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-the-dataset-5-points">
+   Building the Dataset (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-test-split-3-points">
+   Train-test Split (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-the-dataloader-3-points">
+   Build the Dataloader (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-neural-network-5-points">
+   Building a Neural Network (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiate-the-model-3-points">
+   Instantiate the Model (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-the-model-5-points">
+   Train the Model (5 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validate-the-model-3-points">
+   Validate the Model (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crack-your-code-3-points">
+   Crack Your Code (3 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reveal-your-code-3-points">
+   Reveal Your Code (3 points)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="final-exam-assignment-40-points-total-of-45-is-possible">
+<h1>Final Exam Assignment (40 points - Total of 45 is Possible)<a class="headerlink" href="#final-exam-assignment-40-points-total-of-45-is-possible" title="Permalink to this headline">#</a></h1>
+<section id="due-december-7-2022-8-00-am">
+<h2>Due December 7, 2022, &#64; 8:00 am<a class="headerlink" href="#due-december-7-2022-8-00-am" title="Permalink to this headline">#</a></h2>
+<p>Note that there will be no extensions given for this assignment as there is a tight timeline for grading.</p>
+<p>For this assignment, I have provided each of you with your own training dataset. Your goal is to train a deep neural network to uncover the code image provided to you.</p>
+<p>I will provide you with instructions throughout.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your import statements here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a tool I have provided you to help you download your file.</span>
+
+<span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A function that downloads the data file from a URL</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    url : string</span>
+<span class="sd">        url where the file to download is located</span>
+<span class="sd">    filename : string</span>
+<span class="sd">        location where to save the file</span>
+<span class="sd">    reporthook : function</span>
+<span class="sd">        callback to display the download progress</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">reporthook</span><span class="p">)</span>
+        
+<span class="k">def</span> <span class="nf">reporthook</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="n">total_size</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A function that displays the status and speed of the download</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">global</span> <span class="n">start_time</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">return</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+    <span class="n">progress_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span> <span class="o">*</span> <span class="n">block_size</span><span class="p">)</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">progress_size</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="n">duration</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">))</span>
+    <span class="n">percent</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span> <span class="o">*</span> <span class="n">block_size</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">total_size</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">...</span><span class="si">%d%%</span><span class="s2">, </span><span class="si">%d</span><span class="s2"> MB, </span><span class="si">%d</span><span class="s2"> KB/s, </span><span class="si">%d</span><span class="s2"> seconds passed&quot;</span> <span class="o">%</span>
+                     <span class="p">(</span><span class="n">percent</span><span class="p">,</span> <span class="n">progress_size</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">),</span> <span class="n">speed</span><span class="p">,</span> <span class="n">duration</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can download your file by typing your first name into the name block</span>
+<span class="c1"># The name used is the first part of your first name as listed in BB learn</span>
+<span class="c1"># If you have problems downloading the data please reach out to me</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Your First Name Here&#39;</span>
+<span class="n">download_file</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://zenodo.org/record/7339649/files/data_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">.npz?download=1&#39;</span><span class="p">,</span><span class="s1">&#39;data.npz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-the-data-3-points">
+<h2>Loading the Data (3 points)<a class="headerlink" href="#loading-the-data-3-points" title="Permalink to this headline">#</a></h2>
+<p>The data is provided to you as a compressed NumPy array saved as ‘data.npz’. When working with real data you might need to figure out how data is stored. Use the information on ‘npz’ files to figure out what data you have. The data file contains three NumPy arrays.</p>
+<ol class="simple">
+<li><p>The features for the training dataset</p></li>
+<li><p>The regression values for the training dataset</p></li>
+<li><p>The validation features that contain your code</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="preprocessing-the-data-5-points">
+<h2>Preprocessing the Data (5 points)<a class="headerlink" href="#preprocessing-the-data-5-points" title="Permalink to this headline">#</a></h2>
+<p>You should explore the data and figure out the best way to preprocess the data.</p>
+<p>Hints:</p>
+<ol class="simple">
+<li><p>For the regression values, these at the end will represent colors in RGB space from [0,1]. It is recommended to use a max-min scalar between 0 and 1.</p></li>
+<li><p>For the training features, you should look at the data and determine the best scaling method. Look at our class notes for a reminder of what other scaler might be useful.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-the-dataset-5-points">
+<h2>Building the Dataset (5 points)<a class="headerlink" href="#building-the-dataset-5-points" title="Permalink to this headline">#</a></h2>
+<p>When training neural networks it is important to build a dataset that allows the machinery to sample the data. This also can be used to conduct some preprocessing of the data to make it work with PyTorch.</p>
+<p>I have provided you with the framework for a Dataset Class.</p>
+<p>You should:</p>
+<ol class="simple">
+<li><p>Convert the x and y data to a tensor ‘float32’ and put it on the GPU.</p></li>
+<li><p>Save the len of the data</p></li>
+<li><p>Add the code so when <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> is called it returns the x and y values</p></li>
+<li><p>make it so <code class="docutils literal notranslate"><span class="pre">__len__</span></code> returns the lenght when calle</p></li>
+</ol>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Data</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39;Dataset Class to store the samples and their corresponding labels, </span>
+<span class="sd">  and DataLoader wraps an iterable around the Dataset to enable easy access to the samples.</span>
+<span class="sd">  &#39;&#39;&#39;</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+    <span class="c1"># need to convert float64 to float32 else </span>
+    <span class="c1"># will get the following error</span>
+    <span class="c1"># RuntimeError: expected scalar type Double but found Float</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="c1"># here</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="c1"># here</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="c1"># here</span>
+  
+  <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+    <span class="k">return</span> <span class="c1"># here</span>
+
+  <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="c1">#here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="train-test-split-3-points">
+<h2>Train-test Split (3 points)<a class="headerlink" href="#train-test-split-3-points" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>You should conduct a train-test split of the training data so you can make sure that your model does not overfit the data. A good ratio is 66/33 train</p></li>
+<li><p>You should instantiate the training dataset using the data class implemented above.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-the-dataloader-3-points">
+<h2>Build the Dataloader (3 points)<a class="headerlink" href="#build-the-dataloader-3-points" title="Permalink to this headline">#</a></h2>
+<p>Pytorch uses DataLoaders to efficiently sample from a training dataset. Instantiate a Pytorch DataLoader using the dataset.</p>
+<p>You should set the following parameters:</p>
+<ol class="simple">
+<li><p>Batch size = 64</p></li>
+<li><p>Shuffle = True</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-neural-network-5-points">
+<h2>Building a Neural Network (5 points)<a class="headerlink" href="#building-a-neural-network-5-points" title="Permalink to this headline">#</a></h2>
+<p>Using the provided class framework which inherits the <code class="docutils literal notranslate"><span class="pre">nn.Module</span></code> type in PyTorch builds a 4-layer neural network to complete the multiple regression.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Neural_Network</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39; Regression Model</span>
+<span class="sd">  &#39;&#39;&#39;</span> 
+
+  <span class="c1"># note, you can ignore the `:int` and `-&gt; None` this is just more advanced doctring syntax</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="sd">&#39;&#39;&#39;The network has 4 layers</span>
+<span class="sd">            - input layer</span>
+<span class="sd">            - ReLu</span>
+<span class="sd">            - hidden layer</span>
+<span class="sd">            - ReLu</span>
+<span class="sd">            - hidden layer</span>
+<span class="sd">            - ReLu</span>
+<span class="sd">            - output layer</span>
+<span class="sd">      &#39;&#39;&#39;</span>
+      <span class="nb">super</span><span class="p">(</span><span class="n">Neural_Network</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+      <span class="c1"># in this part you should intantiate each of the layer components</span>
+      <span class="c1"># Type your code here</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+      <span class="c1"># In this part you should build a model that returns the 3 outputs of the regression</span>
+      <span class="c1"># Type your code here</span>
+      
+      <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="instantiate-the-model-3-points">
+<h2>Instantiate the Model (3 points)<a class="headerlink" href="#instantiate-the-model-3-points" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of features (len of X cols)</span>
+<span class="n">input_dim</span> <span class="o">=</span> 
+<span class="c1"># number of hidden layers set this to 50</span>
+<span class="n">hidden_layers</span> <span class="o">=</span> 
+<span class="c1"># Add the number of output dimensions</span>
+<span class="n">output_dim</span> <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initiate the regression model</span>
+<span class="c1"># make sure to put it on your GPU</span>
+<span class="n">model</span> <span class="o">=</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># criterion to computes the loss between input and target</span>
+<span class="c1"># Choose a good criteria</span>
+
+<span class="c1"># optimizer that will be used to update weights and biases</span>
+<span class="c1"># you can choose any optimizer. I would recommend ADAM.</span>
+<span class="c1"># This problem should not be hard to optimize. A good starting learning rate is 3e-5. </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="train-the-model-5-points">
+<h2>Train the Model (5 points)<a class="headerlink" href="#train-the-model-5-points" title="Permalink to this headline">#</a></h2>
+<p>Training the model is conducted in a number of steps using loops.</p>
+<ol class="simple">
+<li><p>Set up a loop for each epoch</p></li>
+<li><p>Set a parameter to save the running loss</p></li>
+<li><p>Set up a nested loop that goes through the batches from the DataLoader you built</p>
+<ul class="simple">
+<li><p>I would recommend using enumerate to include the counts in the loop</p></li>
+<li><p>The dataloader will return a tuple that is the inputs and the labels</p></li>
+</ul>
+</li>
+<li><p>Conduct the forward propagation of the model</p>
+<ul class="simple">
+<li><p>Give the model the inputs and compute the outputs</p></li>
+<li><p>Compute the loss given the criteria.</p></li>
+</ul>
+</li>
+<li><p>Use the zero gradient method to remove the gradients from the optimizer</p></li>
+<li><p>Use the backward method to compute the gradients</p></li>
+<li><p>Use the step method in the optimizer to take an optimization step</p></li>
+<li><p>Compute the running loss by calling the item method and adding it to the running loss for each minibatch</p></li>
+<li><p>For each epoch print the epoch and the loss</p></li>
+</ol>
+<p>Note: If you find this challenging I would recommend that you look at examples of other pytorch training loops online. This is a very standard workflow.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># start training</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="c1"># sets the number of epochs to train 20 should be sufficent.</span>
+<span class="c1"># This should take about 5-10 minutes to train.</span>
+
+<span class="c1"># Your code should go here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="validate-the-model-3-points">
+<h2>Validate the Model (3 points)<a class="headerlink" href="#validate-the-model-3-points" title="Permalink to this headline">#</a></h2>
+<p>Use the test dataset from the train-test split to make sure your model is not overfitting</p>
+<ol class="simple">
+<li><p>You can build a dataloader as you did before, this time with the test data.</p></li>
+<li><p>Build a validation loop, which you should use <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">torch.no_grad()</span></code> to make sure you do not modify the gradients, or weights. This will fix your model.</p></li>
+<li><p>Instantiate the loss to be 0.</p></li>
+<li><p>Build a similar loop to grab the validation dataset.</p></li>
+<li><p>Compute the predictions with the model.</p></li>
+<li><p>Compute the loss using your loss criteria.</p></li>
+<li><p>Print the final loss determined.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p style="color:blue"> Question: Is your model overfitting or not? How do you know? (3 points) </p><p>Type your response here</p>
+</section>
+<section id="crack-your-code-3-points">
+<h2>Crack Your Code (3 points)<a class="headerlink" href="#crack-your-code-3-points" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>You can build a dataloader as you did before, this time with the validation features to view your code.</p></li>
+<li><p>Build a loop, you should use <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">torch.no_grad()</span></code> to make sure you do not modify the gradients or weights. This will fix your model.</p></li>
+<li><p>Compute the predictions of your model.</p>
+<ul class="simple">
+<li><p>Make sure you do all the same preprocess, the data has the same datatype, and is on the same device</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reveal-your-code-3-points">
+<h2>Reveal Your Code (3 points)<a class="headerlink" href="#reveal-your-code-3-points" title="Permalink to this headline">#</a></h2>
+<p>Your code is an image. there are (65536, 3) predictions this corresponds to a (256,256,3) RGB image.</p>
+<ol class="simple">
+<li><p>Use the detach() method to remove the gradients from the tensor</p></li>
+<li><p>Transfer the tensor back to the ‘cpu’ if you had it on a GPU</p></li>
+<li><p>Reshape the image into a 256,256,3 array.</p></li>
+<li><p>Plot your successful result.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your Code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jagar2/Fall_2022_MEM_T680Data_Analysis_and_Machine_Learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Final_exam"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Final_exam.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Final Exam</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Final%20Project%20Resources/TOC.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Final Project Resources</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
