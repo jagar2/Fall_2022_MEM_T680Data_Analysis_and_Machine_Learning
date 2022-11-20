@@ -89,7 +89,7 @@ parts:
           - file: Topic_9/1_Clustering_Algorithms
           - file: Topic_9/2_Decomposition_Algorithims
           - file: Topic_9/3_Manifold_Learning
-  - caption: "Topic 10\uFE0F\u20E3"
+  - caption: "Topic 🔟"
     chapters:
       - file: Topic_10/Objectives
         title: "Deep Learning with Pytorch"
@@ -116,6 +116,12 @@ parts:
     chapters:
       - file: Midterm/midterm
         title: Take Home Midterm
+  - caption: "Final Exam Materials"
+    chapters:
+      - file: Final_exam/Final_exam
+        title: Topics for Final Exam
+      - file: Final_exam/Final_Exam_Assignment
+        title: Final Exam Assignment
   - caption: "Final Project Resources"
     chapters:
       - file: Final Project Resources/TOC.md
